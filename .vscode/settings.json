@@ -1,3 +1,11 @@
 {
-    "cSpell.words": ["mockdate", "Parens", "plopfile"]
+    "cSpell.words": [
+        "cnpj",
+        "creditcard",
+        "debitcard",
+        "mockdate",
+        "Parens",
+        "plopfile",
+        "transferbank"
+    ]
 }
