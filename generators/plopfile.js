@@ -1,9 +1,7 @@
 module.exports = function (plop) {
   plop.setGenerator("entities", {
     description: "Create a new entity",
-    prompts: [
-      { type: "input", name: "name", message: "What is the name of the entity?" },
-    ],
+    prompts: [{ type: "input", name: "name", message: "What is the name of the entity?" }],
     actions: [...entitiesCreations],
   });
   plop.setGenerator("useCases", {
@@ -47,9 +45,13 @@ const useCasesCreations = [
   },
   {
     type: "add",
+    path: "../src/slices/{{camelCase name}}/repositories/contracts/Update{{pascalCase name}}Repository.ts",
+    templateFile: "./templates/repositories/contracts/UpdateDomainRepository.ts.hbs",
+  },
+  {
+    type: "add",
     path: "../src/slices/{{camelCase name}}/repositories/contracts/Load{{pascalCase name}}ByPageRepository.ts",
-    templateFile:
-      "./templates/repositories/contracts/loadDomainByPageRepository.ts.hbs",
+    templateFile: "./templates/repositories/contracts/loadDomainByPageRepository.ts.hbs",
   },
   {
     type: "add",
@@ -120,6 +122,21 @@ const useCasesCreations = [
     type: "add",
     path: "../src/slices/{{camelCase name}}/useCases/delete{{pascalCase name}}/index.ts",
     templateFile: "./templates/useCases/deleteDomain/index.ts.hbs",
+  },
+  {
+    type: "add",
+    path: "../src/slices/{{camelCase name}}/useCases/update{{pascalCase name}}/Update{{pascalCase name}}.ts",
+    templateFile: "./templates/useCases/updateDomain/UpdateDomain.ts.hbs",
+  },
+  {
+    type: "add",
+    path: "../src/slices/{{camelCase name}}/useCases/update{{pascalCase name}}/Update{{pascalCase name}}.spec.ts",
+    templateFile: "./templates/useCases/updateDomain/UpdateDomain.spec.ts.hbs",
+  },
+  {
+    type: "add",
+    path: "../src/slices/{{camelCase name}}/useCases/update{{pascalCase name}}/index.ts",
+    templateFile: "./templates/useCases/updateDomain/index.ts.hbs",
   },
 ];
 const entitiesCreations = [
