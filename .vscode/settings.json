@@ -4,9 +4,15 @@
         "comission",
         "creditcard",
         "debitcard",
+        "friday",
         "mockdate",
+        "monday",
         "Parens",
         "plopfile",
-        "transferbank"
+        "saturday",
+        "thursday",
+        "transferbank",
+        "tuesday",
+        "wednsday"
     ]
 }
