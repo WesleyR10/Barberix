@@ -6,6 +6,13 @@ module.exports = function (plop) {
     ],
     actions: [...entitiesCreations]
   });
+  plop.setGenerator("useCases", {
+    description: "Create a new useCase",
+    prompts: [
+      { type: "input", name: "name", message: "What is the name of the useCase?" },
+    ],
+    actions: [...useCasesCreations],
+  });
 };
 
 const entitiesCreations = [
@@ -23,5 +30,18 @@ const entitiesCreations = [
     type: "add",
     path: "../src/slices/{{camelCase name}}/entities/index.ts",
     templateFile: "./templates/entities/index.ts.hbs",
+  },
+];
+
+const useCasesCreations = [
+  {
+    type: "add",
+    path: "../src/slices/{{camelCase name}}/repositories/contracts/index.ts",
+    templateFile: "./templates/repositories/contracts/index.ts.hbs",
+  },
+  {
+    type: "add",
+    path: "../src/slices/{{camelCase name}}/repositories/contracts/add{{pascalCase name}}Repository.ts",
+    templateFile: "./templates/repositories/contracts/addDomainRepository.ts.hbs",
   },
 ];
