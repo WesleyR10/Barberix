@@ -1,1 +1,2 @@
 generators/templates/entities/DomainEntity.ts.hbs
+generators/templates/repositories/contracts/index.ts.hbs
