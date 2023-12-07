@@ -11,6 +11,8 @@
     "author": "WesleyR",
     "license": "ISC",
     "dependencies": {
+        "date-fns": "^2.30.0",
+        "date-fns-tz": "^2.0.0",
         "yarn": "^1.22.21"
     },
     "devDependencies": {
