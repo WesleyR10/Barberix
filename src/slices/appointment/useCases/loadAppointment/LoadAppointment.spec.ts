@@ -36,7 +36,9 @@ describe("LoadAppointment", () => {
         expect(appointment).toBeNull();
     });
     it("should rethrow if loadAppointment of LoadAppointmentRepository throws", async () => {
-        loadAppointmentRepository.loadAppointment.mockRejectedValueOnce(new Error("any_error"));
+        loadAppointmentRepository.loadAppointment.mockRejectedValueOnce(
+            new Error("any_error")
+        );
         await expect(testInstance(fakeQuery)).rejects.toThrowError("any_error");
     });
 });

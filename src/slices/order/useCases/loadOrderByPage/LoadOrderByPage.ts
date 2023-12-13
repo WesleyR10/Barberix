@@ -7,7 +7,6 @@ export type LoadOrderByPageSignature = (
     loadOrderByPage: LoadOrderByPageRepository
 ) => LoadOrderByPage;
 export const loadOrderByPage: LoadOrderByPageSignature =
-    (loadOrderByPageRepository: LoadOrderByPageRepository) =>
-    async (query: Query) => {
+    (loadOrderByPageRepository: LoadOrderByPageRepository) => async (query: Query) => {
         return loadOrderByPageRepository.loadOrderByPage(query);
     };

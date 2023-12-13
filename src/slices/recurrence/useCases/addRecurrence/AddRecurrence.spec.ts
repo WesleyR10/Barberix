@@ -37,7 +37,9 @@ describe("addRecurrence", () => {
         expect(recurrence).toBeNull();
     });
     it("should rethrow if addRecurrence of AddRecurrenceRepository throws", async () => {
-        addRecurrenceRepository.addRecurrence.mockRejectedValueOnce(new Error("any_error"));
+        addRecurrenceRepository.addRecurrence.mockRejectedValueOnce(
+            new Error("any_error")
+        );
         await expect(testInstance(fakeRecurrenceEntity)).rejects.toThrowError("any_error");
     });
 });

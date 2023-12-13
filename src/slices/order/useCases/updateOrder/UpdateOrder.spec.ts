@@ -39,9 +39,7 @@ describe("UpdateOrder", () => {
         expect(order).toBeNull();
     });
     it("should rethrow if updateOrder of UpdateOrderRepository throws", async () => {
-        updateOrderRepository.updateOrder.mockRejectedValueOnce(
-            new Error("any_error")
-        );
+        updateOrderRepository.updateOrder.mockRejectedValueOnce(new Error("any_error"));
         await expect(testInstance(fakeQuery, fakeOrderEntity)).rejects.toThrowError(
             "any_error"
         );

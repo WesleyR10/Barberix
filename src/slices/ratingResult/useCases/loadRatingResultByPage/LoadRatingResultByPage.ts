@@ -2,7 +2,9 @@ import { LoadRatingResultByPageRepository } from "@/slices/ratingResult/reposito
 import { RatingResultPaginated } from "@/slices/ratingResult/entities";
 import { Query } from "@/application/types";
 
-export type LoadRatingResultByPage = (query: Query) => Promise<RatingResultPaginated | null>;
+export type LoadRatingResultByPage = (
+    query: Query
+) => Promise<RatingResultPaginated | null>;
 export type LoadRatingResultByPageSignature = (
     loadRatingResultByPage: LoadRatingResultByPageRepository
 ) => LoadRatingResultByPage;

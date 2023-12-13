@@ -13,7 +13,9 @@ describe("UpdateRecurrence", () => {
         MockDate.set(new Date());
         updateRecurrenceRepository = mock();
         fakeQuery = { fields: { name: "123" }, options: {} };
-        updateRecurrenceRepository.updateRecurrence.mockResolvedValue(fakeRecurrenceEntity);
+        updateRecurrenceRepository.updateRecurrence.mockResolvedValue(
+            fakeRecurrenceEntity
+        );
     });
     beforeEach(() => {
         testInstance = updateRecurrence(updateRecurrenceRepository);

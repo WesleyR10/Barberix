@@ -7,7 +7,6 @@ export type LoadRideByPageSignature = (
     loadRideByPage: LoadRideByPageRepository
 ) => LoadRideByPage;
 export const loadRideByPage: LoadRideByPageSignature =
-    (loadRideByPageRepository: LoadRideByPageRepository) =>
-    async (query: Query) => {
+    (loadRideByPageRepository: LoadRideByPageRepository) => async (query: Query) => {
         return loadRideByPageRepository.loadRideByPage(query);
     };

@@ -13,7 +13,9 @@ describe("UpdateRatingResult", () => {
         MockDate.set(new Date());
         updateRatingResultRepository = mock();
         fakeQuery = { fields: { name: "123" }, options: {} };
-        updateRatingResultRepository.updateRatingResult.mockResolvedValue(fakeRatingResultEntity);
+        updateRatingResultRepository.updateRatingResult.mockResolvedValue(
+            fakeRatingResultEntity
+        );
     });
     beforeEach(() => {
         testInstance = updateRatingResult(updateRatingResultRepository);

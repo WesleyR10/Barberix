@@ -13,7 +13,9 @@ describe("UpdateAppointment", () => {
         MockDate.set(new Date());
         updateAppointmentRepository = mock();
         fakeQuery = { fields: { name: "123" }, options: {} };
-        updateAppointmentRepository.updateAppointment.mockResolvedValue(fakeAppointmentEntity);
+        updateAppointmentRepository.updateAppointment.mockResolvedValue(
+            fakeAppointmentEntity
+        );
     });
     beforeEach(() => {
         testInstance = updateAppointment(updateAppointmentRepository);

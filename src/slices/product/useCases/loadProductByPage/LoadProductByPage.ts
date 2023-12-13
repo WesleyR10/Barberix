@@ -7,7 +7,6 @@ export type LoadProductByPageSignature = (
     loadProductByPage: LoadProductByPageRepository
 ) => LoadProductByPage;
 export const loadProductByPage: LoadProductByPageSignature =
-    (loadProductByPageRepository: LoadProductByPageRepository) =>
-    async (query: Query) => {
+    (loadProductByPageRepository: LoadProductByPageRepository) => async (query: Query) => {
         return loadProductByPageRepository.loadProductByPage(query);
     };

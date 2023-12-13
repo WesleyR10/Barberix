@@ -36,7 +36,9 @@ describe("LoadRecurrence", () => {
         expect(recurrence).toBeNull();
     });
     it("should rethrow if loadRecurrence of LoadRecurrenceRepository throws", async () => {
-        loadRecurrenceRepository.loadRecurrence.mockRejectedValueOnce(new Error("any_error"));
+        loadRecurrenceRepository.loadRecurrence.mockRejectedValueOnce(
+            new Error("any_error")
+        );
         await expect(testInstance(fakeQuery)).rejects.toThrowError("any_error");
     });
 });

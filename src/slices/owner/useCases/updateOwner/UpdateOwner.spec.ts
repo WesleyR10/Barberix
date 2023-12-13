@@ -39,9 +39,7 @@ describe("UpdateOwner", () => {
         expect(owner).toBeNull();
     });
     it("should rethrow if updateOwner of UpdateOwnerRepository throws", async () => {
-        updateOwnerRepository.updateOwner.mockRejectedValueOnce(
-            new Error("any_error")
-        );
+        updateOwnerRepository.updateOwner.mockRejectedValueOnce(new Error("any_error"));
         await expect(testInstance(fakeQuery, fakeOwnerEntity)).rejects.toThrowError(
             "any_error"
         );

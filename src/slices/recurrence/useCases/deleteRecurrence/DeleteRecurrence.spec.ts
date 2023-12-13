@@ -15,7 +15,9 @@ describe("deleteRecurrence", () => {
         MockDate.set(new Date());
         deleteRecurrenceRepository = mock();
         fakeQuery = { fields: { name: "123" }, options: {} };
-        deleteRecurrenceRepository.deleteRecurrence.mockResolvedValue(fakeRecurrenceEntity);
+        deleteRecurrenceRepository.deleteRecurrence.mockResolvedValue(
+            fakeRecurrenceEntity
+        );
     });
     beforeEach(() => {
         testInstance = deleteRecurrence(deleteRecurrenceRepository);
@@ -25,7 +27,9 @@ describe("deleteRecurrence", () => {
     });
     it("should call deleteRecurrence of DeleteRecurrenceRepository with correct values", async () => {
         await testInstance(fakeQuery);
-        expect(deleteRecurrenceRepository.deleteRecurrence).toHaveBeenCalledWith(fakeQuery);
+        expect(deleteRecurrenceRepository.deleteRecurrence).toHaveBeenCalledWith(
+            fakeQuery
+        );
         expect(deleteRecurrenceRepository.deleteRecurrence).toHaveBeenCalledTimes(1);
     });
     it("should return a new recurrence deleted when deleteRecurrenceRepository delete it", async () => {

@@ -13,9 +13,7 @@ describe("LoadOrderByPage", () => {
         MockDate.set(new Date());
         loadOrderByPageRepository = mock();
         fakeQuery = { fields: { name: "123" }, options: {} };
-        loadOrderByPageRepository.loadOrderByPage.mockResolvedValue(
-            fakeOrderPaginated
-        );
+        loadOrderByPageRepository.loadOrderByPage.mockResolvedValue(fakeOrderPaginated);
     });
     beforeEach(() => {
         testInstance = loadOrderByPage(loadOrderByPageRepository);
@@ -25,9 +23,7 @@ describe("LoadOrderByPage", () => {
     });
     it("should call loadOrderByPage of LoadOrderByPageRepository with correct values", async () => {
         await testInstance(fakeQuery);
-        expect(loadOrderByPageRepository.loadOrderByPage).toHaveBeenCalledWith(
-            fakeQuery
-        );
+        expect(loadOrderByPageRepository.loadOrderByPage).toHaveBeenCalledWith(fakeQuery);
         expect(loadOrderByPageRepository.loadOrderByPage).toHaveBeenCalledTimes(1);
     });
     it("should return a order loaded when loadOrderByPageRepository insert it", async () => {

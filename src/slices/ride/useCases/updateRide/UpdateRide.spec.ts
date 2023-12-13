@@ -39,9 +39,7 @@ describe("UpdateRide", () => {
         expect(ride).toBeNull();
     });
     it("should rethrow if updateRide of UpdateRideRepository throws", async () => {
-        updateRideRepository.updateRide.mockRejectedValueOnce(
-            new Error("any_error")
-        );
+        updateRideRepository.updateRide.mockRejectedValueOnce(new Error("any_error"));
         await expect(testInstance(fakeQuery, fakeRideEntity)).rejects.toThrowError(
             "any_error"
         );

@@ -13,9 +13,7 @@ describe("LoadRatingByPage", () => {
         MockDate.set(new Date());
         loadRatingByPageRepository = mock();
         fakeQuery = { fields: { name: "123" }, options: {} };
-        loadRatingByPageRepository.loadRatingByPage.mockResolvedValue(
-            fakeRatingPaginated
-        );
+        loadRatingByPageRepository.loadRatingByPage.mockResolvedValue(fakeRatingPaginated);
     });
     beforeEach(() => {
         testInstance = loadRatingByPage(loadRatingByPageRepository);

@@ -13,9 +13,7 @@ describe("LoadRideByPage", () => {
         MockDate.set(new Date());
         loadRideByPageRepository = mock();
         fakeQuery = { fields: { name: "123" }, options: {} };
-        loadRideByPageRepository.loadRideByPage.mockResolvedValue(
-            fakeRidePaginated
-        );
+        loadRideByPageRepository.loadRideByPage.mockResolvedValue(fakeRidePaginated);
     });
     beforeEach(() => {
         testInstance = loadRideByPage(loadRideByPageRepository);
@@ -25,9 +23,7 @@ describe("LoadRideByPage", () => {
     });
     it("should call loadRideByPage of LoadRideByPageRepository with correct values", async () => {
         await testInstance(fakeQuery);
-        expect(loadRideByPageRepository.loadRideByPage).toHaveBeenCalledWith(
-            fakeQuery
-        );
+        expect(loadRideByPageRepository.loadRideByPage).toHaveBeenCalledWith(fakeQuery);
         expect(loadRideByPageRepository.loadRideByPage).toHaveBeenCalledTimes(1);
     });
     it("should return a ride loaded when loadRideByPageRepository insert it", async () => {

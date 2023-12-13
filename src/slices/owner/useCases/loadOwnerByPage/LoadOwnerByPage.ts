@@ -7,7 +7,6 @@ export type LoadOwnerByPageSignature = (
     loadOwnerByPage: LoadOwnerByPageRepository
 ) => LoadOwnerByPage;
 export const loadOwnerByPage: LoadOwnerByPageSignature =
-    (loadOwnerByPageRepository: LoadOwnerByPageRepository) =>
-    async (query: Query) => {
+    (loadOwnerByPageRepository: LoadOwnerByPageRepository) => async (query: Query) => {
         return loadOwnerByPageRepository.loadOwnerByPage(query);
     };

@@ -15,7 +15,9 @@ describe("deleteAppointment", () => {
         MockDate.set(new Date());
         deleteAppointmentRepository = mock();
         fakeQuery = { fields: { name: "123" }, options: {} };
-        deleteAppointmentRepository.deleteAppointment.mockResolvedValue(fakeAppointmentEntity);
+        deleteAppointmentRepository.deleteAppointment.mockResolvedValue(
+            fakeAppointmentEntity
+        );
     });
     beforeEach(() => {
         testInstance = deleteAppointment(deleteAppointmentRepository);
@@ -25,7 +27,9 @@ describe("deleteAppointment", () => {
     });
     it("should call deleteAppointment of DeleteAppointmentRepository with correct values", async () => {
         await testInstance(fakeQuery);
-        expect(deleteAppointmentRepository.deleteAppointment).toHaveBeenCalledWith(fakeQuery);
+        expect(deleteAppointmentRepository.deleteAppointment).toHaveBeenCalledWith(
+            fakeQuery
+        );
         expect(deleteAppointmentRepository.deleteAppointment).toHaveBeenCalledTimes(1);
     });
     it("should return a new appointment deleted when deleteAppointmentRepository delete it", async () => {

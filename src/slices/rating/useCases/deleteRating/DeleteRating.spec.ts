@@ -38,9 +38,7 @@ describe("deleteRating", () => {
         expect(rating).toBeNull();
     });
     it("should rethrow if deleteRating of DeleteRatingRepository throws", async () => {
-        deleteRatingRepository.deleteRating.mockRejectedValueOnce(
-            new Error("any_error")
-        );
+        deleteRatingRepository.deleteRating.mockRejectedValueOnce(new Error("any_error"));
         await expect(testInstance(fakeQuery)).rejects.toThrowError("any_error");
     });
 });

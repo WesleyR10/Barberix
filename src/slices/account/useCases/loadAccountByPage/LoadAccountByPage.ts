@@ -7,7 +7,6 @@ export type LoadAccountByPageSignature = (
     loadAccountByPage: LoadAccountByPageRepository
 ) => LoadAccountByPage;
 export const loadAccountByPage: LoadAccountByPageSignature =
-    (loadAccountByPageRepository: LoadAccountByPageRepository) =>
-    async (query: Query) => {
+    (loadAccountByPageRepository: LoadAccountByPageRepository) => async (query: Query) => {
         return loadAccountByPageRepository.loadAccountByPage(query);
     };

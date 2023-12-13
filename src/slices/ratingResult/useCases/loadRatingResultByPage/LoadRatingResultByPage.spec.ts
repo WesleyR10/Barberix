@@ -25,10 +25,12 @@ describe("LoadRatingResultByPage", () => {
     });
     it("should call loadRatingResultByPage of LoadRatingResultByPageRepository with correct values", async () => {
         await testInstance(fakeQuery);
-        expect(loadRatingResultByPageRepository.loadRatingResultByPage).toHaveBeenCalledWith(
-            fakeQuery
-        );
-        expect(loadRatingResultByPageRepository.loadRatingResultByPage).toHaveBeenCalledTimes(1);
+        expect(
+            loadRatingResultByPageRepository.loadRatingResultByPage
+        ).toHaveBeenCalledWith(fakeQuery);
+        expect(
+            loadRatingResultByPageRepository.loadRatingResultByPage
+        ).toHaveBeenCalledTimes(1);
     });
     it("should return a ratingResult loaded when loadRatingResultByPageRepository insert it", async () => {
         const ratingResult = await testInstance(fakeQuery);

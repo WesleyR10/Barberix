@@ -39,9 +39,7 @@ describe("UpdateClient", () => {
         expect(client).toBeNull();
     });
     it("should rethrow if updateClient of UpdateClientRepository throws", async () => {
-        updateClientRepository.updateClient.mockRejectedValueOnce(
-            new Error("any_error")
-        );
+        updateClientRepository.updateClient.mockRejectedValueOnce(new Error("any_error"));
         await expect(testInstance(fakeQuery, fakeClientEntity)).rejects.toThrowError(
             "any_error"
         );

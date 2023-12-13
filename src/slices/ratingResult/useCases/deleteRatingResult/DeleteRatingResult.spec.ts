@@ -15,7 +15,9 @@ describe("deleteRatingResult", () => {
         MockDate.set(new Date());
         deleteRatingResultRepository = mock();
         fakeQuery = { fields: { name: "123" }, options: {} };
-        deleteRatingResultRepository.deleteRatingResult.mockResolvedValue(fakeRatingResultEntity);
+        deleteRatingResultRepository.deleteRatingResult.mockResolvedValue(
+            fakeRatingResultEntity
+        );
     });
     beforeEach(() => {
         testInstance = deleteRatingResult(deleteRatingResultRepository);
@@ -25,7 +27,9 @@ describe("deleteRatingResult", () => {
     });
     it("should call deleteRatingResult of DeleteRatingResultRepository with correct values", async () => {
         await testInstance(fakeQuery);
-        expect(deleteRatingResultRepository.deleteRatingResult).toHaveBeenCalledWith(fakeQuery);
+        expect(deleteRatingResultRepository.deleteRatingResult).toHaveBeenCalledWith(
+            fakeQuery
+        );
         expect(deleteRatingResultRepository.deleteRatingResult).toHaveBeenCalledTimes(1);
     });
     it("should return a new ratingResult deleted when deleteRatingResultRepository delete it", async () => {

@@ -13,9 +13,7 @@ describe("LoadClientByPage", () => {
         MockDate.set(new Date());
         loadClientByPageRepository = mock();
         fakeQuery = { fields: { name: "123" }, options: {} };
-        loadClientByPageRepository.loadClientByPage.mockResolvedValue(
-            fakeClientPaginated
-        );
+        loadClientByPageRepository.loadClientByPage.mockResolvedValue(fakeClientPaginated);
     });
     beforeEach(() => {
         testInstance = loadClientByPage(loadClientByPageRepository);

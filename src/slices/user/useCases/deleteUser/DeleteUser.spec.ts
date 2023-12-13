@@ -38,9 +38,7 @@ describe("deleteUser", () => {
         expect(user).toBeNull();
     });
     it("should rethrow if deleteUser of DeleteUserRepository throws", async () => {
-        deleteUserRepository.deleteUser.mockRejectedValueOnce(
-            new Error("any_error")
-        );
+        deleteUserRepository.deleteUser.mockRejectedValueOnce(new Error("any_error"));
         await expect(testInstance(fakeQuery)).rejects.toThrowError("any_error");
     });
 });

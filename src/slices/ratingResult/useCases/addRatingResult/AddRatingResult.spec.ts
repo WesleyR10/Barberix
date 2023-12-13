@@ -12,7 +12,9 @@ describe("addRatingResult", () => {
     beforeAll(async () => {
         MockDate.set(new Date());
         addRatingResultRepository = mock();
-        addRatingResultRepository.addRatingResult.mockResolvedValue(fakeRatingResultEntity);
+        addRatingResultRepository.addRatingResult.mockResolvedValue(
+            fakeRatingResultEntity
+        );
     });
     beforeEach(() => {
         testInstance = addRatingResult(addRatingResultRepository);
@@ -37,7 +39,11 @@ describe("addRatingResult", () => {
         expect(ratingResult).toBeNull();
     });
     it("should rethrow if addRatingResult of AddRatingResultRepository throws", async () => {
-        addRatingResultRepository.addRatingResult.mockRejectedValueOnce(new Error("any_error"));
-        await expect(testInstance(fakeRatingResultEntity)).rejects.toThrowError("any_error");
+        addRatingResultRepository.addRatingResult.mockRejectedValueOnce(
+            new Error("any_error")
+        );
+        await expect(testInstance(fakeRatingResultEntity)).rejects.toThrowError(
+            "any_error"
+        );
     });
 });

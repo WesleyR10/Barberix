@@ -37,7 +37,11 @@ describe("addAppointment", () => {
         expect(appointment).toBeNull();
     });
     it("should rethrow if addAppointment of AddAppointmentRepository throws", async () => {
-        addAppointmentRepository.addAppointment.mockRejectedValueOnce(new Error("any_error"));
-        await expect(testInstance(fakeAppointmentEntity)).rejects.toThrowError("any_error");
+        addAppointmentRepository.addAppointment.mockRejectedValueOnce(
+            new Error("any_error")
+        );
+        await expect(testInstance(fakeAppointmentEntity)).rejects.toThrowError(
+            "any_error"
+        );
     });
 });

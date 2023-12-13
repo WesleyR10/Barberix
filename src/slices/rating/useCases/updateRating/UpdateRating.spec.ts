@@ -39,9 +39,7 @@ describe("UpdateRating", () => {
         expect(rating).toBeNull();
     });
     it("should rethrow if updateRating of UpdateRatingRepository throws", async () => {
-        updateRatingRepository.updateRating.mockRejectedValueOnce(
-            new Error("any_error")
-        );
+        updateRatingRepository.updateRating.mockRejectedValueOnce(new Error("any_error"));
         await expect(testInstance(fakeQuery, fakeRatingEntity)).rejects.toThrowError(
             "any_error"
         );

@@ -38,9 +38,7 @@ describe("deleteOrder", () => {
         expect(order).toBeNull();
     });
     it("should rethrow if deleteOrder of DeleteOrderRepository throws", async () => {
-        deleteOrderRepository.deleteOrder.mockRejectedValueOnce(
-            new Error("any_error")
-        );
+        deleteOrderRepository.deleteOrder.mockRejectedValueOnce(new Error("any_error"));
         await expect(testInstance(fakeQuery)).rejects.toThrowError("any_error");
     });
 });

@@ -39,9 +39,7 @@ describe("UpdateUser", () => {
         expect(user).toBeNull();
     });
     it("should rethrow if updateUser of UpdateUserRepository throws", async () => {
-        updateUserRepository.updateUser.mockRejectedValueOnce(
-            new Error("any_error")
-        );
+        updateUserRepository.updateUser.mockRejectedValueOnce(new Error("any_error"));
         await expect(testInstance(fakeQuery, fakeUserEntity)).rejects.toThrowError(
             "any_error"
         );

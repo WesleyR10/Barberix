@@ -28,7 +28,9 @@ describe("LoadAppointmentByPage", () => {
         expect(loadAppointmentByPageRepository.loadAppointmentByPage).toHaveBeenCalledWith(
             fakeQuery
         );
-        expect(loadAppointmentByPageRepository.loadAppointmentByPage).toHaveBeenCalledTimes(1);
+        expect(
+            loadAppointmentByPageRepository.loadAppointmentByPage
+        ).toHaveBeenCalledTimes(1);
     });
     it("should return a appointment loaded when loadAppointmentByPageRepository insert it", async () => {
         const appointment = await testInstance(fakeQuery);

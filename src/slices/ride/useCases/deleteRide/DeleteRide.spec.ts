@@ -38,9 +38,7 @@ describe("deleteRide", () => {
         expect(ride).toBeNull();
     });
     it("should rethrow if deleteRide of DeleteRideRepository throws", async () => {
-        deleteRideRepository.deleteRide.mockRejectedValueOnce(
-            new Error("any_error")
-        );
+        deleteRideRepository.deleteRide.mockRejectedValueOnce(new Error("any_error"));
         await expect(testInstance(fakeQuery)).rejects.toThrowError("any_error");
     });
 });

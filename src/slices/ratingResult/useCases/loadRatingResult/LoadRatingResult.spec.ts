@@ -13,7 +13,9 @@ describe("LoadRatingResult", () => {
         MockDate.set(new Date());
         loadRatingResultRepository = mock();
         fakeQuery = { fields: { name: "123" }, options: {} };
-        loadRatingResultRepository.loadRatingResult.mockResolvedValue(fakeRatingResultEntity);
+        loadRatingResultRepository.loadRatingResult.mockResolvedValue(
+            fakeRatingResultEntity
+        );
     });
     beforeEach(() => {
         testInstance = loadRatingResult(loadRatingResultRepository);
@@ -23,7 +25,9 @@ describe("LoadRatingResult", () => {
     });
     it("should call loadRatingResult of LoadRatingResultRepository with correct values", async () => {
         await testInstance(fakeQuery);
-        expect(loadRatingResultRepository.loadRatingResult).toHaveBeenCalledWith(fakeQuery);
+        expect(loadRatingResultRepository.loadRatingResult).toHaveBeenCalledWith(
+            fakeQuery
+        );
         expect(loadRatingResultRepository.loadRatingResult).toHaveBeenCalledTimes(1);
     });
     it("should return a ratingResult loaded when loadRatingResultRepository insert it", async () => {
@@ -36,7 +40,9 @@ describe("LoadRatingResult", () => {
         expect(ratingResult).toBeNull();
     });
     it("should rethrow if loadRatingResult of LoadRatingResultRepository throws", async () => {
-        loadRatingResultRepository.loadRatingResult.mockRejectedValueOnce(new Error("any_error"));
+        loadRatingResultRepository.loadRatingResult.mockRejectedValueOnce(
+            new Error("any_error")
+        );
         await expect(testInstance(fakeQuery)).rejects.toThrowError("any_error");
     });
 });

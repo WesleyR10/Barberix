@@ -28,7 +28,9 @@ describe("LoadRecurrenceByPage", () => {
         expect(loadRecurrenceByPageRepository.loadRecurrenceByPage).toHaveBeenCalledWith(
             fakeQuery
         );
-        expect(loadRecurrenceByPageRepository.loadRecurrenceByPage).toHaveBeenCalledTimes(1);
+        expect(loadRecurrenceByPageRepository.loadRecurrenceByPage).toHaveBeenCalledTimes(
+            1
+        );
     });
     it("should return a recurrence loaded when loadRecurrenceByPageRepository insert it", async () => {
         const recurrence = await testInstance(fakeQuery);

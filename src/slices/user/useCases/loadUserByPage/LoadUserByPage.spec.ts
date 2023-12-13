@@ -13,9 +13,7 @@ describe("LoadUserByPage", () => {
         MockDate.set(new Date());
         loadUserByPageRepository = mock();
         fakeQuery = { fields: { name: "123" }, options: {} };
-        loadUserByPageRepository.loadUserByPage.mockResolvedValue(
-            fakeUserPaginated
-        );
+        loadUserByPageRepository.loadUserByPage.mockResolvedValue(fakeUserPaginated);
     });
     beforeEach(() => {
         testInstance = loadUserByPage(loadUserByPageRepository);
@@ -25,9 +23,7 @@ describe("LoadUserByPage", () => {
     });
     it("should call loadUserByPage of LoadUserByPageRepository with correct values", async () => {
         await testInstance(fakeQuery);
-        expect(loadUserByPageRepository.loadUserByPage).toHaveBeenCalledWith(
-            fakeQuery
-        );
+        expect(loadUserByPageRepository.loadUserByPage).toHaveBeenCalledWith(fakeQuery);
         expect(loadUserByPageRepository.loadUserByPage).toHaveBeenCalledTimes(1);
     });
     it("should return a user loaded when loadUserByPageRepository insert it", async () => {

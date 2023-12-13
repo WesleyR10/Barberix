@@ -13,9 +13,7 @@ describe("LoadOwnerByPage", () => {
         MockDate.set(new Date());
         loadOwnerByPageRepository = mock();
         fakeQuery = { fields: { name: "123" }, options: {} };
-        loadOwnerByPageRepository.loadOwnerByPage.mockResolvedValue(
-            fakeOwnerPaginated
-        );
+        loadOwnerByPageRepository.loadOwnerByPage.mockResolvedValue(fakeOwnerPaginated);
     });
     beforeEach(() => {
         testInstance = loadOwnerByPage(loadOwnerByPageRepository);
@@ -25,9 +23,7 @@ describe("LoadOwnerByPage", () => {
     });
     it("should call loadOwnerByPage of LoadOwnerByPageRepository with correct values", async () => {
         await testInstance(fakeQuery);
-        expect(loadOwnerByPageRepository.loadOwnerByPage).toHaveBeenCalledWith(
-            fakeQuery
-        );
+        expect(loadOwnerByPageRepository.loadOwnerByPage).toHaveBeenCalledWith(fakeQuery);
         expect(loadOwnerByPageRepository.loadOwnerByPage).toHaveBeenCalledTimes(1);
     });
     it("should return a owner loaded when loadOwnerByPageRepository insert it", async () => {

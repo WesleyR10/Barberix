@@ -38,9 +38,7 @@ describe("deleteOwner", () => {
         expect(owner).toBeNull();
     });
     it("should rethrow if deleteOwner of DeleteOwnerRepository throws", async () => {
-        deleteOwnerRepository.deleteOwner.mockRejectedValueOnce(
-            new Error("any_error")
-        );
+        deleteOwnerRepository.deleteOwner.mockRejectedValueOnce(new Error("any_error"));
         await expect(testInstance(fakeQuery)).rejects.toThrowError("any_error");
     });
 });

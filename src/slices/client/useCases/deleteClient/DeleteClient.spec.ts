@@ -38,9 +38,7 @@ describe("deleteClient", () => {
         expect(client).toBeNull();
     });
     it("should rethrow if deleteClient of DeleteClientRepository throws", async () => {
-        deleteClientRepository.deleteClient.mockRejectedValueOnce(
-            new Error("any_error")
-        );
+        deleteClientRepository.deleteClient.mockRejectedValueOnce(new Error("any_error"));
         await expect(testInstance(fakeQuery)).rejects.toThrowError("any_error");
     });
 });
