@@ -6,7 +6,8 @@
     "scripts": {
         "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
         "generate": "yarn plop --plopfile ./generators/plopfile.js",
-        "format": "prettier --write \"**/*.{ts,tsx,json,md}\""
+        "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+        "lint": "eslint \"{src, generators, apps, libs, test}/**/*.ts\" --fix"
     },
     "author": "WesleyR",
     "license": "ISC",
