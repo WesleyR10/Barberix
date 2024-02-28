@@ -8,6 +8,6 @@ export type LoadFidelityByPageSignature = (
 ) => LoadFidelityByPage;
 export const loadFidelityByPage: LoadFidelityByPageSignature =
     (loadFidelityByPageRepository: LoadFidelityByPageRepository) =>
-    async (query: Query) => {
-        return loadFidelityByPageRepository.loadFidelityByPage(query);
-    };
+        async (query: Query) => {
+            return loadFidelityByPageRepository.loadFidelityByPage(query);
+        };

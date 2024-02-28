@@ -11,6 +11,6 @@ export type UpdateAppointmentSignature = (
 ) => UpdateAppointment;
 export const updateAppointment: UpdateAppointmentSignature =
     (updateAppointmentRepository: UpdateAppointmentRepository) =>
-    async (query: Query, data: AppointmentData) => {
-        return updateAppointmentRepository.updateAppointment(query, data);
-    };
+        async (query: Query, data: AppointmentData) => {
+            return updateAppointmentRepository.updateAppointment(query, data);
+        };

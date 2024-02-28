@@ -8,6 +8,6 @@ export type LoadAppointmentByPageSignature = (
 ) => LoadAppointmentByPage;
 export const loadAppointmentByPage: LoadAppointmentByPageSignature =
     (loadAppointmentByPageRepository: LoadAppointmentByPageRepository) =>
-    async (query: Query) => {
-        return loadAppointmentByPageRepository.loadAppointmentByPage(query);
-    };
+        async (query: Query) => {
+            return loadAppointmentByPageRepository.loadAppointmentByPage(query);
+        };

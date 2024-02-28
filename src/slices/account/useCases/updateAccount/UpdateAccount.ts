@@ -11,6 +11,6 @@ export type UpdateAccountSignature = (
 ) => UpdateAccount;
 export const updateAccount: UpdateAccountSignature =
     (updateAccountRepository: UpdateAccountRepository) =>
-    async (query: Query, data: AccountData) => {
-        return updateAccountRepository.updateAccount(query, data);
-    };
+        async (query: Query, data: AccountData) => {
+            return updateAccountRepository.updateAccount(query, data);
+        };

@@ -12,6 +12,6 @@ export type LoadAverageRatingResultSignature = (
 
 export const loadAverageRatingResult: LoadAverageRatingResultSignature =
     (loadAverageRatingResultRepository: LoadAverageRatingResultRepository) =>
-    async (query: Query) => {
-        return loadAverageRatingResultRepository.loadAverageRatingResult(query);
-    };
+        async (query: Query) => {
+            return loadAverageRatingResultRepository.loadAverageRatingResult(query);
+        };

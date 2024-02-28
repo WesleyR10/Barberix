@@ -11,6 +11,6 @@ export type UpdateRequestSignature = (
 ) => UpdateRequest;
 export const updateRequest: UpdateRequestSignature =
     (updateRequestRepository: UpdateRequestRepository) =>
-    async (query: Query, data: RequestData) => {
-        return updateRequestRepository.updateRequest(query, data);
-    };
+        async (query: Query, data: RequestData) => {
+            return updateRequestRepository.updateRequest(query, data);
+        };

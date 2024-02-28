@@ -6,6 +6,6 @@ export type UpdateUser = (query: Query, data: UserData) => Promise<UserData | nu
 export type UpdateUserSignature = (updateUser: UpdateUserRepository) => UpdateUser;
 export const updateUser: UpdateUserSignature =
     (updateUserRepository: UpdateUserRepository) =>
-    async (query: Query, data: UserData) => {
-        return updateUserRepository.updateUser(query, data);
-    };
+        async (query: Query, data: UserData) => {
+            return updateUserRepository.updateUser(query, data);
+        };

@@ -11,6 +11,6 @@ export type UpdateCategorySignature = (
 ) => UpdateCategory;
 export const updateCategory: UpdateCategorySignature =
     (updateCategoryRepository: UpdateCategoryRepository) =>
-    async (query: Query, data: CategoryData) => {
-        return updateCategoryRepository.updateCategory(query, data);
-    };
+        async (query: Query, data: CategoryData) => {
+            return updateCategoryRepository.updateCategory(query, data);
+        };

@@ -6,6 +6,6 @@ export type UpdateOwner = (query: Query, data: OwnerData) => Promise<OwnerData |
 export type UpdateOwnerSignature = (updateOwner: UpdateOwnerRepository) => UpdateOwner;
 export const updateOwner: UpdateOwnerSignature =
     (updateOwnerRepository: UpdateOwnerRepository) =>
-    async (query: Query, data: OwnerData) => {
-        return updateOwnerRepository.updateOwner(query, data);
-    };
+        async (query: Query, data: OwnerData) => {
+            return updateOwnerRepository.updateOwner(query, data);
+        };

@@ -11,6 +11,6 @@ export type UpdateFidelitySignature = (
 ) => UpdateFidelity;
 export const updateFidelity: UpdateFidelitySignature =
     (updateFidelityRepository: UpdateFidelityRepository) =>
-    async (query: Query, data: FidelityData) => {
-        return updateFidelityRepository.updateFidelity(query, data);
-    };
+        async (query: Query, data: FidelityData) => {
+            return updateFidelityRepository.updateFidelity(query, data);
+        };

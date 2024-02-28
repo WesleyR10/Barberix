@@ -11,6 +11,6 @@ export type UpdateProductSignature = (
 ) => UpdateProduct;
 export const updateProduct: UpdateProductSignature =
     (updateProductRepository: UpdateProductRepository) =>
-    async (query: Query, data: ProductData) => {
-        return updateProductRepository.updateProduct(query, data);
-    };
+        async (query: Query, data: ProductData) => {
+            return updateProductRepository.updateProduct(query, data);
+        };
