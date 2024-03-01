@@ -15,11 +15,12 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "@stylistic/js"
     ],
     "rules": {
         "prettier/prettier": 0,
-        "indent": [
+        "@stylistic/js/indent": [
             "error",
             4
         ],
