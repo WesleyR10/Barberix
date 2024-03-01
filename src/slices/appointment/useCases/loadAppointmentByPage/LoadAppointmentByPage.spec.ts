@@ -1,8 +1,10 @@
-import { LoadAppointmentByPageRepository } from "@/slices/appointment/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeAppointmentPaginated } from "@/slices/appointment/entities/AppointmentEntity.spec";
+import { LoadAppointmentByPageRepository } from "@/slices/appointment/repositories";
+
 import { LoadAppointmentByPage, loadAppointmentByPage } from "./LoadAppointmentByPage";
 
 describe("LoadAppointmentByPage", () => {

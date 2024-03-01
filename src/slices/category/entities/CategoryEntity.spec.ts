@@ -1,5 +1,6 @@
-import { CategoryEntity } from "./CategoryEntity";
 import MockDate from "mockdate";
+
+import { CategoryEntity } from "./CategoryEntity";
 
 export const fakeCategoryEntity = {
     _id: "123",

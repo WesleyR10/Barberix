@@ -1,6 +1,6 @@
-import { LoadRatingResultByPageRepository } from "@/slices/ratingResult/repositories";
-import { RatingResultPaginated } from "@/slices/ratingResult/entities";
 import { Query } from "@/application/types";
+import { RatingResultPaginated } from "@/slices/ratingResult/entities";
+import { LoadRatingResultByPageRepository } from "@/slices/ratingResult/repositories";
 
 export type LoadRatingResultByPage = (
     query: Query

@@ -1,9 +1,10 @@
-import { fakeRatingResultEntity } from "@/slices/ratingResult/entities/RatingResultEntity.spec";
-import { RatingResultEntity } from "@/slices/ratingResult/entities";
-import { AddRatingResultRepository } from "@/slices/ratingResult/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
+import { RatingResultEntity } from "@/slices/ratingResult/entities";
+import { fakeRatingResultEntity } from "@/slices/ratingResult/entities/RatingResultEntity.spec";
+import { AddRatingResultRepository } from "@/slices/ratingResult/repositories/contracts";
+
 import { addRatingResult } from "./AddRatingResult";
 
 describe("addRatingResult", () => {

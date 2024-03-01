@@ -1,6 +1,6 @@
-import { LoadRideRepository } from "@/slices/ride/repositories";
-import { RideData } from "@/slices/ride/entities";
 import { Query } from "@/application/types";
+import { RideData } from "@/slices/ride/entities";
+import { LoadRideRepository } from "@/slices/ride/repositories";
 
 export type LoadRide = (query: Query) => Promise<RideData | null>;
 export type LoadRideSignature = (loadRide: LoadRideRepository) => LoadRide;

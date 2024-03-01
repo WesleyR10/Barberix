@@ -1,8 +1,10 @@
-import { LoadOrderByPageRepository } from "@/slices/order/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeOrderPaginated } from "@/slices/order/entities/OrderEntity.spec";
+import { LoadOrderByPageRepository } from "@/slices/order/repositories";
+
 import { LoadOrderByPage, loadOrderByPage } from "./LoadOrderByPage";
 
 describe("LoadOrderByPage", () => {

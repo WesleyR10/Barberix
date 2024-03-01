@@ -1,6 +1,6 @@
-import { LoadAverageRatingResultRepository } from "@/slices/ratingResult/repositories";
-import { RatingResultAverage } from "@/slices/ratingResult/entities";
 import { Query } from "@/application/types";
+import { RatingResultAverage } from "@/slices/ratingResult/entities";
+import { LoadAverageRatingResultRepository } from "@/slices/ratingResult/repositories";
 
 export type LoadAverageRatingResult = (
     query: Query

@@ -1,6 +1,6 @@
-import { LoadRatingResultRepository } from "@/slices/ratingResult/repositories";
-import { RatingResultData } from "@/slices/ratingResult/entities";
 import { Query } from "@/application/types";
+import { RatingResultData } from "@/slices/ratingResult/entities";
+import { LoadRatingResultRepository } from "@/slices/ratingResult/repositories";
 
 export type LoadRatingResult = (query: Query) => Promise<RatingResultData | null>;
 export type LoadRatingResultSignature = (

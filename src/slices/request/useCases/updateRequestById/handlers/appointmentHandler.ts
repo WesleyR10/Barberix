@@ -3,6 +3,7 @@ import {
     LoadAppointmentRepository,
     UpdateAppointmentRepository,
 } from "@/slices/appointment/repositories";
+
 import { AbstractHandler } from "../contracts";
 
 export class AppointmentHandler extends AbstractHandler {

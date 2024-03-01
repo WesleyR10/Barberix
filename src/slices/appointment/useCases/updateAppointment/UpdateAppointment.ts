@@ -1,6 +1,6 @@
-import { UpdateAppointmentRepository } from "@/slices/appointment/repositories";
-import { AppointmentData } from "@/slices/appointment/entities";
 import { Query } from "@/application/types";
+import { AppointmentData } from "@/slices/appointment/entities";
+import { UpdateAppointmentRepository } from "@/slices/appointment/repositories";
 
 export type UpdateAppointment = (
     query: Query,

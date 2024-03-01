@@ -1,9 +1,10 @@
-import { fakeClientEntity } from "@/slices/client/entities/ClientEntity.spec";
-import { ClientEntity } from "@/slices/client/entities";
-import { AddClientRepository } from "@/slices/client/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
+import { ClientEntity } from "@/slices/client/entities";
+import { fakeClientEntity } from "@/slices/client/entities/ClientEntity.spec";
+import { AddClientRepository } from "@/slices/client/repositories/contracts";
+
 import { addClient } from "./AddClient";
 
 describe("addClient", () => {

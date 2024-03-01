@@ -1,5 +1,5 @@
+import { CategoryData,CategoryEntity } from "@/slices/category/entities";
 import { AddCategoryRepository } from "@/slices/category/repositories";
-import { CategoryEntity, CategoryData } from "@/slices/category/entities";
 
 export type AddCategory = (data: CategoryData) => Promise<CategoryEntity | null>; // Tipo que irei receber na chamada
 

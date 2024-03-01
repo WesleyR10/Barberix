@@ -1,5 +1,5 @@
+import { RecurrenceData,RecurrenceEntity } from "@/slices/recurrence/entities";
 import { AddRecurrenceRepository } from "@/slices/recurrence/repositories";
-import { RecurrenceEntity, RecurrenceData } from "@/slices/recurrence/entities";
 
 export type AddRecurrence = (data: RecurrenceData) => Promise<RecurrenceEntity | null>;
 export type AddRecurrenceSignature = (

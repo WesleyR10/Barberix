@@ -1,8 +1,10 @@
-import { LoadRideByPageRepository } from "@/slices/ride/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeRidePaginated } from "@/slices/ride/entities/RideEntity.spec";
+import { LoadRideByPageRepository } from "@/slices/ride/repositories";
+
 import { LoadRideByPage, loadRideByPage } from "./LoadRideByPage";
 
 describe("LoadRideByPage", () => {

@@ -1,8 +1,10 @@
-import { UpdateOwnerRepository } from "@/slices/owner/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeOwnerEntity } from "@/slices/owner/entities/OwnerEntity.spec";
+import { UpdateOwnerRepository } from "@/slices/owner/repositories";
+
 import { UpdateOwner, updateOwner } from "./UpdateOwner";
 
 describe("UpdateOwner", () => {

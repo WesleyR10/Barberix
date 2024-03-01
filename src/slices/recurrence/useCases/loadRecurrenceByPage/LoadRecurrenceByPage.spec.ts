@@ -1,8 +1,10 @@
-import { LoadRecurrenceByPageRepository } from "@/slices/recurrence/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeRecurrencePaginated } from "@/slices/recurrence/entities/RecurrenceEntity.spec";
+import { LoadRecurrenceByPageRepository } from "@/slices/recurrence/repositories";
+
 import { LoadRecurrenceByPage, loadRecurrenceByPage } from "./LoadRecurrenceByPage";
 
 describe("LoadRecurrenceByPage", () => {

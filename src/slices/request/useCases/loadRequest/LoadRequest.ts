@@ -1,6 +1,6 @@
-import { LoadRequestRepository } from "@/slices/request/repositories";
-import { RequestData } from "@/slices/request/entities";
 import { Query } from "@/application/types";
+import { RequestData } from "@/slices/request/entities";
+import { LoadRequestRepository } from "@/slices/request/repositories";
 
 export type LoadRequest = (query: Query) => Promise<RequestData | null>;
 export type LoadRequestSignature = (loadRequest: LoadRequestRepository) => LoadRequest;

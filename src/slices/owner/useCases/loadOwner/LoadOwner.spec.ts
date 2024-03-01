@@ -1,8 +1,10 @@
-import { LoadOwnerRepository } from "@/slices/owner/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeOwnerEntity } from "@/slices/owner/entities/OwnerEntity.spec";
+import { LoadOwnerRepository } from "@/slices/owner/repositories";
+
 import { LoadOwner, loadOwner } from "./LoadOwner";
 
 describe("LoadOwner", () => {

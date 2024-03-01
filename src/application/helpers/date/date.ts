@@ -1,22 +1,22 @@
-import { OwnerAppointmentInfo } from "@/slices/appointment/entities";
 import {
     cloneDate,
-    setHours,
-    setMinutes,
-    setMili,
-    setSeconds,
-    parseISO,
+    dayOfWeek,
     differenceInMinutes,
-    intervalsOverlapping,
     eachMinuteOfInterval,
-    trataTimezone,
+    endOfDay,
+    formatISO,
+    intervalsOverlapping,
     isBeforeToday,
     isToday,
+    parseISO,
+    setHours,
+    setMili,
+    setMinutes,
+    setSeconds,
     startOfDay,
-    dayOfWeek,
-    formatISO,
-    endOfDay,
+    trataTimezone,
 } from "@/application/helpers/dateFns";
+import { OwnerAppointmentInfo } from "@/slices/appointment/entities";
 
 export type QueryDate = {
     dayOfWeekFound: string;

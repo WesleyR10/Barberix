@@ -1,20 +1,21 @@
 import MockDate from "mockdate";
+
 import { dayOfWeek, endOfDay, formatISO, startOfDay } from "../dateFns";
 import {
+    addTimeInArray,
+    AddTimeInArrayInput,
     BusinessHoursInput,
+    firstStep,
+    FirstStepInput,
+    getArrayTimes,
+    GetArrayTimesInput,
+    getDateWithCustomHourAndMinutes,
+    GetDateWithCustomHourAndMinutesInput,
     getHoursObject,
     GetHoursObjectInput,
     mapBusinessHours,
-    getDateWithCustomHourAndMinutes,
-    GetDateWithCustomHourAndMinutesInput,
-    getArrayTimes,
-    GetArrayTimesInput,
-    firstStep,
-    FirstStepInput,
-    AddTimeInArrayInput,
-    addTimeInArray,
-    secondStep,
     queryDateGenerator,
+    secondStep,
 } from "./date";
 
 describe("date tests business rules", () => {

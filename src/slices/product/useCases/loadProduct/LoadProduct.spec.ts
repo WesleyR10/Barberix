@@ -1,8 +1,10 @@
-import { LoadProductRepository } from "@/slices/product/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeProductEntity } from "@/slices/product/entities/ProductEntity.spec";
+import { LoadProductRepository } from "@/slices/product/repositories";
+
 import { LoadProduct, loadProduct } from "./LoadProduct";
 
 describe("LoadProduct", () => {

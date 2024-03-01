@@ -1,11 +1,12 @@
-import { fakeAppointmentEntity } from "@/slices/appointment/entities/AppointmentEntity.spec";
-import { AppointmentEntity } from "@/slices/appointment/entities";
-import { DeleteAppointmentRepository } from "@/slices/appointment/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
-import { deleteAppointment } from "./DeleteAppointment";
 import { Query } from "@/application/types";
+import { AppointmentEntity } from "@/slices/appointment/entities";
+import { fakeAppointmentEntity } from "@/slices/appointment/entities/AppointmentEntity.spec";
+import { DeleteAppointmentRepository } from "@/slices/appointment/repositories/contracts";
+
+import { deleteAppointment } from "./DeleteAppointment";
 
 describe("deleteAppointment", () => {
     let testInstance: any;

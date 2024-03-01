@@ -1,19 +1,21 @@
-import { LoadAvailableTimesRepository } from "@/slices/appointment/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
+import { queryDateGenerator } from "@/application/helpers/date";
 import {
     QueryAvailableTimes,
     QueryAvailableTimesRepository,
 } from "@/slices/appointment/entities";
 import { fakeAvailableTimesEntity } from "@/slices/appointment/entities/AppointmentEntity.spec";
-import { LoadAvailableTimes, loadAvailableTimes } from "./LoadAvailableTimes";
-import { LoadServiceRepository } from "@/slices/service/repositories";
-import { LoadUserRepository } from "@/slices/user/repositories";
-import { LoadOwnerRepository } from "@/slices/owner/repositories";
-import { queryDateGenerator } from "@/application/helpers/date";
-import { fakeUserEntity } from "@/slices/user/entities/UserEntity.spec";
+import { LoadAvailableTimesRepository } from "@/slices/appointment/repositories";
 import { fakeOwnerEntity } from "@/slices/owner/entities/OwnerEntity.spec";
+import { LoadOwnerRepository } from "@/slices/owner/repositories";
 import { fakeServiceEntity } from "@/slices/service/entities/ServiceEntity.spec";
+import { LoadServiceRepository } from "@/slices/service/repositories";
+import { fakeUserEntity } from "@/slices/user/entities/UserEntity.spec";
+import { LoadUserRepository } from "@/slices/user/repositories";
+
+import { LoadAvailableTimes, loadAvailableTimes } from "./LoadAvailableTimes";
 
 describe("LoadAvailableTimes", () => {
     let fakeQueryAvailableTimesRepository: QueryAvailableTimesRepository;

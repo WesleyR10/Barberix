@@ -1,11 +1,12 @@
-import { fakeProductEntity } from "@/slices/product/entities/ProductEntity.spec";
-import { ProductEntity } from "@/slices/product/entities";
-import { DeleteProductRepository } from "@/slices/product/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
-import { deleteProduct } from "./DeleteProduct";
 import { Query } from "@/application/types";
+import { ProductEntity } from "@/slices/product/entities";
+import { fakeProductEntity } from "@/slices/product/entities/ProductEntity.spec";
+import { DeleteProductRepository } from "@/slices/product/repositories/contracts";
+
+import { deleteProduct } from "./DeleteProduct";
 
 describe("deleteProduct", () => {
     let testInstance: any;

@@ -1,11 +1,12 @@
-import { fakeOwnerEntity } from "@/slices/owner/entities/OwnerEntity.spec";
-import { OwnerEntity } from "@/slices/owner/entities";
-import { DeleteOwnerRepository } from "@/slices/owner/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
-import { deleteOwner } from "./DeleteOwner";
 import { Query } from "@/application/types";
+import { OwnerEntity } from "@/slices/owner/entities";
+import { fakeOwnerEntity } from "@/slices/owner/entities/OwnerEntity.spec";
+import { DeleteOwnerRepository } from "@/slices/owner/repositories/contracts";
+
+import { deleteOwner } from "./DeleteOwner";
 
 describe("deleteOwner", () => {
     let testInstance: any;

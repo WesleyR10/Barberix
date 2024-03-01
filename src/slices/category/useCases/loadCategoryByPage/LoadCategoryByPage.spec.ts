@@ -1,8 +1,10 @@
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
-import { LoadCategoryByPageRepository } from "@/slices/category/repositories";
 import { fakeCategoryPaginated } from "@/slices/category/entities/CategoryEntity.spec";
+import { LoadCategoryByPageRepository } from "@/slices/category/repositories";
+
 import { LoadCategoryByPage, loadCategoryByPage } from "./LoadCategoryByPage";
 
 describe("LoadCategoryByPage", () => {

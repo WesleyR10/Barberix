@@ -1,8 +1,10 @@
-import { LoadOwnerByPageRepository } from "@/slices/owner/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeOwnerPaginated } from "@/slices/owner/entities/OwnerEntity.spec";
+import { LoadOwnerByPageRepository } from "@/slices/owner/repositories";
+
 import { LoadOwnerByPage, loadOwnerByPage } from "./LoadOwnerByPage";
 
 describe("LoadOwnerByPage", () => {

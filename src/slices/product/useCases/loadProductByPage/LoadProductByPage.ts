@@ -1,6 +1,6 @@
-import { LoadProductByPageRepository } from "@/slices/product/repositories";
-import { ProductPaginated } from "@/slices/product/entities";
 import { Query } from "@/application/types";
+import { ProductPaginated } from "@/slices/product/entities";
+import { LoadProductByPageRepository } from "@/slices/product/repositories";
 
 export type LoadProductByPage = (query: Query) => Promise<ProductPaginated | null>;
 export type LoadProductByPageSignature = (

@@ -16,11 +16,12 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "@stylistic/js"
+        "@stylistic/js",
+        "simple-import-sort"
     ],
     "rules": {
         "prettier/prettier": 0,
-        // "@typescript-eslint/no-explicit-any": "off",
+        "simple-import-sort/imports": "error",
         "@stylistic/js/indent": [
             "error",
             4

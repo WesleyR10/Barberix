@@ -1,22 +1,23 @@
-import { RequestData } from "@/slices/request/entities";
-import { IUpdateRequestById } from "./contracts";
-import { AddOrderRepository } from "@/slices/order/repositories";
 import {
     AddAppointmentRepository,
     LoadAppointmentRepository,
     UpdateAppointmentRepository,
 } from "@/slices/appointment/repositories";
+import { UpdateClientRepository } from "@/slices/client/repositories";
 import { AddFidelityRepository } from "@/slices/fidelity/repositories";
+import { AddOrderRepository } from "@/slices/order/repositories";
 import { AddRecurrenceRepository } from "@/slices/recurrence/repositories";
+import { RequestData } from "@/slices/request/entities";
+import {
+    LoadRequestRepository,
+    UpdateRequestRepository,
+} from "@/slices/request/repositories";
+import { statusIsValid } from "@/slices/request/validators/status/status";
 import { AddRideRepository } from "@/slices/ride/repositories";
 import { UpdateServiceRepository } from "@/slices/service/repositories";
 import { UpdateUserRepository } from "@/slices/user/repositories";
-import {
-    UpdateRequestRepository,
-    LoadRequestRepository,
-} from "@/slices/request/repositories";
-import { UpdateClientRepository } from "@/slices/client/repositories";
-import { statusIsValid } from "@/slices/request/validators/status/status";
+
+import { IUpdateRequestById } from "./contracts";
 import {
     AppointmentHandler,
     FidelityHandler,

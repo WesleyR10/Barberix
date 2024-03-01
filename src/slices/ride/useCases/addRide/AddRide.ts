@@ -1,5 +1,5 @@
+import { RideData,RideEntity } from "@/slices/ride/entities";
 import { AddRideRepository } from "@/slices/ride/repositories";
-import { RideEntity, RideData } from "@/slices/ride/entities";
 
 export type AddRide = (data: RideData) => Promise<RideEntity | null>;
 export type AddRideSignature = (addRide: AddRideRepository) => AddRide;

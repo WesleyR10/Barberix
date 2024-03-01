@@ -1,5 +1,5 @@
+import { RequestData,RequestEntity } from "@/slices/request/entities";
 import { AddRequestRepository } from "@/slices/request/repositories";
-import { RequestEntity, RequestData } from "@/slices/request/entities";
 
 export type AddRequest = (data: RequestData) => Promise<RequestEntity | null>;
 export type AddRequestSignature = (addRequest: AddRequestRepository) => AddRequest;

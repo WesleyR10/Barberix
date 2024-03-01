@@ -1,11 +1,12 @@
-import { fakeRequestEntity } from "@/slices/request/entities/RequestEntity.spec";
-import { RequestEntity } from "@/slices/request/entities";
-import { DeleteRequestRepository } from "@/slices/request/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
-import { deleteRequest } from "./DeleteRequest";
 import { Query } from "@/application/types";
+import { RequestEntity } from "@/slices/request/entities";
+import { fakeRequestEntity } from "@/slices/request/entities/RequestEntity.spec";
+import { DeleteRequestRepository } from "@/slices/request/repositories/contracts";
+
+import { deleteRequest } from "./DeleteRequest";
 
 describe("deleteRequest", () => {
     let testInstance: any;

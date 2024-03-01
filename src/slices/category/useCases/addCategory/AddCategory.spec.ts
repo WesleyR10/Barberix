@@ -1,9 +1,11 @@
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
-import { AddCategoryRepository } from "@/slices/category/repositories/contracts";
-import { fakeCategoryEntity } from "@/slices/category/entities/CategoryEntity.spec";
-import { addCategory } from "./AddCategory";
+import MockDate from "mockdate";
+
 import { CategoryEntity } from "@/slices/category/entities";
+import { fakeCategoryEntity } from "@/slices/category/entities/CategoryEntity.spec";
+import { AddCategoryRepository } from "@/slices/category/repositories/contracts";
+
+import { addCategory } from "./AddCategory";
 
 describe("addCategory", () => {
     let testInstance: any;

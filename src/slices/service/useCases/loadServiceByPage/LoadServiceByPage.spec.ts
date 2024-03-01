@@ -1,8 +1,10 @@
-import { LoadServiceByPageRepository } from "@/slices/service/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeServicePaginated } from "@/slices/service/entities/ServiceEntity.spec";
+import { LoadServiceByPageRepository } from "@/slices/service/repositories";
+
 import { LoadServiceByPage, loadServiceByPage } from "./LoadServiceByPage";
 
 describe("LoadServiceByPage", () => {

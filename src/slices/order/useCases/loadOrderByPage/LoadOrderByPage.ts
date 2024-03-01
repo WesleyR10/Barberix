@@ -1,6 +1,6 @@
-import { LoadOrderByPageRepository } from "@/slices/order/repositories";
-import { OrderPaginated } from "@/slices/order/entities";
 import { Query } from "@/application/types";
+import { OrderPaginated } from "@/slices/order/entities";
+import { LoadOrderByPageRepository } from "@/slices/order/repositories";
 
 export type LoadOrderByPage = (query: Query) => Promise<OrderPaginated | null>;
 export type LoadOrderByPageSignature = (

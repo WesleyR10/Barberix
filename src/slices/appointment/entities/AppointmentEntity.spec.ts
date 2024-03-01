@@ -1,6 +1,8 @@
-import { AppointmentEntity } from "./AppointmentEntity";
 import MockDate from "mockdate";
+
 import { parseISO } from "@/application/helpers/dateFns";
+
+import { AppointmentEntity } from "./AppointmentEntity";
 
 export const fakeAppointmentEntity = {
     _id: "123",

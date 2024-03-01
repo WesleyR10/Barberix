@@ -1,11 +1,12 @@
-import { fakeFidelityEntity } from "@/slices/fidelity/entities/FidelityEntity.spec";
-import { FidelityEntity } from "@/slices/fidelity/entities";
-import { DeleteFidelityRepository } from "@/slices/fidelity/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
-import { deleteFidelity } from "./DeleteFidelity";
 import { Query } from "@/application/types";
+import { FidelityEntity } from "@/slices/fidelity/entities";
+import { fakeFidelityEntity } from "@/slices/fidelity/entities/FidelityEntity.spec";
+import { DeleteFidelityRepository } from "@/slices/fidelity/repositories/contracts";
+
+import { deleteFidelity } from "./DeleteFidelity";
 
 describe("deleteFidelity", () => {
     let testInstance: any;

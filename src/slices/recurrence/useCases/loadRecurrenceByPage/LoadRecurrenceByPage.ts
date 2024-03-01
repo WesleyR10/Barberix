@@ -1,6 +1,6 @@
-import { LoadRecurrenceByPageRepository } from "@/slices/recurrence/repositories";
-import { RecurrencePaginated } from "@/slices/recurrence/entities";
 import { Query } from "@/application/types";
+import { RecurrencePaginated } from "@/slices/recurrence/entities";
+import { LoadRecurrenceByPageRepository } from "@/slices/recurrence/repositories";
 
 export type LoadRecurrenceByPage = (query: Query) => Promise<RecurrencePaginated | null>;
 export type LoadRecurrenceByPageSignature = (

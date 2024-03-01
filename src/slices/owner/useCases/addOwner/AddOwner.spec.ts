@@ -1,9 +1,10 @@
-import { fakeOwnerEntity } from "@/slices/owner/entities/OwnerEntity.spec";
-import { OwnerEntity } from "@/slices/owner/entities";
-import { AddOwnerRepository } from "@/slices/owner/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
+import { OwnerEntity } from "@/slices/owner/entities";
+import { fakeOwnerEntity } from "@/slices/owner/entities/OwnerEntity.spec";
+import { AddOwnerRepository } from "@/slices/owner/repositories/contracts";
+
 import { addOwner } from "./AddOwner";
 
 describe("addOwner", () => {

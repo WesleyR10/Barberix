@@ -1,11 +1,12 @@
-import { fakeOrderEntity } from "@/slices/order/entities/OrderEntity.spec";
-import { OrderEntity } from "@/slices/order/entities";
-import { DeleteOrderRepository } from "@/slices/order/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
-import { deleteOrder } from "./DeleteOrder";
 import { Query } from "@/application/types";
+import { OrderEntity } from "@/slices/order/entities";
+import { fakeOrderEntity } from "@/slices/order/entities/OrderEntity.spec";
+import { DeleteOrderRepository } from "@/slices/order/repositories/contracts";
+
+import { deleteOrder } from "./DeleteOrder";
 
 describe("deleteOrder", () => {
     let testInstance: any;

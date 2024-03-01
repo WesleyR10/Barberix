@@ -1,9 +1,10 @@
-import { fakeUserEntity } from "@/slices/user/entities/UserEntity.spec";
-import { UserEntity } from "@/slices/user/entities";
-import { AddUserRepository } from "@/slices/user/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
+import { UserEntity } from "@/slices/user/entities";
+import { fakeUserEntity } from "@/slices/user/entities/UserEntity.spec";
+import { AddUserRepository } from "@/slices/user/repositories/contracts";
+
 import { addUser } from "./AddUser";
 
 describe("addUser", () => {

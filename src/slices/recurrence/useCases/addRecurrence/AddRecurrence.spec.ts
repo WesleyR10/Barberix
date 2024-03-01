@@ -1,9 +1,10 @@
-import { fakeRecurrenceEntity } from "@/slices/recurrence/entities/RecurrenceEntity.spec";
-import { RecurrenceEntity } from "@/slices/recurrence/entities";
-import { AddRecurrenceRepository } from "@/slices/recurrence/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
+import { RecurrenceEntity } from "@/slices/recurrence/entities";
+import { fakeRecurrenceEntity } from "@/slices/recurrence/entities/RecurrenceEntity.spec";
+import { AddRecurrenceRepository } from "@/slices/recurrence/repositories/contracts";
+
 import { addRecurrence } from "./AddRecurrence";
 
 describe("addRecurrence", () => {

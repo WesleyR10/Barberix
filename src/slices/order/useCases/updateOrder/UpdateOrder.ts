@@ -1,6 +1,6 @@
-import { UpdateOrderRepository } from "@/slices/order/repositories";
-import { OrderData } from "@/slices/order/entities";
 import { Query } from "@/application/types";
+import { OrderData } from "@/slices/order/entities";
+import { UpdateOrderRepository } from "@/slices/order/repositories";
 
 export type UpdateOrder = (query: Query, data: OrderData) => Promise<OrderData | null>;
 export type UpdateOrderSignature = (updateOrder: UpdateOrderRepository) => UpdateOrder;

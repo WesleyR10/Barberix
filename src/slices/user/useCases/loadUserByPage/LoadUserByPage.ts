@@ -1,6 +1,6 @@
-import { LoadUserByPageRepository } from "@/slices/user/repositories";
-import { UserPaginated } from "@/slices/user/entities";
 import { Query } from "@/application/types";
+import { UserPaginated } from "@/slices/user/entities";
+import { LoadUserByPageRepository } from "@/slices/user/repositories";
 
 export type LoadUserByPage = (query: Query) => Promise<UserPaginated | null>;
 export type LoadUserByPageSignature = (

@@ -1,5 +1,5 @@
+import { AppointmentData,AppointmentEntity } from "@/slices/appointment/entities";
 import { AddAppointmentRepository } from "@/slices/appointment/repositories";
-import { AppointmentEntity, AppointmentData } from "@/slices/appointment/entities";
 
 export type AddAppointment = (data: AppointmentData) => Promise<AppointmentEntity | null>;
 export type AddAppointmentSignature = (

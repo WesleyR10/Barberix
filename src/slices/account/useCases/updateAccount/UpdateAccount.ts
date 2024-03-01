@@ -1,6 +1,6 @@
-import { UpdateAccountRepository } from "@/slices/account/repositories";
-import { AccountData } from "@/slices/account/entities";
 import { Query } from "@/application/types";
+import { AccountData } from "@/slices/account/entities";
+import { UpdateAccountRepository } from "@/slices/account/repositories";
 
 export type UpdateAccount = (
     query: Query,

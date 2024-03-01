@@ -1,11 +1,12 @@
-import { fakeRatingResultEntity } from "@/slices/ratingResult/entities/RatingResultEntity.spec";
-import { RatingResultEntity } from "@/slices/ratingResult/entities";
-import { DeleteRatingResultRepository } from "@/slices/ratingResult/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
-import { deleteRatingResult } from "./DeleteRatingResult";
 import { Query } from "@/application/types";
+import { RatingResultEntity } from "@/slices/ratingResult/entities";
+import { fakeRatingResultEntity } from "@/slices/ratingResult/entities/RatingResultEntity.spec";
+import { DeleteRatingResultRepository } from "@/slices/ratingResult/repositories/contracts";
+
+import { deleteRatingResult } from "./DeleteRatingResult";
 
 describe("deleteRatingResult", () => {
     let testInstance: any;

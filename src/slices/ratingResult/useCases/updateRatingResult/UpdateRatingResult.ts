@@ -1,6 +1,6 @@
-import { UpdateRatingResultRepository } from "@/slices/ratingResult/repositories";
-import { RatingResultData } from "@/slices/ratingResult/entities";
 import { Query } from "@/application/types";
+import { RatingResultData } from "@/slices/ratingResult/entities";
+import { UpdateRatingResultRepository } from "@/slices/ratingResult/repositories";
 
 export type UpdateRatingResult = (
     query: Query,

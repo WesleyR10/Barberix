@@ -1,5 +1,5 @@
+import { UserData,UserEntity } from "@/slices/user/entities";
 import { AddUserRepository } from "@/slices/user/repositories";
-import { UserEntity, UserData } from "@/slices/user/entities";
 
 export type AddUser = (data: UserData) => Promise<UserEntity | null>;
 export type AddUserSignature = (addUser: AddUserRepository) => AddUser;

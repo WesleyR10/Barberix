@@ -1,8 +1,10 @@
-import { UpdateAccountRepository } from "@/slices/account/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeAccountEntity } from "@/slices/account/entities/AccountEntity.spec";
+import { UpdateAccountRepository } from "@/slices/account/repositories";
+
 import { UpdateAccount, updateAccount } from "./UpdateAccount";
 
 describe("UpdateAccount", () => {

@@ -1,4 +1,5 @@
 import { AddRideRepository } from "@/slices/ride/repositories";
+
 import { AbstractHandler } from "../contracts";
 
 export class RideHandler extends AbstractHandler {

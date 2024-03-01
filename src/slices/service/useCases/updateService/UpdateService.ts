@@ -1,6 +1,6 @@
-import { UpdateServiceRepository } from "@/slices/service/repositories";
-import { ServiceData } from "@/slices/service/entities";
 import { Query } from "@/application/types";
+import { ServiceData } from "@/slices/service/entities";
+import { UpdateServiceRepository } from "@/slices/service/repositories";
 
 export type UpdateService = (
     query: Query,

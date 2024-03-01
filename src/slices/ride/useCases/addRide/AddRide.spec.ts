@@ -1,9 +1,10 @@
-import { fakeRideEntity } from "@/slices/ride/entities/RideEntity.spec";
-import { RideEntity } from "@/slices/ride/entities";
-import { AddRideRepository } from "@/slices/ride/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
+import { RideEntity } from "@/slices/ride/entities";
+import { fakeRideEntity } from "@/slices/ride/entities/RideEntity.spec";
+import { AddRideRepository } from "@/slices/ride/repositories/contracts";
+
 import { addRide } from "./AddRide";
 
 describe("addRide", () => {

@@ -1,6 +1,6 @@
-import { LoadClientRepository } from "@/slices/client/repositories";
-import { ClientData } from "@/slices/client/entities";
 import { Query } from "@/application/types";
+import { ClientData } from "@/slices/client/entities";
+import { LoadClientRepository } from "@/slices/client/repositories";
 
 export type LoadClient = (query: Query) => Promise<ClientData | null>;
 export type LoadClientSignature = (loadClient: LoadClientRepository) => LoadClient;

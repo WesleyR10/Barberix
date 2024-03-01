@@ -1,7 +1,9 @@
 import MockDate from "mockdate";
-import { statusIsValid } from "./status";
-import { fakeRequestEntity } from "@/slices/request/entities/RequestEntity.spec";
+
 import { addMinutes, subMinutes } from "@/application/helpers/dateFns";
+import { fakeRequestEntity } from "@/slices/request/entities/RequestEntity.spec";
+
+import { statusIsValid } from "./status";
 
 describe("Testing status validators", () => {
     beforeAll(async () => {

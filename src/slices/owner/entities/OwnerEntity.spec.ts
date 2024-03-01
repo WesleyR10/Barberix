@@ -1,5 +1,6 @@
-import { OwnerEntity } from "./OwnerEntity";
 import MockDate from "mockdate";
+
+import { OwnerEntity } from "./OwnerEntity";
 
 export const fakeOwnerEntity = {
     _id: "123",

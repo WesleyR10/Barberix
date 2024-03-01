@@ -1,6 +1,6 @@
-import { DeleteAppointmentRepository } from "@/slices/appointment/repositories";
-import { AppointmentData } from "@/slices/appointment/entities";
 import { Query } from "@/application/types";
+import { AppointmentData } from "@/slices/appointment/entities";
+import { DeleteAppointmentRepository } from "@/slices/appointment/repositories";
 
 export type DeleteAppointment = (query: Query) => Promise<AppointmentData | null>;
 export type DeleteAppointmentSignature = (

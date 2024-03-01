@@ -1,9 +1,10 @@
-import { fakeServiceEntity } from "@/slices/service/entities/ServiceEntity.spec";
-import { ServiceEntity } from "@/slices/service/entities";
-import { AddServiceRepository } from "@/slices/service/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
+import { ServiceEntity } from "@/slices/service/entities";
+import { fakeServiceEntity } from "@/slices/service/entities/ServiceEntity.spec";
+import { AddServiceRepository } from "@/slices/service/repositories/contracts";
+
 import { addService } from "./AddService";
 
 describe("addService", () => {

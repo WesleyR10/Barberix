@@ -1,15 +1,15 @@
-import { differenceInMinutes } from "@/application/helpers/dateFns";
-import { RequestData } from "@/slices/request/entities";
 import {
-    NEW_STATUS_ARRAY_THAT_NEEDS_APPOINTMENT_IN_FUTURE,
-    NEW_STATUS_ARRAY_THAT_NEEDS_APPOINTMENT_IN_PAST,
-    ACCEPTABLE_DIFFERENCE_IN_MINUTES_TO_RATE,
     ACCEPTABLE_DIFFERENCE_IN_MINUTES_TO_CANCEL,
+    ACCEPTABLE_DIFFERENCE_IN_MINUTES_TO_RATE,
     ACCEPTABLE_DIFFERENCE_IN_MINUTES_TO_RESCHEDULE,
     CANCELLED_STATUS_ARRAY,
-    RESCHEDULE_STATUS_ARRAY,
+    NEW_STATUS_ARRAY_THAT_NEEDS_APPOINTMENT_IN_FUTURE,
+    NEW_STATUS_ARRAY_THAT_NEEDS_APPOINTMENT_IN_PAST,
     RATED_STATUS_ARRAY,
+    RESCHEDULE_STATUS_ARRAY,
 } from "@/application/constants";
+import { differenceInMinutes } from "@/application/helpers/dateFns";
+import { RequestData } from "@/slices/request/entities";
 
 export type StatusIsValidInput = {
     currentRequest: RequestData;

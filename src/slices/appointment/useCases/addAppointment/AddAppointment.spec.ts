@@ -1,9 +1,10 @@
-import { fakeAppointmentEntity } from "@/slices/appointment/entities/AppointmentEntity.spec";
-import { AppointmentEntity } from "@/slices/appointment/entities";
-import { AddAppointmentRepository } from "@/slices/appointment/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
+import { AppointmentEntity } from "@/slices/appointment/entities";
+import { fakeAppointmentEntity } from "@/slices/appointment/entities/AppointmentEntity.spec";
+import { AddAppointmentRepository } from "@/slices/appointment/repositories/contracts";
+
 import { addAppointment } from "./AddAppointment";
 
 describe("addAppointment", () => {

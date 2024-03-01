@@ -1,5 +1,6 @@
-import { FidelityEntity } from "./FidelityEntity";
 import MockDate from "mockdate";
+
+import { FidelityEntity } from "./FidelityEntity";
 
 export const fakeFidelityEntity = {
     _id: "123",

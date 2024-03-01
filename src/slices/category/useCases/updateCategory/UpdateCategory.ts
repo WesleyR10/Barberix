@@ -1,6 +1,6 @@
-import { UpdateCategoryRepository } from "@/slices/category/repositories";
-import { CategoryData } from "@/slices/category/entities";
 import { Query } from "@/application/types";
+import { CategoryData } from "@/slices/category/entities";
+import { UpdateCategoryRepository } from "@/slices/category/repositories";
 
 export type UpdateCategory = (
     query: Query,

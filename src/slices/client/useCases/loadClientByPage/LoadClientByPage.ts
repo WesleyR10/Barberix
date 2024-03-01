@@ -1,6 +1,6 @@
-import { LoadClientByPageRepository } from "@/slices/client/repositories";
-import { ClientPaginated } from "@/slices/client/entities";
 import { Query } from "@/application/types";
+import { ClientPaginated } from "@/slices/client/entities";
+import { LoadClientByPageRepository } from "@/slices/client/repositories";
 
 export type LoadClientByPage = (query: Query) => Promise<ClientPaginated | null>;
 export type LoadClientByPageSignature = (

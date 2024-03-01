@@ -1,6 +1,6 @@
-import { DeleteFidelityRepository } from "@/slices/fidelity/repositories";
-import { FidelityData } from "@/slices/fidelity/entities";
 import { Query } from "@/application/types";
+import { FidelityData } from "@/slices/fidelity/entities";
+import { DeleteFidelityRepository } from "@/slices/fidelity/repositories";
 
 export type DeleteFidelity = (query: Query) => Promise<FidelityData | null>;
 export type DeleteFidelitySignature = (

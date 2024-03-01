@@ -1,11 +1,12 @@
-import { fakeRideEntity } from "@/slices/ride/entities/RideEntity.spec";
-import { RideEntity } from "@/slices/ride/entities";
-import { DeleteRideRepository } from "@/slices/ride/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
-import { deleteRide } from "./DeleteRide";
 import { Query } from "@/application/types";
+import { RideEntity } from "@/slices/ride/entities";
+import { fakeRideEntity } from "@/slices/ride/entities/RideEntity.spec";
+import { DeleteRideRepository } from "@/slices/ride/repositories/contracts";
+
+import { deleteRide } from "./DeleteRide";
 
 describe("deleteRide", () => {
     let testInstance: any;

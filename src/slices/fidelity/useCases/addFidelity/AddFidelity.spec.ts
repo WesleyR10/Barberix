@@ -1,9 +1,10 @@
-import { fakeFidelityEntity } from "@/slices/fidelity/entities/FidelityEntity.spec";
-import { FidelityEntity } from "@/slices/fidelity/entities";
-import { AddFidelityRepository } from "@/slices/fidelity/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
+import { FidelityEntity } from "@/slices/fidelity/entities";
+import { fakeFidelityEntity } from "@/slices/fidelity/entities/FidelityEntity.spec";
+import { AddFidelityRepository } from "@/slices/fidelity/repositories/contracts";
+
 import { addFidelity } from "./AddFidelity";
 
 describe("addFidelity", () => {

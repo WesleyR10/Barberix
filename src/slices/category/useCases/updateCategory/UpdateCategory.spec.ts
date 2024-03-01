@@ -1,8 +1,10 @@
-import { UpdateCategoryRepository } from "@/slices/category/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeCategoryEntity } from "@/slices/category/entities/CategoryEntity.spec";
+import { UpdateCategoryRepository } from "@/slices/category/repositories";
+
 import { UpdateCategory, updateCategory } from "./UpdateCategory";
 
 describe("UpdateCategory", () => {

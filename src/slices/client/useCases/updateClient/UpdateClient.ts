@@ -1,6 +1,6 @@
-import { UpdateClientRepository } from "@/slices/client/repositories";
-import { ClientData } from "@/slices/client/entities";
 import { Query } from "@/application/types";
+import { ClientData } from "@/slices/client/entities";
+import { UpdateClientRepository } from "@/slices/client/repositories";
 
 export type UpdateClient = (query: Query, data: ClientData) => Promise<ClientData | null>;
 export type UpdateClientSignature = (updateClient: UpdateClientRepository) => UpdateClient;

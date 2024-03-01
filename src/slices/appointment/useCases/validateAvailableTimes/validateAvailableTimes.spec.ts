@@ -1,10 +1,13 @@
+import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import {
     fakeAvailableTimesEntity as fakeAvailableTimesModelRepository,
-    fakeAvailableTimesModel2,
     fakeAvailableTimesModel,
+    fakeAvailableTimesModel2,
     fakeQueryVerifyAvailableTimes,
 } from "@/slices/appointment/entities/AppointmentEntity.spec";
-
+import { LoadAvailableTimesRepository } from "@/slices/appointment/repositories";
 import {
     LoadAvailableTimes,
     loadAvailableTimes,
@@ -13,15 +16,12 @@ import {
     ValidateAvailableTimes,
     validateAvailableTimes,
 } from "@/slices/appointment/useCases/validateAvailableTimes";
-import MockDate from "mockdate";
-import { LoadServiceRepository } from "@/slices/service/repositories";
-import { LoadUserRepository } from "@/slices/user/repositories";
-import { LoadOwnerRepository } from "@/slices/owner/repositories";
-import { LoadAvailableTimesRepository } from "@/slices/appointment/repositories";
-import { mock, MockProxy } from "jest-mock-extended";
-import { fakeUserEntity } from "@/slices/user/entities/UserEntity.spec";
 import { fakeOwnerEntity } from "@/slices/owner/entities/OwnerEntity.spec";
+import { LoadOwnerRepository } from "@/slices/owner/repositories";
 import { fakeServiceEntity } from "@/slices/service/entities/ServiceEntity.spec";
+import { LoadServiceRepository } from "@/slices/service/repositories";
+import { fakeUserEntity } from "@/slices/user/entities/UserEntity.spec";
+import { LoadUserRepository } from "@/slices/user/repositories";
 
 describe("ValidateAvailableTimes", () => {
     let testInstance: ValidateAvailableTimes;

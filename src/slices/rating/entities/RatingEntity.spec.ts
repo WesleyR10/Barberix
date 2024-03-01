@@ -1,5 +1,6 @@
-import { RatingEntity } from "./RatingEntity";
 import MockDate from "mockdate";
+
+import { RatingEntity } from "./RatingEntity";
 
 export const fakeRatingEntity = {
     _id: "123",

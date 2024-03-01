@@ -1,8 +1,10 @@
-import { LoadAppointmentRepository } from "@/slices/appointment/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeAppointmentEntity } from "@/slices/appointment/entities/AppointmentEntity.spec";
+import { LoadAppointmentRepository } from "@/slices/appointment/repositories";
+
 import { LoadAppointment, loadAppointment } from "./LoadAppointment";
 
 describe("LoadAppointment", () => {

@@ -1,8 +1,10 @@
-import { UpdateRatingRepository } from "@/slices/rating/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeRatingEntity } from "@/slices/rating/entities/RatingEntity.spec";
+import { UpdateRatingRepository } from "@/slices/rating/repositories";
+
 import { UpdateRating, updateRating } from "./UpdateRating";
 
 describe("UpdateRating", () => {

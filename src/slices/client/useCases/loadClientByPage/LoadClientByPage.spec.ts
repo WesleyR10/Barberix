@@ -1,8 +1,10 @@
-import { LoadClientByPageRepository } from "@/slices/client/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeClientPaginated } from "@/slices/client/entities/ClientEntity.spec";
+import { LoadClientByPageRepository } from "@/slices/client/repositories";
+
 import { LoadClientByPage, loadClientByPage } from "./LoadClientByPage";
 
 describe("LoadClientByPage", () => {

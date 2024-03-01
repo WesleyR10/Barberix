@@ -1,5 +1,6 @@
-import { AccountEntity } from "./AccountEntity";
 import MockDate from "mockdate";
+
+import { AccountEntity } from "./AccountEntity";
 
 export const fakeAccountEntity = {
     _id: "123",

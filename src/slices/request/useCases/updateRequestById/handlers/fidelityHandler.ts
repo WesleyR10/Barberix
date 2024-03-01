@@ -1,5 +1,6 @@
-import { AbstractHandler } from "../contracts";
 import { AddFidelityRepository } from "@/slices/fidelity/repositories";
+
+import { AbstractHandler } from "../contracts";
 
 export class FidelityHandler extends AbstractHandler {
     constructor(private readonly addFidelityRepository: AddFidelityRepository) {

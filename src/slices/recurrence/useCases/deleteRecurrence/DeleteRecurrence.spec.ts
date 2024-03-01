@@ -1,11 +1,12 @@
-import { fakeRecurrenceEntity } from "@/slices/recurrence/entities/RecurrenceEntity.spec";
-import { RecurrenceEntity } from "@/slices/recurrence/entities";
-import { DeleteRecurrenceRepository } from "@/slices/recurrence/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
-import { deleteRecurrence } from "./DeleteRecurrence";
 import { Query } from "@/application/types";
+import { RecurrenceEntity } from "@/slices/recurrence/entities";
+import { fakeRecurrenceEntity } from "@/slices/recurrence/entities/RecurrenceEntity.spec";
+import { DeleteRecurrenceRepository } from "@/slices/recurrence/repositories/contracts";
+
+import { deleteRecurrence } from "./DeleteRecurrence";
 
 describe("deleteRecurrence", () => {
     let testInstance: any;

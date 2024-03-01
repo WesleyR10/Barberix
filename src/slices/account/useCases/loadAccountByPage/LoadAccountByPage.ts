@@ -1,6 +1,6 @@
-import { LoadAccountByPageRepository } from "@/slices/account/repositories";
-import { AccountPaginated } from "@/slices/account/entities";
 import { Query } from "@/application/types";
+import { AccountPaginated } from "@/slices/account/entities";
+import { LoadAccountByPageRepository } from "@/slices/account/repositories";
 
 export type LoadAccountByPage = (query: Query) => Promise<AccountPaginated | null>;
 export type LoadAccountByPageSignature = (

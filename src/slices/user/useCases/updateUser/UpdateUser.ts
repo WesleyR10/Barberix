@@ -1,6 +1,6 @@
-import { UpdateUserRepository } from "@/slices/user/repositories";
-import { UserData } from "@/slices/user/entities";
 import { Query } from "@/application/types";
+import { UserData } from "@/slices/user/entities";
+import { UpdateUserRepository } from "@/slices/user/repositories";
 
 export type UpdateUser = (query: Query, data: UserData) => Promise<UserData | null>;
 

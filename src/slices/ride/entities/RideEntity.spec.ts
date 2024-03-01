@@ -1,5 +1,6 @@
-import { RideEntity } from "./RideEntity";
 import MockDate from "mockdate";
+
+import { RideEntity } from "./RideEntity";
 
 export const fakeRideEntity = {
     _id: "123",

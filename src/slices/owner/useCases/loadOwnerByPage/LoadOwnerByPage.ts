@@ -1,6 +1,6 @@
-import { LoadOwnerByPageRepository } from "@/slices/owner/repositories";
-import { OwnerPaginated } from "@/slices/owner/entities";
 import { Query } from "@/application/types";
+import { OwnerPaginated } from "@/slices/owner/entities";
+import { LoadOwnerByPageRepository } from "@/slices/owner/repositories";
 
 export type LoadOwnerByPage = (query: Query) => Promise<OwnerPaginated | null>;
 export type LoadOwnerByPageSignature = (

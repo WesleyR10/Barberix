@@ -1,5 +1,6 @@
-import { RecurrenceEntity } from "./RecurrenceEntity";
 import MockDate from "mockdate";
+
+import { RecurrenceEntity } from "./RecurrenceEntity";
 
 export const fakeRecurrenceEntity = {
     _id: "123",

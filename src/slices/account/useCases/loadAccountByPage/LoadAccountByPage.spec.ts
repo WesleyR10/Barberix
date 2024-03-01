@@ -1,8 +1,10 @@
-import { LoadAccountByPageRepository } from "@/slices/account/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeAccountPaginated } from "@/slices/account/entities/AccountEntity.spec";
+import { LoadAccountByPageRepository } from "@/slices/account/repositories";
+
 import { LoadAccountByPage, loadAccountByPage } from "./LoadAccountByPage";
 
 describe("LoadAccountByPage", () => {

@@ -1,9 +1,10 @@
-import { fakeProductEntity } from "@/slices/product/entities/ProductEntity.spec";
-import { ProductEntity } from "@/slices/product/entities";
-import { AddProductRepository } from "@/slices/product/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
+import { ProductEntity } from "@/slices/product/entities";
+import { fakeProductEntity } from "@/slices/product/entities/ProductEntity.spec";
+import { AddProductRepository } from "@/slices/product/repositories/contracts";
+
 import { addProduct } from "./AddProduct";
 
 describe("addProduct", () => {

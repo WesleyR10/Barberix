@@ -1,6 +1,6 @@
-import { LoadFidelityRepository } from "@/slices/fidelity/repositories";
-import { FidelityData } from "@/slices/fidelity/entities";
 import { Query } from "@/application/types";
+import { FidelityData } from "@/slices/fidelity/entities";
+import { LoadFidelityRepository } from "@/slices/fidelity/repositories";
 
 export type LoadFidelity = (query: Query) => Promise<FidelityData | null>;
 export type LoadFidelitySignature = (loadFidelity: LoadFidelityRepository) => LoadFidelity;

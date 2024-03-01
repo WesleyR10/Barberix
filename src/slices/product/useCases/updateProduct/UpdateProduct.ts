@@ -1,6 +1,6 @@
-import { UpdateProductRepository } from "@/slices/product/repositories";
-import { ProductData } from "@/slices/product/entities";
 import { Query } from "@/application/types";
+import { ProductData } from "@/slices/product/entities";
+import { UpdateProductRepository } from "@/slices/product/repositories";
 
 export type UpdateProduct = (
     query: Query,

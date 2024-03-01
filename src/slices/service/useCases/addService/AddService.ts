@@ -1,5 +1,5 @@
+import { ServiceData,ServiceEntity } from "@/slices/service/entities";
 import { AddServiceRepository } from "@/slices/service/repositories";
-import { ServiceEntity, ServiceData } from "@/slices/service/entities";
 
 export type AddService = (data: ServiceData) => Promise<ServiceEntity | null>;
 export type AddServiceSignature = (addService: AddServiceRepository) => AddService;

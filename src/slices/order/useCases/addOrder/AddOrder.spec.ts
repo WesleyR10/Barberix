@@ -1,9 +1,10 @@
-import { fakeOrderEntity } from "@/slices/order/entities/OrderEntity.spec";
-import { OrderEntity } from "@/slices/order/entities";
-import { AddOrderRepository } from "@/slices/order/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
+import { OrderEntity } from "@/slices/order/entities";
+import { fakeOrderEntity } from "@/slices/order/entities/OrderEntity.spec";
+import { AddOrderRepository } from "@/slices/order/repositories/contracts";
+
 import { addOrder } from "./AddOrder";
 
 describe("addOrder", () => {

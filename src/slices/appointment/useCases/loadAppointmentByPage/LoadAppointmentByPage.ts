@@ -1,6 +1,6 @@
-import { LoadAppointmentByPageRepository } from "@/slices/appointment/repositories";
-import { AppointmentPaginated } from "@/slices/appointment/entities";
 import { Query } from "@/application/types";
+import { AppointmentPaginated } from "@/slices/appointment/entities";
+import { LoadAppointmentByPageRepository } from "@/slices/appointment/repositories";
 
 export type LoadAppointmentByPage = (query: Query) => Promise<AppointmentPaginated | null>;
 export type LoadAppointmentByPageSignature = (

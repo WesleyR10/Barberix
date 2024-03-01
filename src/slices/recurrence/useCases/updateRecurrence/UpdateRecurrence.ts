@@ -1,6 +1,6 @@
-import { UpdateRecurrenceRepository } from "@/slices/recurrence/repositories";
-import { RecurrenceData } from "@/slices/recurrence/entities";
 import { Query } from "@/application/types";
+import { RecurrenceData } from "@/slices/recurrence/entities";
+import { UpdateRecurrenceRepository } from "@/slices/recurrence/repositories";
 
 export type UpdateRecurrence = (
     query: Query,

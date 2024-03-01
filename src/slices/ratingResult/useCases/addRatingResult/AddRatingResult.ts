@@ -1,5 +1,5 @@
+import { RatingResultData,RatingResultEntity } from "@/slices/ratingResult/entities";
 import { AddRatingResultRepository } from "@/slices/ratingResult/repositories";
-import { RatingResultEntity, RatingResultData } from "@/slices/ratingResult/entities";
 
 export type AddRatingResult = (
     data: RatingResultData

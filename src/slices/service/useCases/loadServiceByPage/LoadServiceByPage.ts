@@ -1,6 +1,6 @@
-import { LoadServiceByPageRepository } from "@/slices/service/repositories";
-import { ServicePaginated } from "@/slices/service/entities";
 import { Query } from "@/application/types";
+import { ServicePaginated } from "@/slices/service/entities";
+import { LoadServiceByPageRepository } from "@/slices/service/repositories";
 
 export type LoadServiceByPage = (query: Query) => Promise<ServicePaginated | null>;
 export type LoadServiceByPageSignature = (

@@ -1,8 +1,10 @@
-import { LoadFidelityRepository } from "@/slices/fidelity/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeFidelityEntity } from "@/slices/fidelity/entities/FidelityEntity.spec";
+import { LoadFidelityRepository } from "@/slices/fidelity/repositories";
+
 import { LoadFidelity, loadFidelity } from "./LoadFidelity";
 
 describe("LoadFidelity", () => {

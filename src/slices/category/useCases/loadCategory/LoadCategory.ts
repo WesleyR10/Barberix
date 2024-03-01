@@ -1,6 +1,6 @@
-import { LoadCategoryRepository } from "@/slices/category/repositories";
-import { CategoryData } from "@/slices/category/entities";
 import { Query } from "@/application/types";
+import { CategoryData } from "@/slices/category/entities";
+import { LoadCategoryRepository } from "@/slices/category/repositories";
 
 export type LoadCategory = (query: Query) => Promise<CategoryData | null>;
 

@@ -1,8 +1,10 @@
-import { LoadRatingResultRepository } from "@/slices/ratingResult/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeRatingResultEntity } from "@/slices/ratingResult/entities/RatingResultEntity.spec";
+import { LoadRatingResultRepository } from "@/slices/ratingResult/repositories";
+
 import { LoadRatingResult, loadRatingResult } from "./LoadRatingResult";
 
 describe("LoadRatingResult", () => {

@@ -1,44 +1,40 @@
+import { mock,MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
-import { MockProxy, mock } from "jest-mock-extended";
 
-import { UpdateRequestById } from "@/slices/request/useCases/updateRequestById/UpdateRequestById";
-
-import {
-    LoadRequestRepository,
-    UpdateRequestRepository,
-} from "@/slices/request/repositories";
-
-import { AddOrderRepository } from "@/slices/order/repositories";
+import { subMinutes } from "@/application/helpers/dateFns";
+import { fakeAppointmentEntity } from "@/slices/appointment/entities/AppointmentEntity.spec";
 import {
     AddAppointmentRepository,
     LoadAppointmentRepository,
     UpdateAppointmentRepository,
 } from "@/slices/appointment/repositories";
-import { UpdateClientRepository } from "@/slices/client/repositories";
-
-import { AddFidelityRepository } from "@/slices/fidelity/repositories";
-import { AddRecurrenceRepository } from "@/slices/recurrence/repositories";
-import { AddRideRepository } from "@/slices/ride/repositories";
-import { UpdateServiceRepository } from "@/slices/service/repositories";
-import { UpdateUserRepository } from "@/slices/user/repositories";
-import { fakeRequestEntity } from "@/slices/request/entities/RequestEntity.spec";
-import { fakeFidelityEntity } from "@/slices/fidelity/entities/FidelityEntity.spec";
-import { fakeOrderEntity } from "@/slices/order/entities/OrderEntity.spec";
-import { fakeAppointmentEntity } from "@/slices/appointment/entities/AppointmentEntity.spec";
-import { fakeRideEntity } from "@/slices/ride/entities/RideEntity.spec";
-import { fakeRecurrenceEntity } from "@/slices/recurrence/entities/RecurrenceEntity.spec";
 import { fakeClientEntity } from "@/slices/client/entities/ClientEntity.spec";
+import { UpdateClientRepository } from "@/slices/client/repositories";
+import { fakeFidelityEntity } from "@/slices/fidelity/entities/FidelityEntity.spec";
+import { AddFidelityRepository } from "@/slices/fidelity/repositories";
+import { fakeOrderEntity } from "@/slices/order/entities/OrderEntity.spec";
+import { AddOrderRepository } from "@/slices/order/repositories";
+import { fakeRecurrenceEntity } from "@/slices/recurrence/entities/RecurrenceEntity.spec";
+import { AddRecurrenceRepository } from "@/slices/recurrence/repositories";
+import { fakeRequestEntity } from "@/slices/request/entities/RequestEntity.spec";
+import {
+    LoadRequestRepository,
+    UpdateRequestRepository,
+} from "@/slices/request/repositories";
+import { UpdateRequestById } from "@/slices/request/useCases/updateRequestById/UpdateRequestById";
+import { fakeRideEntity } from "@/slices/ride/entities/RideEntity.spec";
+import { AddRideRepository } from "@/slices/ride/repositories";
 import { fakeServiceEntity } from "@/slices/service/entities/ServiceEntity.spec";
+import { UpdateServiceRepository } from "@/slices/service/repositories";
 import { fakeUserEntity } from "@/slices/user/entities/UserEntity.spec";
-import { subMinutes } from "@/application/helpers/dateFns";
+import { UpdateUserRepository } from "@/slices/user/repositories";
 
 describe("UpdateRequestById useCase", () => {
     let testInstance: UpdateRequestById;
     let mockRepo: MockProxy<UpdateRequestRepository & LoadRequestRepository>;
     let mockOrder: MockProxy<AddOrderRepository>;
     let mockAppointment: MockProxy<
-    AddAppointmentRepository & LoadAppointmentRepository & UpdateAppointmentRepository
-  >;
+    AddAppointmentRepository & LoadAppointmentRepository & UpdateAppointmentRepository>;
     let mockService: MockProxy<UpdateServiceRepository>;
     let mockRide: MockProxy<AddRideRepository>;
     let mockRecurrence: MockProxy<AddRecurrenceRepository>;

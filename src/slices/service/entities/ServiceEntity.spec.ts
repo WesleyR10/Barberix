@@ -1,5 +1,6 @@
-import { ServiceEntity } from "./ServiceEntity";
 import MockDate from "mockdate";
+
+import { ServiceEntity } from "./ServiceEntity";
 
 export const fakeServiceEntity = {
     _id: "123",

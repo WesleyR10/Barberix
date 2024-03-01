@@ -1,5 +1,6 @@
-import { UserEntity } from "./UserEntity";
 import MockDate from "mockdate";
+
+import { UserEntity } from "./UserEntity";
 
 export const fakeUserEntity = {
     _id: "123",

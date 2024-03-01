@@ -1,5 +1,6 @@
-import { RatingResultAverage, RatingResultEntity } from "./RatingResultEntity";
 import MockDate from "mockdate";
+
+import { RatingResultAverage, RatingResultEntity } from "./RatingResultEntity";
 
 export const fakeRatingResultEntity = {
     _id: "123",

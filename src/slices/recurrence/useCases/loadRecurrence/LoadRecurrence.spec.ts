@@ -1,8 +1,10 @@
-import { LoadRecurrenceRepository } from "@/slices/recurrence/repositories";
-import MockDate from "mockdate";
 import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { Query } from "@/application/types";
 import { fakeRecurrenceEntity } from "@/slices/recurrence/entities/RecurrenceEntity.spec";
+import { LoadRecurrenceRepository } from "@/slices/recurrence/repositories";
+
 import { LoadRecurrence, loadRecurrence } from "./LoadRecurrence";
 
 describe("LoadRecurrence", () => {

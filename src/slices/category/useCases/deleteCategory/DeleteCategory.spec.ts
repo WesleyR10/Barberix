@@ -1,10 +1,11 @@
-import { fakeCategoryEntity } from "@/slices/category/entities/CategoryEntity.spec";
-import { DeleteCategoryRepository } from "@/slices/category/repositories/contracts";
+import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
-import { deleteCategory } from "./DeleteCategory";
 import { Query } from "@/application/types";
+import { fakeCategoryEntity } from "@/slices/category/entities/CategoryEntity.spec";
+import { DeleteCategoryRepository } from "@/slices/category/repositories/contracts";
+
+import { deleteCategory } from "./DeleteCategory";
 
 describe("deleteCategory", () => {
     let testInstance: any;

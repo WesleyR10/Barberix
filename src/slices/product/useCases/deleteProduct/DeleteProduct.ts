@@ -1,6 +1,6 @@
-import { DeleteProductRepository } from "@/slices/product/repositories";
-import { ProductData } from "@/slices/product/entities";
 import { Query } from "@/application/types";
+import { ProductData } from "@/slices/product/entities";
+import { DeleteProductRepository } from "@/slices/product/repositories";
 
 export type DeleteProduct = (query: Query) => Promise<ProductData | null>;
 export type DeleteProductSignature = (

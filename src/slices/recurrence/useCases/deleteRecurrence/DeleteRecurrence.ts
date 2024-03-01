@@ -1,6 +1,6 @@
-import { DeleteRecurrenceRepository } from "@/slices/recurrence/repositories";
-import { RecurrenceData } from "@/slices/recurrence/entities";
 import { Query } from "@/application/types";
+import { RecurrenceData } from "@/slices/recurrence/entities";
+import { DeleteRecurrenceRepository } from "@/slices/recurrence/repositories";
 
 export type DeleteRecurrence = (query: Query) => Promise<RecurrenceData | null>;
 export type DeleteRecurrenceSignature = (
