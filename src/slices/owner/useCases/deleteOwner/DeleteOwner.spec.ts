@@ -2,7 +2,6 @@ import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
 import { Query } from "@/application/types";
-import { OwnerEntity } from "@/slices/owner/entities";
 import { fakeOwnerEntity } from "@/slices/owner/entities/OwnerEntity.spec";
 import { DeleteOwnerRepository } from "@/slices/owner/repositories/contracts";
 

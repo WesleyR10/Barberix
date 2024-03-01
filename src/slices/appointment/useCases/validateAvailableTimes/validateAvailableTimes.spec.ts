@@ -5,7 +5,6 @@ import {
     fakeAvailableTimesEntity as fakeAvailableTimesModelRepository,
     fakeAvailableTimesModel,
     fakeAvailableTimesModel2,
-    fakeQueryVerifyAvailableTimes,
 } from "@/slices/appointment/entities/AppointmentEntity.spec";
 import { LoadAvailableTimesRepository } from "@/slices/appointment/repositories";
 import {

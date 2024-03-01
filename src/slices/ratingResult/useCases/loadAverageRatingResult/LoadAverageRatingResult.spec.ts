@@ -4,7 +4,6 @@ import MockDate from "mockdate";
 import { Query } from "@/application/types";
 import {
     fakeRatingResultAverage,
-    fakeRatingResultEntity,
 } from "@/slices/ratingResult/entities/RatingResultEntity.spec";
 import { LoadAverageRatingResultRepository } from "@/slices/ratingResult/repositories";
 

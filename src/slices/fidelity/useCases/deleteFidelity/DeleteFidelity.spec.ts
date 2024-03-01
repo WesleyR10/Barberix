@@ -2,7 +2,6 @@ import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
 import { Query } from "@/application/types";
-import { FidelityEntity } from "@/slices/fidelity/entities";
 import { fakeFidelityEntity } from "@/slices/fidelity/entities/FidelityEntity.spec";
 import { DeleteFidelityRepository } from "@/slices/fidelity/repositories/contracts";
 
