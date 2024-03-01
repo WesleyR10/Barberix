@@ -98,7 +98,7 @@ export type Schedule = {
     endDate: any;
 };
 export type CalculateTimeAvailableInput = {
-    timeAvailableProfessional: Array<any>;
+    timeAvailableProfessional: Array<any>; // Disponibilidade do profissional
     duration: number;
     timeAvailable: Array<any>;
 };
@@ -313,12 +313,14 @@ export const firstStep = (firstStepInput: FirstStepInput): void => {
     } = firstStepInput || {};
     if (haveLunchTime === true) {
         const insideFirstHalf = intervalsOverlapping(
+            // Saber se esta antes do horário de almoço
             initDate,
             endDate,
             hourStart,
             hourLunchStart
         );
         const insideSecondHalf = intervalsOverlapping(
+            // Saber se esta depois do horário de almoço
             initDate,
             endDate,
             hourLunchEnd,
@@ -401,8 +403,8 @@ export const secondStep = (secondStepInput: SecondStepInput): void => {
         const endDateNext = appointments[index + 1]?.endDate;
         const hasNext = initDateNext && endDateNext;
 
-        if (!haveLunchTime) {
-            if (!hasNext) {
+        if (!haveLunchTime) { // Se não tiver horário de almoço
+            if (!hasNext) { // Se não tiver próximo agendamento é o ultimo
                 addTimeInArray({
                     initDate: parseISO(endDateAux as any),
                     endDate: hourEnd,
@@ -446,7 +448,8 @@ export const secondStep = (secondStepInput: SecondStepInput): void => {
                         dateQuery,
                         array: timeAvailableProfessional,
                     });
-                    addTimeInArray({
+                    addTimeInArray({ 
+                        // Se to na primeira metade e so o ultimo posso fechar a segunda metade
                         initDate: hourLunchEnd as any,
                         endDate: hourEnd,
                         dateQuery,
@@ -496,14 +499,15 @@ export const secondStep = (secondStepInput: SecondStepInput): void => {
     });
 };
 export const addTimeInArray = (addTimeInArrayInput: AddTimeInArrayInput): void => {
+    // Função para adicionar um intervalo de tempo em um array
     const { initDate, endDate, dateQuery, array } = addTimeInArrayInput || {};
     if (
         (initDate &&
             endDate &&
             initDate instanceof Date &&
             endDate instanceof Date &&
-            differenceInMinutes(initDate, endDate) < 0 &&
-            differenceInMinutes(initDate, dateQuery) > 0) ||
+            differenceInMinutes(initDate, endDate) < 0 && // Verifica se a data inicial é menor que a data final
+            differenceInMinutes(initDate, dateQuery) > 0) || //Data inicial é maior que a data de requisição
         (initDate &&
             endDate &&
             differenceInMinutes(

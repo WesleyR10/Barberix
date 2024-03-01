@@ -6,9 +6,11 @@ export type UpdateCategory = (
     query: Query,
     data: CategoryData
 ) => Promise<CategoryData | null>;
+
 export type UpdateCategorySignature = (
     updateCategory: UpdateCategoryRepository
 ) => UpdateCategory;
+
 export const updateCategory: UpdateCategorySignature =
     (updateCategoryRepository: UpdateCategoryRepository) =>
         async (query: Query, data: CategoryData) => {

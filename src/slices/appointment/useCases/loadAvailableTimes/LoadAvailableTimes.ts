@@ -6,12 +6,14 @@ import { LoadUserRepository } from "@/slices/user/repositories";
 import { LoadOwnerRepository } from "@/slices/owner/repositories";
 
 export type LoadAvailableTimes = (query: QueryAvailableTimes) => Promise<any | null>;
+
 export type LoadAvailableTimesSignature = (
     loadAvailableTimesRepository: LoadAvailableTimesRepository,
     serviceRepository: LoadServiceRepository,
     userRepository: LoadUserRepository,
     ownerRepository: LoadOwnerRepository
 ) => LoadAvailableTimes;
+
 export const loadAvailableTimes: LoadAvailableTimesSignature =
     (loadAvailableTimesRepository, serviceRepository, userRepository, ownerRepository) =>
         async (query: QueryAvailableTimes) => {

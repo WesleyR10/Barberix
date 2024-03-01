@@ -42,7 +42,7 @@ type Duration = {
     seconds?: number;
 };
 export const addDays = (date: number | Date, amount: number): string => {
-    //adicionar dia
+    //adicionar dia - amount é a quantidade de dias que deseja adicionar
     return addDaysDateFns(date, amount)?.toISOString?.();
 };
 export const addMinutes = (date: number | Date, amount: number): string => {
@@ -185,8 +185,8 @@ export const setMinutes = (date: number | Date, minutes: number): Date => {
 export const setHours = (date: number | Date, hours: number): Date => {
     return setHoursDateFns(date, hours);
 };
-export const setSeconds = (date: number | Date, hours: number): Date => {
-    return setSecondsDateFns(date, hours);
+export const setSeconds = (date: number | Date, seconds: number): Date => {
+    return setSecondsDateFns(date, seconds);
 };
 export const setMili = (date: number | Date, hours: number): Date => {
     return setMiliDateFns(date, hours);
@@ -199,6 +199,7 @@ export const differenceInDays = (date: number | Date, date2: number | Date): num
 };
 
 export const dayOfWeek = (date: number | Date): string => {
+    // Retorna o dia da semana - Como getDayDateFns retorna número, fiz um switch para retornar o dia da semana
     const result = getDayDateFns(date);
     switch (result) {
     case 0:
@@ -245,6 +246,7 @@ export const isBefore = (date: number | Date, date2: number | Date): boolean => 
 };
 
 export const trataTimezone = (date: number | Date): Date => {
+    //Tratar timezone
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     return utcToZonedTimeDateFns(date, timezone);
 };
