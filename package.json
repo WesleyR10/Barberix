@@ -4,6 +4,8 @@
     "description": "Sistema completo de agendamentos online do bootcamp CrazyStack",
     "main": "index.js",
     "scripts": {
+        "test:db": "jest --passWithNoTests --silent --noStackTrace --runInBand -c jest-db-config.js",
+        "test:all": "jest --passWithNoTests --silent --noStackTrace --runInBand -c jest-all-config.js",
         "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
         "generate": "yarn plop --plopfile ./generators/plopfile.js",
         "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
@@ -14,11 +16,14 @@
     "dependencies": {
         "date-fns": "^2.30.0",
         "date-fns-tz": "^2.0.0",
+        "mongodb": "^6.4.0",
         "yarn": "^1.22.21"
     },
     "devDependencies": {
+        "@shelf/jest-mongodb": "^4.2.0",
         "@stylistic/eslint-plugin-js": "^1.6.3",
         "@types/jest": "^29.5.10",
+        "@types/mongodb": "^4.0.7",
         "@typescript-eslint/eslint-plugin": "^6.13.2",
         "@typescript-eslint/parser": "^6.13.2",
         "dotenv": "^16.3.1",
@@ -29,6 +34,8 @@
         "jest": "^29.7.0",
         "jest-mock-extended": "^3.0.5",
         "mockdate": "^3.0.5",
+        "mongodb-memory-server": "^9.1.6",
+        "mongodb-memory-server-core": "^9.1.6",
         "plop": "^4.0.0",
         "prettier": "^3.1.0",
         "ts-jest": "^29.1.1",

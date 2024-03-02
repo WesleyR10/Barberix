@@ -1,2 +1,3 @@
 generators
 jest.config.js
+jest-mongodb-config.js
