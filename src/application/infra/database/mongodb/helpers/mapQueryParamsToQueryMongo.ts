@@ -9,11 +9,11 @@ import {
 export const mapQueryParamsToQueryMongo = (queryParams: any): any => {
     if (
         !queryParams ||
-      typeof queryParams !== "object" ||
-      !Object.keys(queryParams) ||
-      Object.keys(queryParams)?.length === 0
+        typeof queryParams !== "object" ||
+        !Object.keys(queryParams) ||
+        Object.keys(queryParams)?.length === 0
     ) {
-        return null;
+        return undefined;
     }
     const newQuery: any = {};
     const keys = Object.keys(queryParams);
@@ -30,7 +30,7 @@ export const mapQueryParamsToQueryMongo = (queryParams: any): any => {
             newQuery[key] = { $eq: Number(queryParams[key]) };
         } else if (
             !isNaN(Number(queryParams[key])) &&
-          numberFieldsWithOperations?.includes?.(key)
+        numberFieldsWithOperations?.includes?.(key)
         ) {
             const aux = key?.split?.("operator");
             newQuery[aux?.[0]] = { ["$" + aux?.[1]]: Number(queryParams[key]) };
@@ -67,10 +67,10 @@ export const mapQueryParamsToQueryMongo = (queryParams: any): any => {
 export const mountGeoNearQuery = (geoNearQueryParams: any): any => {
     if (
         !geoNearQueryParams ||
-      typeof geoNearQueryParams !== "object" ||
-      !Object.keys(geoNearQueryParams) ||
-      Object.keys(geoNearQueryParams)?.length === 0 ||
-      !geoNearQueryParams?.coordinates
+        typeof geoNearQueryParams !== "object" ||
+        !Object.keys(geoNearQueryParams) ||
+        Object.keys(geoNearQueryParams)?.length === 0 ||
+        !geoNearQueryParams?.coordinates
     ) {
         return null;
     }
