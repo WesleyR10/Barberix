@@ -3,19 +3,11 @@ import MockDate from "mockdate";
 
 import { Repository } from "@/application/infra/contracts/repository";
 import { Query } from "@/application/types";
-import { FidelityData, FidelityPaginated } from "@/slices/fidelity/entities";
 import {
     fakeFidelityEntity,
     fakeFidelityPaginated,
 } from "@/slices/fidelity/entities/FidelityEntity.spec";
 
-import {
-    AddFidelityRepository,
-    DeleteFidelityRepository,
-    LoadFidelityByPageRepository,
-    LoadFidelityRepository,
-    UpdateFidelityRepository,
-} from "./contracts";
 import { FidelityRepository } from "./fidelityRepository";
 
 describe("Fidelity Mongo Repository", () => {

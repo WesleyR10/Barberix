@@ -3,20 +3,12 @@ import MockDate from "mockdate";
 
 import { Repository } from "@/application/infra/contracts/repository";
 import { Query } from "@/application/types";
-import { ClientData, ClientPaginated } from "@/slices/client/entities";
 import {
     fakeClientEntity,
     fakeClientPaginated,
 } from "@/slices/client/entities/ClientEntity.spec";
 
 import { ClientRepository } from "./clientRepository";
-import {
-    AddClientRepository,
-    DeleteClientRepository,
-    LoadClientByPageRepository,
-    LoadClientRepository,
-    UpdateClientRepository,
-} from "./contracts";
 
 describe("Client Mongo Repository", () => {
     let fakeQuery: Query;

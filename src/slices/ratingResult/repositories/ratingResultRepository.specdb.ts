@@ -3,19 +3,11 @@ import MockDate from "mockdate";
 
 import { Repository } from "@/application/infra/contracts/repository";
 import { Query } from "@/application/types";
-import { RatingResultData, RatingResultPaginated } from "@/slices/ratingResult/entities";
 import {
     fakeRatingResultEntity,
     fakeRatingResultPaginated,
 } from "@/slices/ratingResult/entities/RatingResultEntity.spec";
 
-import {
-    AddRatingResultRepository,
-    DeleteRatingResultRepository,
-    LoadRatingResultByPageRepository,
-    LoadRatingResultRepository,
-    UpdateRatingResultRepository,
-} from "./contracts";
 import { RatingResultRepository } from "./ratingResultRepository";
 
 describe("RatingResult Mongo Repository", () => {

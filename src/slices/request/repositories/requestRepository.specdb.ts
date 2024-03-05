@@ -3,19 +3,11 @@ import MockDate from "mockdate";
 
 import { Repository } from "@/application/infra/contracts/repository";
 import { Query } from "@/application/types";
-import { RequestData, RequestPaginated } from "@/slices/request/entities";
 import {
     fakeRequestEntity,
     fakeRequestPaginated,
 } from "@/slices/request/entities/RequestEntity.spec";
 
-import {
-    AddRequestRepository,
-    DeleteRequestRepository,
-    LoadRequestByPageRepository,
-    LoadRequestRepository,
-    UpdateRequestRepository,
-} from "./contracts";
 import { RequestRepository } from "./requestRepository";
 
 describe("Request Mongo Repository", () => {

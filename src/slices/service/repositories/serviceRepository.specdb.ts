@@ -3,19 +3,11 @@ import MockDate from "mockdate";
 
 import { Repository } from "@/application/infra/contracts/repository";
 import { Query } from "@/application/types";
-import { ServiceData, ServicePaginated } from "@/slices/service/entities";
 import {
     fakeServiceEntity,
     fakeServicePaginated,
 } from "@/slices/service/entities/ServiceEntity.spec";
 
-import {
-    AddServiceRepository,
-    DeleteServiceRepository,
-    LoadServiceByPageRepository,
-    LoadServiceRepository,
-    UpdateServiceRepository,
-} from "./contracts";
 import { ServiceRepository } from "./serviceRepository";
 
 describe("Service Mongo Repository", () => {

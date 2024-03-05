@@ -3,19 +3,11 @@ import MockDate from "mockdate";
 
 import { Repository } from "@/application/infra/contracts/repository";
 import { Query } from "@/application/types";
-import { RideData, RidePaginated } from "@/slices/ride/entities";
 import {
     fakeRideEntity,
     fakeRidePaginated,
 } from "@/slices/ride/entities/RideEntity.spec";
 
-import {
-    AddRideRepository,
-    DeleteRideRepository,
-    LoadRideByPageRepository,
-    LoadRideRepository,
-    UpdateRideRepository,
-} from "./contracts";
 import { RideRepository } from "./rideRepository";
 
 describe("Ride Mongo Repository", () => {

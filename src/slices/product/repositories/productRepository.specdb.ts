@@ -3,19 +3,11 @@ import MockDate from "mockdate";
 
 import { Repository } from "@/application/infra/contracts/repository";
 import { Query } from "@/application/types";
-import { ProductData, ProductPaginated } from "@/slices/product/entities";
 import {
     fakeProductEntity,
     fakeProductPaginated,
 } from "@/slices/product/entities/ProductEntity.spec";
 
-import {
-    AddProductRepository,
-    DeleteProductRepository,
-    LoadProductByPageRepository,
-    LoadProductRepository,
-    UpdateProductRepository,
-} from "./contracts";
 import { ProductRepository } from "./productRepository";
 
 describe("Product Mongo Repository", () => {

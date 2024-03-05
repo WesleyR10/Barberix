@@ -3,19 +3,11 @@ import MockDate from "mockdate";
 
 import { Repository } from "@/application/infra/contracts/repository";
 import { Query } from "@/application/types";
-import { OrderData, OrderPaginated } from "@/slices/order/entities";
 import {
     fakeOrderEntity,
     fakeOrderPaginated,
 } from "@/slices/order/entities/OrderEntity.spec";
 
-import {
-    AddOrderRepository,
-    DeleteOrderRepository,
-    LoadOrderByPageRepository,
-    LoadOrderRepository,
-    UpdateOrderRepository,
-} from "./contracts";
 import { OrderRepository } from "./orderRepository";
 
 describe("Order Mongo Repository", () => {

@@ -3,20 +3,12 @@ import MockDate from "mockdate";
 
 import { Repository } from "@/application/infra/contracts/repository";
 import { Query } from "@/application/types";
-import { AccountData, AccountPaginated } from "@/slices/account/entities";
 import {
     fakeAccountEntity,
     fakeAccountPaginated,
 } from "@/slices/account/entities/AccountEntity.spec";
 
 import { AccountRepository } from "./accountRepository";
-import {
-    AddAccountRepository,
-    DeleteAccountRepository,
-    LoadAccountByPageRepository,
-    LoadAccountRepository,
-    UpdateAccountRepository,
-} from "./contracts";
 
 describe("Account Mongo Repository", () => {
     let fakeQuery: Query;

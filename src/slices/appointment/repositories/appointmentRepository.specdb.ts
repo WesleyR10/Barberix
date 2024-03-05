@@ -3,20 +3,12 @@ import MockDate from "mockdate";
 
 import { Repository } from "@/application/infra/contracts/repository";
 import { Query } from "@/application/types";
-import { AppointmentData, AppointmentPaginated } from "@/slices/appointment/entities";
 import {
     fakeAppointmentEntity,
     fakeAppointmentPaginated,
 } from "@/slices/appointment/entities/AppointmentEntity.spec";
 
 import { AppointmentRepository } from "./appointmentRepository";
-import {
-    AddAppointmentRepository,
-    DeleteAppointmentRepository,
-    LoadAppointmentByPageRepository,
-    LoadAppointmentRepository,
-    UpdateAppointmentRepository,
-} from "./contracts";
 
 describe("Appointment Mongo Repository", () => {
     let fakeQuery: Query;

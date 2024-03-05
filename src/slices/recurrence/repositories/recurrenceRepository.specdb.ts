@@ -3,19 +3,11 @@ import MockDate from "mockdate";
 
 import { Repository } from "@/application/infra/contracts/repository";
 import { Query } from "@/application/types";
-import { RecurrenceData, RecurrencePaginated } from "@/slices/recurrence/entities";
 import {
     fakeRecurrenceEntity,
     fakeRecurrencePaginated,
 } from "@/slices/recurrence/entities/RecurrenceEntity.spec";
 
-import {
-    AddRecurrenceRepository,
-    DeleteRecurrenceRepository,
-    LoadRecurrenceByPageRepository,
-    LoadRecurrenceRepository,
-    UpdateRecurrenceRepository,
-} from "./contracts";
 import { RecurrenceRepository } from "./recurrenceRepository";
 
 describe("Recurrence Mongo Repository", () => {

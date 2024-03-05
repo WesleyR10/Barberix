@@ -3,19 +3,11 @@ import MockDate from "mockdate";
 
 import { Repository } from "@/application/infra/contracts/repository";
 import { Query } from "@/application/types";
-import { OwnerData, OwnerPaginated } from "@/slices/owner/entities";
 import {
     fakeOwnerEntity,
     fakeOwnerPaginated,
 } from "@/slices/owner/entities/OwnerEntity.spec";
 
-import {
-    AddOwnerRepository,
-    DeleteOwnerRepository,
-    LoadOwnerByPageRepository,
-    LoadOwnerRepository,
-    UpdateOwnerRepository,
-} from "./contracts";
 import { OwnerRepository } from "./ownerRepository";
 
 describe("Owner Mongo Repository", () => {
