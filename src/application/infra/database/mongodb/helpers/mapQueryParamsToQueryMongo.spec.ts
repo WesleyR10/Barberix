@@ -138,7 +138,7 @@ describe("mapQueryParamsToQueryMongo", () => {
     });
     test("mountGeoNearQuery", () => {
         const objectMapped = mountGeoNearQuery(null as any);
-        expect(objectMapped).toBeUndefined();
+        expect(objectMapped).toBeNull();
     });
     test("mountGeoNearQuery function", () => {
         const objectMapped = mountGeoNearQuery({
