@@ -22,6 +22,7 @@
     "rules": {
         "prettier/prettier": 0,
         "simple-import-sort/imports": "error",
+        "@typescript-eslint/no-explicit-any": "off",
         "@stylistic/js/indent": [
             "error",
             4
@@ -37,7 +38,6 @@
         "semi": [
             "error",
             "always"
-        ],
-        "@typescript-eslint/no-explicit-any": "off"
+        ]
     }
 }

@@ -134,11 +134,11 @@ describe("mapQueryParamsToQueryMongo", () => {
     });
     test("mapQueryParamsToQueryMongo", () => {
         const objectMapped = mapQueryParamsToQueryMongo(null as any);
-        expect(objectMapped).toBeNull();
+        expect(objectMapped).toBeUndefined();
     });
     test("mountGeoNearQuery", () => {
         const objectMapped = mountGeoNearQuery(null as any);
-        expect(objectMapped).toBeNull();
+        expect(objectMapped).toBeUndefined();
     });
     test("mountGeoNearQuery function", () => {
         const objectMapped = mountGeoNearQuery({

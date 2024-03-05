@@ -13,7 +13,8 @@ export const mapAnyToMongoObject = (anyObject: any): any => {
     Object.keys(anyObject).forEach((key: string) => {
         if (
             (key?.includes?.("Id") || key?.includes?.("_id")) &&
-            typeof anyObject[key] === "string"
+        anyObject?.[key]?.length === 24 &&
+        typeof anyObject[key] === "string"
         ) {
             mongoObject[key] = new ObjectId(anyObject[key]);
         } else if (key?.includes?.("Ids") || key?.includes?.("_ids")) {
