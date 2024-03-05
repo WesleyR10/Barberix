@@ -29,7 +29,7 @@ implements
         const pageNumber = typeof page === "number" ? page : 0;
 
         const categorys = await this.repository.getPaginate(
-            // query?.options?.page ?? 0 // Era assim 
+            // query?.options?.page ?? 0, // Era assim 
             pageNumber, // Ficou assim
             query?.fields ?? {},
             query?.options?.sort ?? { createdAt: -1 },
