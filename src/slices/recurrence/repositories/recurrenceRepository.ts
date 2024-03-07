@@ -25,11 +25,9 @@ implements
         return this.repository.deleteOne(query?.fields);
     }
     async loadRecurrenceByPage(query: Query): Promise<RecurrencePaginated | null> {
-        const page = query?.options?.page;
-        const pageNumber = typeof page === "number" ? page : 0;
 
         const recurrences = await this.repository.getPaginate(
-            pageNumber,
+            query?.options?.page ?? 0,
             query?.fields ?? {},
             query?.options?.sort ?? { createdAt: -1 },
             10,

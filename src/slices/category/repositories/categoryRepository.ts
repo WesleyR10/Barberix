@@ -25,12 +25,9 @@ implements
         return this.repository.deleteOne(query?.fields);
     }
     async loadCategoryByPage(query: Query): Promise<CategoryPaginated | null> {
-        const page = query?.options?.page;
-        const pageNumber = typeof page === "number" ? page : 0;
 
         const categorys = await this.repository.getPaginate(
-            // query?.options?.page ?? 0, // Era assim 
-            pageNumber, // Ficou assim
+            query?.options?.page ?? 0,
             query?.fields ?? {},
             query?.options?.sort ?? { createdAt: -1 },
             10,

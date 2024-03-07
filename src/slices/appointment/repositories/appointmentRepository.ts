@@ -103,11 +103,9 @@ export class AppointmentRepository implements
     }
 
     async loadAppointmentByPage(query: Query): Promise<AppointmentPaginated | null> {
-        const page = query?.options?.page;
-        const pageNumber = typeof page === "number" ? page : 0;
 
         const appointments = await this.repository.getPaginate(
-            pageNumber,
+            query?.options?.page ?? 0,
             query?.fields ?? {},
             query?.options?.sort ?? { createdAt: -1 },
             10,

@@ -92,11 +92,9 @@ export class UserRepository implements
     }
 
     async loadUserByPage(query: Query): Promise<UserPaginated | null> {
-        const page = query?.options?.page;
-        const pageNumber = typeof page === "number" ? page : 0;
 
         const users = await this.repository.getPaginate(
-            pageNumber,
+            query?.options?.page ?? 0,
             query?.fields ?? {},
             query?.options?.sort ?? { createdAt: -1 },
             10,
