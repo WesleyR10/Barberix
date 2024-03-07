@@ -6,7 +6,7 @@ export type Query = {
 export type QueryOptions = {
     projection?: unknown;
     sort?: unknown;
-    page?: unknown;
+    page?: number;
     limit?: number;
     userLoggedId?: string;
     indexToCreate?: any;
