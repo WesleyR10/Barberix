@@ -41,12 +41,10 @@ export class UserRepository implements
             _id: { $ne: new ObjectId(query?.options?.userLoggedId) },
         });
         if (queryMongo?.$text) {
-            const page = query?.options?.page;
-            const pageNumber = typeof page === "number" ? page : 0;
 
             const resultPaginatedArray =
                 (await this.repository.getPaginate(
-                    pageNumber,
+                    query?.options?.page ?? 0,
                     queryMongo,
                     query?.options?.sort ?? { createdAt: -1 },
                     10,
@@ -56,14 +54,12 @@ export class UserRepository implements
             return { users: resultPaginatedArray, total: totalPaginated };
         }
         if (!coord?.coordinates) return null;
-        const page = query?.options?.page;
-        const pageNumber = typeof page === "number" ? page : 0;
 
         const { coordinates } = coord;
         const queryBuilded = new QueryBuilder()
             .geoNear(mountGeoNearQuery({ query: queryMongo, coordinates }))
             .sort({ distance: 1 })
-            .skip(((pageNumber) - 1) * 10)
+            .skip(((query?.options?.page ?? 0) - 1) * 10)
             .limit(10)
             .project({ password: 0 })
             .build();

@@ -14,8 +14,10 @@
     "author": "WesleyR",
     "license": "ISC",
     "dependencies": {
+        "bcrypt": "^5.1.1",
         "date-fns": "^2.30.0",
         "date-fns-tz": "^2.0.0",
+        "module-alias": "^2.2.3",
         "mongodb": "^6.4.0",
         "yarn": "^1.22.21"
     },
@@ -23,7 +25,9 @@
         "@shelf/jest-mongodb": "^4.2.0",
         "@stylistic/eslint-plugin-js": "^1.6.3",
         "@types/babel__core": "^7.20.5",
+        "@types/bcrypt": "^5.0.2",
         "@types/jest": "^29.5.10",
+        "@types/module-alias": "^2.0.4",
         "@types/mongodb": "^4.0.7",
         "@typescript-eslint/eslint-plugin": "^6.13.2",
         "@typescript-eslint/parser": "^6.13.2",
