@@ -7,6 +7,9 @@
         "test:db": "jest --passWithNoTests --silent --noStackTrace --runInBand -c jest-db-config.js",
         "test:all": "jest --passWithNoTests --silent --noStackTrace --runInBand -c jest-all-config.js",
         "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+        "clean": "rimraf dist",
+        "build": "npm run clean && tsc",
+        "start": "node -r dotenv/config dist",
         "generate": "yarn plop --plopfile ./generators/plopfile.js",
         "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
         "lint": "eslint \"{src, generators, apps, libs, test}/**/*.ts\" --fix"
@@ -14,13 +17,16 @@
     "author": "WesleyR",
     "license": "ISC",
     "dependencies": {
+        "@fastify/mongodb": "^8.0.0",
         "bcrypt": "^5.1.1",
         "date-fns": "^2.30.0",
         "date-fns-tz": "^2.0.0",
+        "fastify": "^4.26.2",
         "jsonwebtoken": "^9.0.2",
         "module-alias": "^2.2.3",
         "mongodb": "^6.4.0",
-        "yarn": "^1.22.21"
+        "yarn": "^1.22.21",
+        "zod": "^3.22.4"
     },
     "devDependencies": {
         "@shelf/jest-mongodb": "^4.2.0",

@@ -1,3 +1,4 @@
-import "./application/infra/config/module-alias";
-
-import { env } from "@/application/infra";
+export * from "./database";
+export * from "./config";
+export * from "./crypto";
+export * from "./routes";
