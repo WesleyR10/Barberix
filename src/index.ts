@@ -1,16 +1,44 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import "./application/infra/config/module-alias";
 
 import Fastify, { FastifyInstance } from "fastify";
 
-import { env, routes } from "@/application/infra";
+import { env, MongoHelper,routes } from "@/application/infra";
+
+const { fastifyRequestContextPlugin } = require("@fastify/request-context");
 const fastify: FastifyInstance = Fastify({ logger: true });
 
 const start = async () => {
     try {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        const client = await MongoHelper.connect(env.MONGO_URL);
+
+        await fastify.register(require("@fastify/helmet"), {
+            contentSecurityPolicy: false,
+            global: true,
+        });
+        await fastify.register(require("@fastify/rate-limit"), {
+            max: 15,
+            timeWindow: "10 minutes",
+        });
+        await fastify.register(require("@fastify/under-pressure"), {
+            maxEventLoopDelay: 1000,
+            maxHeapUsedBytes: 100000000,
+            maxRssBytes: 100000000,
+            maxEventLoopUtilization: 0.98,
+            message: "Estamos sobrecarregados!",
+            retryAfter: 50,
+        });
+
+        await fastify.register(fastifyRequestContextPlugin, {
+            hook: "onRequest",
+            defaultStoreValues: {
+                user: { insertedId: "system" },
+            },
+        });
+        
         await fastify.register(require("@fastify/mongodb"), {
             forceClose: true,
-            url: env.MONGO_URL,
+            client,
         });
 
         for (const route of routes) {
