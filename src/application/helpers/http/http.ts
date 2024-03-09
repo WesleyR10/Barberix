@@ -1,11 +1,11 @@
 import { ForbiddenError, ServerError,UnauthorizedError } from "@/application/errors";
 
-interface ResponseBody {
-  message: string;
+/* interface ResponseBody {
+  message?: string;
   data?: any;
-}
+} */ 
 
-export type HttpResponse<T = ResponseBody> = { statusCode: number; data: T };
+export type HttpResponse<T = any> = { statusCode: number; data: T };
 
 export type HttpRequest<T = any> = {
   body?: T;

@@ -5,9 +5,6 @@ import { Repository } from "@/application/infra/contracts/repository";
 import { MongoHelper } from "@/application/infra/database/mongodb";
 
 import { MongoRepository } from "./mongo-repository";
-
-jest.setTimeout(500000);
-
 const mockUser = {
     name: "valid_name",
     email: "valid_email@bol.com",
@@ -107,7 +104,6 @@ describe("Mongo Repository tests", () => {
             name: "John Doe",
         });
         const result = await sut.getAll({});
-        console.log(result);
         expect(result).toEqual([{ ...mockUser, _id: insertedId, name: "John Doe" }]);
     });
     test("Should return an user getCount success", async () => {

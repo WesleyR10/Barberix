@@ -60,18 +60,6 @@ export class MongoRepository extends Repository {
             { upsert: false, session }
         );
     }
-    async upsertAndPush(query: any, data: any, pushData: any): Promise<any> {
-        const collection = await this.getCollection();
-        const session = await MongoHelper.getSession();
-        if (query._id) {
-            query._id = new ObjectId(query._id);
-        }
-        return collection.findOneAndUpdate(
-            mapQueryParamsToQueryMongo(query),
-            { $set: mapAnyToMongoObject(data), $push: pushData },
-            { upsert: true, session, returnDocument: "after" }
-        );
-    }
     async update(query: any, data: any): Promise<any> {
         const collection = await this.getCollection();
         const session = await MongoHelper.getSession();
