@@ -30,7 +30,7 @@
         ],
         "linebreak-style": [
             "error",
-            "unix"
+            "space"
         ],
         "quotes": [
             "error",
