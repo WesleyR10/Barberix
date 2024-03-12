@@ -12,7 +12,7 @@ import {
 } from "@/application/helpers";
 import { env } from "@/application/infra/config";
 import { Middleware } from "@/application/infra/contracts";
-import { LoadUser } from "@/slices/user/useCases/loadUser";
+import { LoadUser } from "@/slices/user/useCases";
 
 export class AuthMiddleware implements Middleware {
   constructor(private readonly loadUser: LoadUser, private readonly roles: string[]) {}
