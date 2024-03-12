@@ -16,6 +16,7 @@
     },
     "plugins": [
         "@typescript-eslint",
+        "prettier",
         "@stylistic/js",
         "simple-import-sort"
     ],
@@ -25,7 +26,7 @@
         "@typescript-eslint/no-explicit-any": "off",
         "@stylistic/js/indent": [
             "error",
-            4
+            2
         ],
         "linebreak-style": [
             "error",

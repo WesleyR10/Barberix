@@ -7,5 +7,5 @@ export type AddRecurrenceSignature = (
 ) => AddRecurrence;
 export const addRecurrence: AddRecurrenceSignature =
     (addRecurrenceRepository: AddRecurrenceRepository) => (data: RecurrenceData) => {
-        return addRecurrenceRepository.addRecurrence(new RecurrenceEntity(data));
+      return addRecurrenceRepository.addRecurrence(new RecurrenceEntity(data));
     };

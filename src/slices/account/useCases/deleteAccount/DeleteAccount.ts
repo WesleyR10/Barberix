@@ -8,5 +8,5 @@ export type DeleteAccountSignature = (
 ) => DeleteAccount;
 export const deleteAccount: DeleteAccountSignature =
     (deleteAccountRepository: DeleteAccountRepository) => (query: Query) => {
-        return deleteAccountRepository.deleteAccount(query);
+      return deleteAccountRepository.deleteAccount(query);
     };

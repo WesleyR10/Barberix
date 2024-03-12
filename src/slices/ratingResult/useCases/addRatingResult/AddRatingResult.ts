@@ -9,5 +9,5 @@ export type AddRatingResultSignature = (
 ) => AddRatingResult;
 export const addRatingResult: AddRatingResultSignature =
     (addRatingResultRepository: AddRatingResultRepository) => (data: RatingResultData) => {
-        return addRatingResultRepository.addRatingResult(new RatingResultEntity(data));
+      return addRatingResultRepository.addRatingResult(new RatingResultEntity(data));
     };

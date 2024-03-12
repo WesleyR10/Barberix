@@ -8,5 +8,5 @@ export type LoadRideByPageSignature = (
 ) => LoadRideByPage;
 export const loadRideByPage: LoadRideByPageSignature =
     (loadRideByPageRepository: LoadRideByPageRepository) => async (query: Query) => {
-        return loadRideByPageRepository.loadRideByPage(query);
+      return loadRideByPageRepository.loadRideByPage(query);
     };

@@ -11,6 +11,6 @@ export type UpdateServiceSignature = (
 ) => UpdateService;
 export const updateService: UpdateServiceSignature =
     (updateServiceRepository: UpdateServiceRepository) =>
-        async (query: Query, data: ServiceData) => {
-            return updateServiceRepository.updateService(query, data);
-        };
+      async (query: Query, data: ServiceData) => {
+        return updateServiceRepository.updateService(query, data);
+      };

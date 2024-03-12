@@ -8,6 +8,6 @@ export type UpdateUserSignature = (updateUser: UpdateUserRepository) => UpdateUs
 
 export const updateUser: UpdateUserSignature =
     (updateUserRepository: UpdateUserRepository) =>
-        async (query: Query, data: UserData) => {
-            return updateUserRepository.updateUser(query, data);
-        };
+      async (query: Query, data: UserData) => {
+        return updateUserRepository.updateUser(query, data);
+      };

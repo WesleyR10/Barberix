@@ -6,5 +6,5 @@ export type LoadOwner = (query: Query) => Promise<OwnerData | null>;
 export type LoadOwnerSignature = (loadOwner: LoadOwnerRepository) => LoadOwner;
 export const loadOwner: LoadOwnerSignature =
     (loadOwnerRepository: LoadOwnerRepository) => async (query: Query) => {
-        return loadOwnerRepository.loadOwner(query);
+      return loadOwnerRepository.loadOwner(query);
     };

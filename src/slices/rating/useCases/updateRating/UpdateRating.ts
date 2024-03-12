@@ -6,6 +6,6 @@ export type UpdateRating = (query: Query, data: RatingData) => Promise<RatingDat
 export type UpdateRatingSignature = (updateRating: UpdateRatingRepository) => UpdateRating;
 export const updateRating: UpdateRatingSignature =
     (updateRatingRepository: UpdateRatingRepository) =>
-        async (query: Query, data: RatingData) => {
-            return updateRatingRepository.updateRating(query, data);
-        };
+      async (query: Query, data: RatingData) => {
+        return updateRatingRepository.updateRating(query, data);
+      };

@@ -8,5 +8,5 @@ export type LoadAppointmentSignature = (
 ) => LoadAppointment;
 export const loadAppointment: LoadAppointmentSignature =
     (loadAppointmentRepository: LoadAppointmentRepository) => async (query: Query) => {
-        return loadAppointmentRepository.loadAppointment(query);
+      return loadAppointmentRepository.loadAppointment(query);
     };

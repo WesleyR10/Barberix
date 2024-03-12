@@ -10,6 +10,6 @@ export type LoadCategoryByPageSignature = (
 
 export const loadCategoryByPage: LoadCategoryByPageSignature =
     (loadCategoryByPageRepository: LoadCategoryByPageRepository) =>
-        async (query: Query) => {
-            return loadCategoryByPageRepository.loadCategoryByPage(query);
-        };
+      async (query: Query) => {
+        return loadCategoryByPageRepository.loadCategoryByPage(query);
+      };

@@ -8,5 +8,5 @@ export type DeleteAppointmentSignature = (
 ) => DeleteAppointment;
 export const deleteAppointment: DeleteAppointmentSignature =
     (deleteAppointmentRepository: DeleteAppointmentRepository) => (query: Query) => {
-        return deleteAppointmentRepository.deleteAppointment(query);
+      return deleteAppointmentRepository.deleteAppointment(query);
     };

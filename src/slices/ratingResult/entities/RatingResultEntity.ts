@@ -40,30 +40,30 @@ export type RatingResultPaginated = {
 };
 
 export class RatingResultEntity {
-    createdById: string;
-    name: string;
-    active?: boolean;
-    createdAt?: Date;
-    updatedAt?: Date;
-    ratingId: string;
-    rating?: string;
-    comment?: string;
-    requestId: string;
-    ratingType: string;
-    ratingForId: string;
-    ratings: RatingResultStarsModel[];
-    constructor(data: RatingResultData) {
-        this.createdById = data.createdById;
-        this.name = data.name;
-        this.active = false;
-        this.createdAt = new Date();
-        this.updatedAt = new Date();
-        this.ratingId = data.ratingId;
-        this.requestId = data.requestId;
-        this.ratingType = data.ratingType;
-        this.ratingForId = data.ratingForId;
-        this.ratings = data.ratings;
-        this.rating = data.rating;
-        this.comment = data.comment;
-    }
+  createdById: string;
+  name: string;
+  active?: boolean;
+  createdAt?: Date;
+  updatedAt?: Date;
+  ratingId: string;
+  rating?: string;
+  comment?: string;
+  requestId: string;
+  ratingType: string;
+  ratingForId: string;
+  ratings: RatingResultStarsModel[];
+  constructor(data: RatingResultData) {
+    this.createdById = data.createdById;
+    this.name = data.name;
+    this.active = false;
+    this.createdAt = new Date();
+    this.updatedAt = new Date();
+    this.ratingId = data.ratingId;
+    this.requestId = data.requestId;
+    this.ratingType = data.ratingType;
+    this.ratingForId = data.ratingForId;
+    this.ratings = data.ratings;
+    this.rating = data.rating;
+    this.comment = data.comment;
+  }
 }

@@ -8,6 +8,6 @@ export type LoadRecurrenceByPageSignature = (
 ) => LoadRecurrenceByPage;
 export const loadRecurrenceByPage: LoadRecurrenceByPageSignature =
     (loadRecurrenceByPageRepository: LoadRecurrenceByPageRepository) =>
-        async (query: Query) => {
-            return loadRecurrenceByPageRepository.loadRecurrenceByPage(query);
-        };
+      async (query: Query) => {
+        return loadRecurrenceByPageRepository.loadRecurrenceByPage(query);
+      };

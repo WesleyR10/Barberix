@@ -6,5 +6,5 @@ export type LoadUser = (query: Query) => Promise<UserData | null>;
 export type LoadUserSignature = (loadUser: LoadUserRepository) => LoadUser;
 export const loadUser: LoadUserSignature =
     (loadUserRepository: LoadUserRepository) => async (query: Query) => {
-        return loadUserRepository.loadUser(query);
+      return loadUserRepository.loadUser(query);
     };

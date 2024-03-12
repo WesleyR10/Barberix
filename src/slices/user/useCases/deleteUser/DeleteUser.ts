@@ -6,5 +6,5 @@ export type DeleteUser = (query: Query) => Promise<UserData | null>;
 export type DeleteUserSignature = (deleteUser: DeleteUserRepository) => DeleteUser;
 export const deleteUser: DeleteUserSignature =
     (deleteUserRepository: DeleteUserRepository) => (query: Query) => {
-        return deleteUserRepository.deleteUser(query);
+      return deleteUserRepository.deleteUser(query);
     };

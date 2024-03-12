@@ -11,6 +11,6 @@ export type UpdateRatingResultSignature = (
 ) => UpdateRatingResult;
 export const updateRatingResult: UpdateRatingResultSignature =
     (updateRatingResultRepository: UpdateRatingResultRepository) =>
-        async (query: Query, data: RatingResultData) => {
-            return updateRatingResultRepository.updateRatingResult(query, data);
-        };
+      async (query: Query, data: RatingResultData) => {
+        return updateRatingResultRepository.updateRatingResult(query, data);
+      };

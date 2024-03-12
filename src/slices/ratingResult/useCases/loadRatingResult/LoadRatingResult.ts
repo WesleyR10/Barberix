@@ -8,5 +8,5 @@ export type LoadRatingResultSignature = (
 ) => LoadRatingResult;
 export const loadRatingResult: LoadRatingResultSignature =
     (loadRatingResultRepository: LoadRatingResultRepository) => async (query: Query) => {
-        return loadRatingResultRepository.loadRatingResult(query);
+      return loadRatingResultRepository.loadRatingResult(query);
     };

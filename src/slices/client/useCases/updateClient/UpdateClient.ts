@@ -6,6 +6,6 @@ export type UpdateClient = (query: Query, data: ClientData) => Promise<ClientDat
 export type UpdateClientSignature = (updateClient: UpdateClientRepository) => UpdateClient;
 export const updateClient: UpdateClientSignature =
     (updateClientRepository: UpdateClientRepository) =>
-        async (query: Query, data: ClientData) => {
-            return updateClientRepository.updateClient(query, data);
-        };
+      async (query: Query, data: ClientData) => {
+        return updateClientRepository.updateClient(query, data);
+      };

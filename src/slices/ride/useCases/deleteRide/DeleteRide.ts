@@ -6,5 +6,5 @@ export type DeleteRide = (query: Query) => Promise<RideData | null>;
 export type DeleteRideSignature = (deleteRide: DeleteRideRepository) => DeleteRide;
 export const deleteRide: DeleteRideSignature =
     (deleteRideRepository: DeleteRideRepository) => (query: Query) => {
-        return deleteRideRepository.deleteRide(query);
+      return deleteRideRepository.deleteRide(query);
     };

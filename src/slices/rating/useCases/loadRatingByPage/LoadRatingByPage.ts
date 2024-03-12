@@ -8,5 +8,5 @@ export type LoadRatingByPageSignature = (
 ) => LoadRatingByPage;
 export const loadRatingByPage: LoadRatingByPageSignature =
     (loadRatingByPageRepository: LoadRatingByPageRepository) => async (query: Query) => {
-        return loadRatingByPageRepository.loadRatingByPage(query);
+      return loadRatingByPageRepository.loadRatingByPage(query);
     };

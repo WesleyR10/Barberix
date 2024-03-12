@@ -8,5 +8,5 @@ export type DeleteFidelitySignature = (
 ) => DeleteFidelity;
 export const deleteFidelity: DeleteFidelitySignature =
     (deleteFidelityRepository: DeleteFidelityRepository) => (query: Query) => {
-        return deleteFidelityRepository.deleteFidelity(query);
+      return deleteFidelityRepository.deleteFidelity(query);
     };

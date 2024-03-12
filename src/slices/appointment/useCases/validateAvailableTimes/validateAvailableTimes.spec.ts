@@ -2,18 +2,18 @@ import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
 import {
-    fakeAvailableTimesEntity as fakeAvailableTimesModelRepository,
-    fakeAvailableTimesModel,
-    fakeAvailableTimesModel2,
+  fakeAvailableTimesEntity as fakeAvailableTimesModelRepository,
+  fakeAvailableTimesModel,
+  fakeAvailableTimesModel2,
 } from "@/slices/appointment/entities/AppointmentEntity.spec";
 import { LoadAvailableTimesRepository } from "@/slices/appointment/repositories";
 import {
-    LoadAvailableTimes,
-    loadAvailableTimes,
+  LoadAvailableTimes,
+  loadAvailableTimes,
 } from "@/slices/appointment/useCases/loadAvailableTimes";
 import {
-    ValidateAvailableTimes,
-    validateAvailableTimes,
+  ValidateAvailableTimes,
+  validateAvailableTimes,
 } from "@/slices/appointment/useCases/validateAvailableTimes";
 import { fakeOwnerEntity } from "@/slices/owner/entities/OwnerEntity.spec";
 import { LoadOwnerRepository } from "@/slices/owner/repositories";
@@ -23,112 +23,112 @@ import { fakeUserEntity } from "@/slices/user/entities/UserEntity.spec";
 import { LoadUserRepository } from "@/slices/user/repositories";
 
 describe("ValidateAvailableTimes", () => {
-    let testInstance: ValidateAvailableTimes;
-    let testLoadAvailableTimes: LoadAvailableTimes;
-    let loadAvailableTimesRepository: MockProxy<LoadAvailableTimesRepository>;
-    let serviceRepository: MockProxy<LoadServiceRepository>;
-    let userRepository: MockProxy<LoadUserRepository>;
-    let ownerRepository: MockProxy<LoadOwnerRepository>;
-    beforeAll(async () => {
-        MockDate.set(new Date());
-        loadAvailableTimesRepository = mock();
-        serviceRepository = mock();
-        userRepository = mock();
-        ownerRepository = mock();
-        userRepository.loadUser.mockResolvedValue(fakeUserEntity);
-        ownerRepository.loadOwner.mockResolvedValue(fakeOwnerEntity);
-        serviceRepository.loadService.mockResolvedValue(fakeServiceEntity);
-        loadAvailableTimesRepository.loadAvailableTimes.mockResolvedValue(
-            fakeAvailableTimesModelRepository
-        );
+  let testInstance: ValidateAvailableTimes;
+  let testLoadAvailableTimes: LoadAvailableTimes;
+  let loadAvailableTimesRepository: MockProxy<LoadAvailableTimesRepository>;
+  let serviceRepository: MockProxy<LoadServiceRepository>;
+  let userRepository: MockProxy<LoadUserRepository>;
+  let ownerRepository: MockProxy<LoadOwnerRepository>;
+  beforeAll(async () => {
+    MockDate.set(new Date());
+    loadAvailableTimesRepository = mock();
+    serviceRepository = mock();
+    userRepository = mock();
+    ownerRepository = mock();
+    userRepository.loadUser.mockResolvedValue(fakeUserEntity);
+    ownerRepository.loadOwner.mockResolvedValue(fakeOwnerEntity);
+    serviceRepository.loadService.mockResolvedValue(fakeServiceEntity);
+    loadAvailableTimesRepository.loadAvailableTimes.mockResolvedValue(
+      fakeAvailableTimesModelRepository
+    );
+  });
+  beforeEach(() => {
+    testLoadAvailableTimes = loadAvailableTimes(
+      loadAvailableTimesRepository,
+      serviceRepository,
+      userRepository,
+      ownerRepository
+    );
+    testInstance = validateAvailableTimes(testLoadAvailableTimes);
+  });
+  afterAll(async () => {
+    MockDate.reset();
+  });
+  it("should return true if i have available times", async () => {
+    testInstance = validateAvailableTimes(
+      jest.fn().mockImplementation((query) => fakeAvailableTimesModel)
+    );
+    const appointment = await testInstance({
+      professionalId: "fakeUserId",
+      date: new Date(2021, 9, 14, 3, 0).toISOString(),
+      serviceId: "fakeServiceId",
+      ownerId: "fakeOwnerId",
+      initDate: "2021-10-14T11:00:00.000Z",
+      endDate: "2021-10-14T11:30:00.000Z",
     });
-    beforeEach(() => {
-        testLoadAvailableTimes = loadAvailableTimes(
-            loadAvailableTimesRepository,
-            serviceRepository,
-            userRepository,
-            ownerRepository
-        );
-        testInstance = validateAvailableTimes(testLoadAvailableTimes);
+    expect(appointment).toBeTruthy();
+  });
+  it("should return false if i pass null as param", async () => {
+    testInstance = validateAvailableTimes(
+      jest.fn().mockImplementation((query) => fakeAvailableTimesModel)
+    );
+    const appointment = await testInstance(null as any);
+    expect(appointment).toBe(false);
+  });
+  it("should return false if pass endDate <= initDate", async () => {
+    testInstance = validateAvailableTimes(
+      jest.fn().mockImplementation((query) => fakeAvailableTimesModel)
+    );
+    const appointment = await testInstance({
+      professionalId: "fakeUserId",
+      date: new Date(2021, 9, 14, 3, 0).toISOString(),
+      serviceId: "fakeServiceId",
+      ownerId: "fakeOwnerId",
+      initDate: "2021-10-14T14:00:00.000Z",
+      endDate: "2021-10-14T11:30:00.000Z",
     });
-    afterAll(async () => {
-        MockDate.reset();
+    expect(appointment).toBe(false);
+  });
+  it("should return false if loadAvailableTimes returns null", async () => {
+    testInstance = validateAvailableTimes(
+      jest.fn().mockImplementation((query) => null)
+    );
+    const appointment = await testInstance({
+      professionalId: "fakeUserId",
+      date: new Date(2021, 9, 14, 3, 0).toISOString(),
+      serviceId: "fakeServiceId",
+      ownerId: "fakeOwnerId",
+      initDate: "2021-10-14T11:00:00.000Z",
+      endDate: "2021-10-14T11:30:00.000Z",
     });
-    it("should return true if i have available times", async () => {
-        testInstance = validateAvailableTimes(
-            jest.fn().mockImplementation((query) => fakeAvailableTimesModel)
-        );
-        const appointment = await testInstance({
-            professionalId: "fakeUserId",
-            date: new Date(2021, 9, 14, 3, 0).toISOString(),
-            serviceId: "fakeServiceId",
-            ownerId: "fakeOwnerId",
-            initDate: "2021-10-14T11:00:00.000Z",
-            endDate: "2021-10-14T11:30:00.000Z",
-        });
-        expect(appointment).toBeTruthy();
+    expect(appointment).toBe(false);
+  });
+  it("should return true if i have time available", async () => {
+    testInstance = validateAvailableTimes(
+      jest.fn().mockImplementation((query) => fakeAvailableTimesModel2)
+    );
+    const appointment = await testInstance({
+      professionalId: "fakeUserId",
+      date: new Date(2021, 9, 14, 3, 0).toISOString(),
+      serviceId: "fakeServiceId",
+      ownerId: "fakeOwnerId",
+      initDate: "2021-10-14T11:00:00.000Z",
+      endDate: "2021-10-14T11:30:00.000Z",
     });
-    it("should return false if i pass null as param", async () => {
-        testInstance = validateAvailableTimes(
-            jest.fn().mockImplementation((query) => fakeAvailableTimesModel)
-        );
-        const appointment = await testInstance(null as any);
-        expect(appointment).toBe(false);
+    expect(appointment).toBe(true);
+  });
+  it("should return false if i haven`t time available", async () => {
+    testInstance = validateAvailableTimes(
+      jest.fn().mockImplementation((query) => fakeAvailableTimesModel)
+    );
+    const appointment = await testInstance({
+      professionalId: "fakeUserId",
+      date: new Date(2021, 9, 14, 3, 0).toISOString(),
+      serviceId: "fakeServiceId",
+      ownerId: "fakeOwnerId",
+      initDate: "2021-10-14T04:00:00.000Z",
+      endDate: "2021-10-14T04:30:00.000Z",
     });
-    it("should return false if pass endDate <= initDate", async () => {
-        testInstance = validateAvailableTimes(
-            jest.fn().mockImplementation((query) => fakeAvailableTimesModel)
-        );
-        const appointment = await testInstance({
-            professionalId: "fakeUserId",
-            date: new Date(2021, 9, 14, 3, 0).toISOString(),
-            serviceId: "fakeServiceId",
-            ownerId: "fakeOwnerId",
-            initDate: "2021-10-14T14:00:00.000Z",
-            endDate: "2021-10-14T11:30:00.000Z",
-        });
-        expect(appointment).toBe(false);
-    });
-    it("should return false if loadAvailableTimes returns null", async () => {
-        testInstance = validateAvailableTimes(
-            jest.fn().mockImplementation((query) => null)
-        );
-        const appointment = await testInstance({
-            professionalId: "fakeUserId",
-            date: new Date(2021, 9, 14, 3, 0).toISOString(),
-            serviceId: "fakeServiceId",
-            ownerId: "fakeOwnerId",
-            initDate: "2021-10-14T11:00:00.000Z",
-            endDate: "2021-10-14T11:30:00.000Z",
-        });
-        expect(appointment).toBe(false);
-    });
-    it("should return true if i have time available", async () => {
-        testInstance = validateAvailableTimes(
-            jest.fn().mockImplementation((query) => fakeAvailableTimesModel2)
-        );
-        const appointment = await testInstance({
-            professionalId: "fakeUserId",
-            date: new Date(2021, 9, 14, 3, 0).toISOString(),
-            serviceId: "fakeServiceId",
-            ownerId: "fakeOwnerId",
-            initDate: "2021-10-14T11:00:00.000Z",
-            endDate: "2021-10-14T11:30:00.000Z",
-        });
-        expect(appointment).toBe(true);
-    });
-    it("should return false if i haven`t time available", async () => {
-        testInstance = validateAvailableTimes(
-            jest.fn().mockImplementation((query) => fakeAvailableTimesModel)
-        );
-        const appointment = await testInstance({
-            professionalId: "fakeUserId",
-            date: new Date(2021, 9, 14, 3, 0).toISOString(),
-            serviceId: "fakeServiceId",
-            ownerId: "fakeOwnerId",
-            initDate: "2021-10-14T04:00:00.000Z",
-            endDate: "2021-10-14T04:30:00.000Z",
-        });
-        expect(appointment).toBe(false);
-    });
+    expect(appointment).toBe(false);
+  });
 });

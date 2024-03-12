@@ -8,5 +8,5 @@ export type DeleteRequestSignature = (
 ) => DeleteRequest;
 export const deleteRequest: DeleteRequestSignature =
     (deleteRequestRepository: DeleteRequestRepository) => (query: Query) => {
-        return deleteRequestRepository.deleteRequest(query);
+      return deleteRequestRepository.deleteRequest(query);
     };

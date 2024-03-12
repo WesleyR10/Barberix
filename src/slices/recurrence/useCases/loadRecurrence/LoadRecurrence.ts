@@ -8,5 +8,5 @@ export type LoadRecurrenceSignature = (
 ) => LoadRecurrence;
 export const loadRecurrence: LoadRecurrenceSignature =
     (loadRecurrenceRepository: LoadRecurrenceRepository) => async (query: Query) => {
-        return loadRecurrenceRepository.loadRecurrence(query);
+      return loadRecurrenceRepository.loadRecurrence(query);
     };

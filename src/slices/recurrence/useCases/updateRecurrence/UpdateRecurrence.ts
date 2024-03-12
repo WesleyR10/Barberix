@@ -11,6 +11,6 @@ export type UpdateRecurrenceSignature = (
 ) => UpdateRecurrence;
 export const updateRecurrence: UpdateRecurrenceSignature =
     (updateRecurrenceRepository: UpdateRecurrenceRepository) =>
-        async (query: Query, data: RecurrenceData) => {
-            return updateRecurrenceRepository.updateRecurrence(query, data);
-        };
+      async (query: Query, data: RecurrenceData) => {
+        return updateRecurrenceRepository.updateRecurrence(query, data);
+      };

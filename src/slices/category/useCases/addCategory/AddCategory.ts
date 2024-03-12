@@ -7,7 +7,7 @@ export type AddCategorySignature = (addCategory: AddCategoryRepository) => AddCa
 
 export const addCategory: AddCategorySignature =
     (addCategoryRepository: AddCategoryRepository) => (data: CategoryData) => {
-        return addCategoryRepository.addCategory(new CategoryEntity(data));
+      return addCategoryRepository.addCategory(new CategoryEntity(data));
     };
 
 // Equivale a criar um construtor de objetos que implementa a interface AddCategoryRepository

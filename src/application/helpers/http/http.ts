@@ -18,18 +18,18 @@ export type HttpRequest<T = any> = {
 
 export const ok = <T = any>(data: T): HttpResponse<T> => ({ statusCode: 200, data });
 export const badRequest = <T = string>(error: T): HttpResponse<T> => ({
-    statusCode: 400,
-    data: error,
+  statusCode: 400,
+  data: error,
 });
 export const unauthorized = (): HttpResponse<UnauthorizedError> => ({
-    statusCode: 401,
-    data: new UnauthorizedError(),
+  statusCode: 401,
+  data: new UnauthorizedError(),
 });
 export const forbidden = (error: ForbiddenError): HttpResponse<ForbiddenError> => ({
-    statusCode: 403,
-    data: new ForbiddenError(error),
+  statusCode: 403,
+  data: new ForbiddenError(error),
 });
 export const serverError = (error: ServerError): HttpResponse<ServerError> => ({
-    statusCode: 500,
-    data: new ServerError(error),
+  statusCode: 500,
+  data: new ServerError(error),
 });

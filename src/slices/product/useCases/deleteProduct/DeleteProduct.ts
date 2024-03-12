@@ -8,5 +8,5 @@ export type DeleteProductSignature = (
 ) => DeleteProduct;
 export const deleteProduct: DeleteProductSignature =
     (deleteProductRepository: DeleteProductRepository) => (query: Query) => {
-        return deleteProductRepository.deleteProduct(query);
+      return deleteProductRepository.deleteProduct(query);
     };

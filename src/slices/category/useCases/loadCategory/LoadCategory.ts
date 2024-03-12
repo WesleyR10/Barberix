@@ -8,5 +8,5 @@ export type LoadCategorySignature = (loadCategory: LoadCategoryRepository) => Lo
 
 export const loadCategory: LoadCategorySignature =
     (loadCategoryRepository: LoadCategoryRepository) => async (query: Query) => {
-        return loadCategoryRepository.loadCategory(query);
+      return loadCategoryRepository.loadCategory(query);
     };

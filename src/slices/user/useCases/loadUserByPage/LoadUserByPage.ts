@@ -8,5 +8,5 @@ export type LoadUserByPageSignature = (
 ) => LoadUserByPage;
 export const loadUserByPage: LoadUserByPageSignature =
     (loadUserByPageRepository: LoadUserByPageRepository) => async (query: Query) => {
-        return loadUserByPageRepository.loadUserByPage(query);
+      return loadUserByPageRepository.loadUserByPage(query);
     };

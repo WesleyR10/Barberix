@@ -1,6 +1,6 @@
 import {
-    AvailableTimesModelRepository,
-    QueryAvailableTimesRepository,
+  AvailableTimesModelRepository,
+  QueryAvailableTimesRepository,
 } from "@/slices/appointment/entities";
 
 export interface LoadAvailableTimesRepository {

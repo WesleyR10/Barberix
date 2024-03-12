@@ -8,5 +8,5 @@ export type DeleteRatingResultSignature = (
 ) => DeleteRatingResult;
 export const deleteRatingResult: DeleteRatingResultSignature =
     (deleteRatingResultRepository: DeleteRatingResultRepository) => (query: Query) => {
-        return deleteRatingResultRepository.deleteRatingResult(query);
+      return deleteRatingResultRepository.deleteRatingResult(query);
     };

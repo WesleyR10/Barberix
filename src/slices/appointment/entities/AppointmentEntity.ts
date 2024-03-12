@@ -30,51 +30,51 @@ export type AppointmentPaginated = {
 };
 
 export class AppointmentEntity {
-    createdById: string;
-    name: string;
-    active?: boolean;
-    createdAt?: Date;
-    updatedAt?: Date;
-    requestId?: string;
-    message?: string;
-    service?: string;
-    ownerId?: string;
-    clientId?: string;
-    professionalId?: string;
-    serviceId?: string;
-    status?: number;
-    createdForId?: string;
-    read?: boolean;
-    cancelled?: boolean;
-    push?: boolean;
-    email?: boolean;
-    initDate?: Date;
-    endDate?: Date;
-    cancelledAt?: Date | null;
-    cancelledBy?: string;
-    constructor(data: AppointmentData) {
-        this.createdById = data.createdById;
-        this.name = data.name;
-        this.active = false;
-        this.createdAt = new Date();
-        this.updatedAt = new Date();
-        this.requestId = data.requestId;
-        this.message = data.message;
-        this.serviceId = data.serviceId;
-        this.ownerId = data.ownerId;
-        this.clientId = data.clientId;
-        this.professionalId = data.professionalId;
-        this.status = data.status;
-        this.createdForId = data.createdForId;
-        this.read = data.read;
-        this.cancelled = false;
-        this.push = data.push;
-        this.email = data.email;
-        this.initDate = data.initDate;
-        this.endDate = data.endDate;
-        this.cancelledAt = data.cancelledAt;
-        this.cancelledBy = data.cancelledBy;
-    }
+  createdById: string;
+  name: string;
+  active?: boolean;
+  createdAt?: Date;
+  updatedAt?: Date;
+  requestId?: string;
+  message?: string;
+  service?: string;
+  ownerId?: string;
+  clientId?: string;
+  professionalId?: string;
+  serviceId?: string;
+  status?: number;
+  createdForId?: string;
+  read?: boolean;
+  cancelled?: boolean;
+  push?: boolean;
+  email?: boolean;
+  initDate?: Date;
+  endDate?: Date;
+  cancelledAt?: Date | null;
+  cancelledBy?: string;
+  constructor(data: AppointmentData) {
+    this.createdById = data.createdById;
+    this.name = data.name;
+    this.active = false;
+    this.createdAt = new Date();
+    this.updatedAt = new Date();
+    this.requestId = data.requestId;
+    this.message = data.message;
+    this.serviceId = data.serviceId;
+    this.ownerId = data.ownerId;
+    this.clientId = data.clientId;
+    this.professionalId = data.professionalId;
+    this.status = data.status;
+    this.createdForId = data.createdForId;
+    this.read = data.read;
+    this.cancelled = false;
+    this.push = data.push;
+    this.email = data.email;
+    this.initDate = data.initDate;
+    this.endDate = data.endDate;
+    this.cancelledAt = data.cancelledAt;
+    this.cancelledBy = data.cancelledBy;
+  }
 }
 export type OwnerAppointmentInfo = {
     hourEnd1: any;

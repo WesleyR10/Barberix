@@ -6,5 +6,5 @@ export type LoadOrder = (query: Query) => Promise<OrderData | null>;
 export type LoadOrderSignature = (loadOrder: LoadOrderRepository) => LoadOrder;
 export const loadOrder: LoadOrderSignature =
     (loadOrderRepository: LoadOrderRepository) => async (query: Query) => {
-        return loadOrderRepository.loadOrder(query);
+      return loadOrderRepository.loadOrder(query);
     };

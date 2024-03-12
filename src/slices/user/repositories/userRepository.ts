@@ -3,19 +3,19 @@ import { ObjectId } from "mongodb";
 import { QueryBuilder } from "@/application/helpers/utils/queryBuilder";
 import { Repository } from "@/application/infra/contracts/repository";
 import {
-    mapQueryParamsToQueryMongo,
-    mountGeoNearQuery,
+  mapQueryParamsToQueryMongo,
+  mountGeoNearQuery,
 } from "@/application/infra/database/mongodb";
 import { Query } from "@/application/types";
 import { UserData, UserPaginated } from "@/slices/user/entities";
 
 import {
-    AddUserRepository,
-    DeleteUserRepository,
-    LoadUserByPageGeoNearRepository,
-    LoadUserByPageRepository,
-    LoadUserRepository,
-    UpdateUserRepository,
+  AddUserRepository,
+  DeleteUserRepository,
+  LoadUserByPageGeoNearRepository,
+  LoadUserByPageRepository,
+  LoadUserRepository,
+  UpdateUserRepository,
 } from "./contracts";
 
 export class UserRepository implements
@@ -26,85 +26,85 @@ export class UserRepository implements
         UpdateUserRepository,
         LoadUserByPageGeoNearRepository
 {
-    async loadUserByPageGeoNear(query: Query): Promise<UserPaginated | null> {
-        if (!query?.options?.userLoggedId) { // Se não tiver usuário logado
-            return null;
-        }
-        const { coord = null } =
+  async loadUserByPageGeoNear(query: Query): Promise<UserPaginated | null> {
+    if (!query?.options?.userLoggedId) { // Se não tiver usuário logado
+      return null;
+    }
+    const { coord = null } =
             (await this.repository.getOne(
-                { _id: new ObjectId(query?.options?.userLoggedId) },
-                { projection: { password: 0 } }
+              { _id: new ObjectId(query?.options?.userLoggedId) },
+              { projection: { password: 0 } }
             )) || {};
-        const queryMongo = mapQueryParamsToQueryMongo({
-            ...((query?.fields ?? {}) as object),
-            active: true,
-            _id: { $ne: new ObjectId(query?.options?.userLoggedId) },
-        });
-        if (queryMongo?.$text) {
+    const queryMongo = mapQueryParamsToQueryMongo({
+      ...((query?.fields ?? {}) as object),
+      active: true,
+      _id: { $ne: new ObjectId(query?.options?.userLoggedId) },
+    });
+    if (queryMongo?.$text) {
 
-            const resultPaginatedArray =
+      const resultPaginatedArray =
                 (await this.repository.getPaginate(
-                    query?.options?.page ?? 0,
-                    queryMongo,
-                    query?.options?.sort ?? { createdAt: -1 },
-                    10,
-                    query?.options?.projection ?? {}
+                  query?.options?.page ?? 0,
+                  queryMongo,
+                  query?.options?.sort ?? { createdAt: -1 },
+                  10,
+                  query?.options?.projection ?? {}
                 )) ?? [];
-            const totalPaginated = (await this.repository.getCount(queryMongo)) ?? 0;
-            return { users: resultPaginatedArray, total: totalPaginated };
-        }
-        if (!coord?.coordinates) return null;
+      const totalPaginated = (await this.repository.getCount(queryMongo)) ?? 0;
+      return { users: resultPaginatedArray, total: totalPaginated };
+    }
+    if (!coord?.coordinates) return null;
 
-        const { coordinates } = coord;
-        const queryBuilded = new QueryBuilder()
-            .geoNear(mountGeoNearQuery({ query: queryMongo, coordinates }))
-            .sort({ distance: 1 })
-            .skip(((query?.options?.page ?? 0) - 1) * 10)
-            .limit(10)
-            .project({ password: 0 })
-            .build();
-        const totalQueryBuilded = new QueryBuilder()
-            .geoNear(mountGeoNearQuery({ query: queryMongo, coordinates }))
-            .count("name")
-            .build();
-        const resultGeoNearPaginatedArray =
+    const { coordinates } = coord;
+    const queryBuilded = new QueryBuilder()
+      .geoNear(mountGeoNearQuery({ query: queryMongo, coordinates }))
+      .sort({ distance: 1 })
+      .skip(((query?.options?.page ?? 0) - 1) * 10)
+      .limit(10)
+      .project({ password: 0 })
+      .build();
+    const totalQueryBuilded = new QueryBuilder()
+      .geoNear(mountGeoNearQuery({ query: queryMongo, coordinates }))
+      .count("name")
+      .build();
+    const resultGeoNearPaginatedArray =
             (await this.repository.aggregate(queryBuilded)) ?? [];
-        const totalResult = (await this.repository.aggregate(totalQueryBuilded)) ?? null;
-        const total = totalResult?.[0]?.name ?? 0;
-        return { users: resultGeoNearPaginatedArray, total };
-    }
+    const totalResult = (await this.repository.aggregate(totalQueryBuilded)) ?? null;
+    const total = totalResult?.[0]?.name ?? 0;
+    return { users: resultGeoNearPaginatedArray, total };
+  }
 
-    async incrementAppointmentsTotal(query: Query): Promise<UserData | null> {
-        return this.repository.increment(query?.fields ?? {}, {appointmentsTotal: 1});
-    }
-    constructor(private readonly repository: Repository) {}
+  async incrementAppointmentsTotal(query: Query): Promise<UserData | null> {
+    return this.repository.increment(query?.fields ?? {}, {appointmentsTotal: 1});
+  }
+  constructor(private readonly repository: Repository) {}
 
-    async addUser(user: UserData): Promise<UserData | null> {
-        return this.repository.add(user);
-    }
+  async addUser(user: UserData): Promise<UserData | null> {
+    return this.repository.add(user);
+  }
 
-    async deleteUser(query: Query): Promise<UserData | null> {
-        return this.repository.deleteOne(query?.fields);
-    }
+  async deleteUser(query: Query): Promise<UserData | null> {
+    return this.repository.deleteOne(query?.fields);
+  }
 
-    async loadUserByPage(query: Query): Promise<UserPaginated | null> {
+  async loadUserByPage(query: Query): Promise<UserPaginated | null> {
 
-        const users = await this.repository.getPaginate(
-            query?.options?.page ?? 0,
-            query?.fields ?? {},
-            query?.options?.sort ?? { createdAt: -1 },
-            10,
-            query?.options?.projection ?? {}
-        );
-        const total = await this.repository.getCount(query?.fields ?? {});
-        return { users, total };
-    }
+    const users = await this.repository.getPaginate(
+      query?.options?.page ?? 0,
+      query?.fields ?? {},
+      query?.options?.sort ?? { createdAt: -1 },
+      10,
+      query?.options?.projection ?? {}
+    );
+    const total = await this.repository.getCount(query?.fields ?? {});
+    return { users, total };
+  }
 
-    async loadUser(query: Query): Promise<UserData | null> {
-        return this.repository.getOne(query?.fields ?? {}, query?.options ?? {});
-    }
+  async loadUser(query: Query): Promise<UserData | null> {
+    return this.repository.getOne(query?.fields ?? {}, query?.options ?? {});
+  }
 
-    async updateUser(query: Query, data: UserData): Promise<UserData | null> {
-        return this.repository.update(query?.fields ?? {}, data);
-    }
+  async updateUser(query: Query, data: UserData): Promise<UserData | null> {
+    return this.repository.update(query?.fields ?? {}, data);
+  }
 }

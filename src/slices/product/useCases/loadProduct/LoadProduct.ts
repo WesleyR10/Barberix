@@ -6,5 +6,5 @@ export type LoadProduct = (query: Query) => Promise<ProductData | null>;
 export type LoadProductSignature = (loadProduct: LoadProductRepository) => LoadProduct;
 export const loadProduct: LoadProductSignature =
     (loadProductRepository: LoadProductRepository) => async (query: Query) => {
-        return loadProductRepository.loadProduct(query);
+      return loadProductRepository.loadProduct(query);
     };

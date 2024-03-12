@@ -8,5 +8,5 @@ export type DeleteRecurrenceSignature = (
 ) => DeleteRecurrence;
 export const deleteRecurrence: DeleteRecurrenceSignature =
     (deleteRecurrenceRepository: DeleteRecurrenceRepository) => (query: Query) => {
-        return deleteRecurrenceRepository.deleteRecurrence(query);
+      return deleteRecurrenceRepository.deleteRecurrence(query);
     };

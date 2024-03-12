@@ -8,5 +8,5 @@ export type DeleteServiceSignature = (
 ) => DeleteService;
 export const deleteService: DeleteServiceSignature =
     (deleteServiceRepository: DeleteServiceRepository) => (query: Query) => {
-        return deleteServiceRepository.deleteService(query);
+      return deleteServiceRepository.deleteService(query);
     };

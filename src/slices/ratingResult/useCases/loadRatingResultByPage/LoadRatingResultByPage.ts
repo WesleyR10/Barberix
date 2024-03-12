@@ -10,6 +10,6 @@ export type LoadRatingResultByPageSignature = (
 ) => LoadRatingResultByPage;
 export const loadRatingResultByPage: LoadRatingResultByPageSignature =
     (loadRatingResultByPageRepository: LoadRatingResultByPageRepository) =>
-        async (query: Query) => {
-            return loadRatingResultByPageRepository.loadRatingResultByPage(query);
-        };
+      async (query: Query) => {
+        return loadRatingResultByPageRepository.loadRatingResultByPage(query);
+      };

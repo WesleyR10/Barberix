@@ -6,255 +6,255 @@ import { fakeRequestEntity } from "@/slices/request/entities/RequestEntity.spec"
 import { statusIsValid } from "./status";
 
 describe("Testing status validators", () => {
-    beforeAll(async () => {
-        MockDate.set(new Date());
-    });
-    afterAll(async () => {
-        MockDate.reset();
-    });
-    it("should return false if i pass null as parameter", () => {
-        expect(statusIsValid(null as any)).toBe(false);
-    });
-    it(
-        "should return true when status === 0" +
+  beforeAll(async () => {
+    MockDate.set(new Date());
+  });
+  afterAll(async () => {
+    MockDate.reset();
+  });
+  it("should return false if i pass null as parameter", () => {
+    expect(statusIsValid(null as any)).toBe(false);
+  });
+  it(
+    "should return true when status === 0" +
             "and newStatus === 4, initDate > new Date() (appointment wasn`t happened)",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: new Date(2099, 10, 10, 10).toISOString(),
-                        status: 0,
-                    },
-                    newStatus: 4,
-                })
-            ).toBe(true);
-        }
-    );
-    it(
-        "should return false when status !== 0" +
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: new Date(2099, 10, 10, 10).toISOString(),
+            status: 0,
+          },
+          newStatus: 4,
+        })
+      ).toBe(true);
+    }
+  );
+  it(
+    "should return false when status !== 0" +
             "and newStatus === 4, initDate > new Date() (appointment wasn`t happened)",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: new Date(2099, 10, 10, 10).toISOString(),
-                        status: 3,
-                    },
-                    newStatus: 4,
-                })
-            ).toBe(false);
-        }
-    );
-    it(
-        "should return false when status === 0" +
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: new Date(2099, 10, 10, 10).toISOString(),
+            status: 3,
+          },
+          newStatus: 4,
+        })
+      ).toBe(false);
+    }
+  );
+  it(
+    "should return false when status === 0" +
             "and newStatus === 1, initDate < new Date() (appointment was happened)",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: new Date(1999, 10, 10, 10).toISOString(),
-                        status: 0,
-                    },
-                    newStatus: 1,
-                })
-            ).toBe(false);
-        }
-    );
-    it(
-        "should return false when status === 1" +
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: new Date(1999, 10, 10, 10).toISOString(),
+            status: 0,
+          },
+          newStatus: 1,
+        })
+      ).toBe(false);
+    }
+  );
+  it(
+    "should return false when status === 1" +
             "and newStatus === 9, initDate > new Date() (appointment wasn`t happened)",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: new Date(2099, 10, 10, 10).toISOString(),
-                        status: 1,
-                    },
-                    newStatus: 9,
-                })
-            ).toBe(false);
-        }
-    );
-    it(
-        "should return true when status === 0" +
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: new Date(2099, 10, 10, 10).toISOString(),
+            status: 1,
+          },
+          newStatus: 9,
+        })
+      ).toBe(false);
+    }
+  );
+  it(
+    "should return true when status === 0" +
             "and newStatus === 1, initDate > new Date() (appointment wasn`t happened)",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: new Date(2099, 10, 10, 10).toISOString(),
-                        status: 0,
-                    },
-                    newStatus: 1,
-                })
-            ).toBe(true);
-        }
-    );
-    it(
-        "should return true when status === 0" +
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: new Date(2099, 10, 10, 10).toISOString(),
+            status: 0,
+          },
+          newStatus: 1,
+        })
+      ).toBe(true);
+    }
+  );
+  it(
+    "should return true when status === 0" +
             "and newStatus === 2||===3, initDate > new Date() (appointment wasn`t happened) in valid period",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: new Date(2099, 10, 10, 10).toISOString(),
-                        status: 0,
-                    },
-                    newStatus: 2,
-                })
-            ).toBe(true);
-        }
-    );
-    it(
-        "should return false when status === 0" +
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: new Date(2099, 10, 10, 10).toISOString(),
+            status: 0,
+          },
+          newStatus: 2,
+        })
+      ).toBe(true);
+    }
+  );
+  it(
+    "should return false when status === 0" +
             "and newStatus === 2||===3, initDate > new Date() (appointment wasn`t happened) because the period was expired",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: addMinutes(new Date(), 10),
-                        status: 0,
-                    },
-                    newStatus: 2,
-                })
-            ).toBe(false);
-        }
-    );
-    it(
-        "should return true when (status === 0||1,2,3,4,7)" +
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: addMinutes(new Date(), 10),
+            status: 0,
+          },
+          newStatus: 2,
+        })
+      ).toBe(false);
+    }
+  );
+  it(
+    "should return true when (status === 0||1,2,3,4,7)" +
             "and newStatus === 5, initDate > new Date() (appointment wasn`t happened) in valid period",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: new Date(2099, 10, 10, 10).toISOString(),
-                        status: 0,
-                    },
-                    newStatus: 5,
-                })
-            ).toBe(true);
-        }
-    );
-    it(
-        "should return false when (status === 0||1,2,3,4,7)" +
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: new Date(2099, 10, 10, 10).toISOString(),
+            status: 0,
+          },
+          newStatus: 5,
+        })
+      ).toBe(true);
+    }
+  );
+  it(
+    "should return false when (status === 0||1,2,3,4,7)" +
             "and newStatus === 5, initDate > new Date() (appointment wasn`t happened) because the period was expired",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: addMinutes(new Date(), 10),
-                        status: 0,
-                    },
-                    newStatus: 5,
-                })
-            ).toBe(false);
-        }
-    );
-    it(
-        "should return true when (status === 5||6)" +
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: addMinutes(new Date(), 10),
+            status: 0,
+          },
+          newStatus: 5,
+        })
+      ).toBe(false);
+    }
+  );
+  it(
+    "should return true when (status === 5||6)" +
             "and newStatus === 7||8, initDate > new Date() (appointment wasn`t happened)",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: new Date(2099, 10, 10, 10).toISOString(),
-                        status: 5,
-                    },
-                    newStatus: 7,
-                })
-            ).toBe(true);
-        }
-    );
-    it(
-        "should return true when (status === 1||7)" +
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: new Date(2099, 10, 10, 10).toISOString(),
+            status: 5,
+          },
+          newStatus: 7,
+        })
+      ).toBe(true);
+    }
+  );
+  it(
+    "should return true when (status === 1||7)" +
             "and newStatus === 9, initDate > new Date() (appointment wasn`t happened) in valid period",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: subMinutes(new Date(), 4000).toISOString(),
-                        status: 1,
-                    },
-                    newStatus: 9,
-                })
-            ).toBe(true);
-        }
-    );
-    it(
-        "should return false when (status === 1||7" +
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: subMinutes(new Date(), 4000).toISOString(),
+            status: 1,
+          },
+          newStatus: 9,
+        })
+      ).toBe(true);
+    }
+  );
+  it(
+    "should return false when (status === 1||7" +
             "and newStatus === 9, initDate > new Date() (appointment wasn`t happened) because the period was expired",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: subMinutes(new Date(), 7000).toISOString(),
-                        status: 7,
-                    },
-                    newStatus: 9,
-                })
-            ).toBe(false);
-        }
-    );
-    it(
-        "should return true when (status === 1||7||9)" +
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: subMinutes(new Date(), 7000).toISOString(),
+            status: 7,
+          },
+          newStatus: 9,
+        })
+      ).toBe(false);
+    }
+  );
+  it(
+    "should return true when (status === 1||7||9)" +
             "and newStatus === 10, initDate > new Date() (appointment wasn`t happened)",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: subMinutes(new Date(), 4000).toISOString(),
-                        status: 1,
-                    },
-                    newStatus: 10,
-                })
-            ).toBe(true);
-        }
-    );
-    it(
-        "should return true when (status === 10)" +
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: subMinutes(new Date(), 4000).toISOString(),
+            status: 1,
+          },
+          newStatus: 10,
+        })
+      ).toBe(true);
+    }
+  );
+  it(
+    "should return true when (status === 10)" +
             "and newStatus === 11, initDate > new Date() (appointment wasn`t happened) in valid period",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: subMinutes(new Date(), 4000).toISOString(),
-                        status: 10,
-                    },
-                    newStatus: 11,
-                })
-            ).toBe(true);
-        }
-    );
-    it(
-        "should return false when (status === 10" +
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: subMinutes(new Date(), 4000).toISOString(),
+            status: 10,
+          },
+          newStatus: 11,
+        })
+      ).toBe(true);
+    }
+  );
+  it(
+    "should return false when (status === 10" +
             "and newStatus === 11, initDate > new Date() (appointment wasn`t happened) because the period was expired",
-        () => {
-            expect(
-                statusIsValid({
-                    currentRequest: {
-                        ...fakeRequestEntity,
-                        initDate: subMinutes(new Date(), 7000).toISOString(),
-                        status: 10,
-                    },
-                    newStatus: 11,
-                })
-            ).toBe(false);
-        }
-    );
+    () => {
+      expect(
+        statusIsValid({
+          currentRequest: {
+            ...fakeRequestEntity,
+            initDate: subMinutes(new Date(), 7000).toISOString(),
+            status: 10,
+          },
+          newStatus: 11,
+        })
+      ).toBe(false);
+    }
+  );
 });
 /*
 const statusTypes = [

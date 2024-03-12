@@ -10,5 +10,5 @@ export type DeleteCategorySignature = (
 
 export const deleteCategory: DeleteCategorySignature =
     (deleteCategoryRepository: DeleteCategoryRepository) => (query: Query) => {
-        return deleteCategoryRepository.deleteCategory(query);
+      return deleteCategoryRepository.deleteCategory(query);
     };

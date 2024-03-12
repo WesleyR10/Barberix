@@ -6,6 +6,6 @@ export type UpdateOrder = (query: Query, data: OrderData) => Promise<OrderData |
 export type UpdateOrderSignature = (updateOrder: UpdateOrderRepository) => UpdateOrder;
 export const updateOrder: UpdateOrderSignature =
     (updateOrderRepository: UpdateOrderRepository) =>
-        async (query: Query, data: OrderData) => {
-            return updateOrderRepository.updateOrder(query, data);
-        };
+      async (query: Query, data: OrderData) => {
+        return updateOrderRepository.updateOrder(query, data);
+      };
