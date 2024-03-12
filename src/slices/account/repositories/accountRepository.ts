@@ -1,7 +1,5 @@
 import { Repository } from "@/application/infra/contracts/repository";
-import { Query } from "@/application/types";
 import { AccountData, AccountPaginated } from "@/slices/account/entities";
-
 import {
   AddAccountRepository,
   DeleteAccountRepository,
@@ -9,23 +7,24 @@ import {
   LoadAccountRepository,
   UpdateAccountRepository,
 } from "./contracts";
+import { Query } from "@/application/types";
+
 export class AccountRepository
-implements
-        AddAccountRepository,
-        DeleteAccountRepository,
-        LoadAccountByPageRepository,
-        LoadAccountRepository,
-        UpdateAccountRepository
+  implements
+    AddAccountRepository,
+    DeleteAccountRepository,
+    LoadAccountByPageRepository,
+    LoadAccountRepository,
+    UpdateAccountRepository
 {
   constructor(private readonly repository: Repository) {}
   async addAccount(account: AccountData): Promise<AccountData | null> {
     return this.repository.add(account);
   }
   async deleteAccount(query: Query): Promise<AccountData | null> {
-    return this.repository.deleteOne(query?.fields);
+    return this.repository.deleteMany(query?.fields);
   }
   async loadAccountByPage(query: Query): Promise<AccountPaginated | null> {
-
     const accounts = await this.repository.getPaginate(
       query?.options?.page ?? 0,
       query?.fields ?? {},

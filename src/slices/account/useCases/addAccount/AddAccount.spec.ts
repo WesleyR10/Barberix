@@ -1,19 +1,22 @@
-import { mock, MockProxy } from "jest-mock-extended";
+import { fakeAccountEntity } from "@/slices/account/entities/AccountEntity.spec";
+import { AccountEntity } from "@/slices/account/entities";
+import {
+  AddAccountRepository,
+  DeleteAccountRepository,
+} from "@/slices/account/repositories/contracts";
 import MockDate from "mockdate";
 
-import { AccountEntity } from "@/slices/account/entities";
-import { fakeAccountEntity } from "@/slices/account/entities/AccountEntity.spec";
-import { AddAccountRepository } from "@/slices/account/repositories/contracts";
-
+import { mock, MockProxy } from "jest-mock-extended";
 import { addAccount } from "./AddAccount";
 
 describe("addAccount", () => {
   let testInstance: any;
-  let addAccountRepository: MockProxy<AddAccountRepository>;
+  let addAccountRepository: MockProxy<AddAccountRepository & DeleteAccountRepository>;
   beforeAll(async () => {
     MockDate.set(new Date());
     addAccountRepository = mock();
     addAccountRepository.addAccount.mockResolvedValue(fakeAccountEntity);
+    addAccountRepository.deleteAccount.mockResolvedValue(fakeAccountEntity);
   });
   beforeEach(() => {
     testInstance = addAccount(addAccountRepository);
