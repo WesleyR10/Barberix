@@ -6,8 +6,8 @@ export const makeDbAuthentication = (): Authentication => {
   const salt = 12;
   const bcryptAdapter = new BcryptAdapter(salt);
   const jwtAdapter = new JwtAdapter(env.JWT_SECRET, "120d");
-  const jwtRefreshTokenAdapter = new JwtAdapter(env.JWT_REFRESH_SECRET, "120d");
-  const userMongoRepository = new MongoRepository("users");
+  const jwtRefreshTokenAdapter = new JwtAdapter(env.JWT_REFRESH_SECRET, "10d");
+  const userMongoRepository = new MongoRepository("user");
   const userRepository = new UserRepository(userMongoRepository);
   return new DbAuthentication(
     userRepository,
