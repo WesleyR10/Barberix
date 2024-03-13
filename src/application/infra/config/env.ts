@@ -6,6 +6,7 @@ export const envSchema = z.object({
   JWT_REFRESH_SECRET: z.string().default("secret"),
   PORT: z.coerce.number().optional().default(3333),
   NODE_ENV: z.string().default("production"),
+  ENVIRONMENT: z.string().default("development"),
 });
 
 export type Env = z.infer<typeof envSchema>
