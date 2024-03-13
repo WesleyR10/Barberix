@@ -42,7 +42,7 @@ const start = async () => {
     });
 
     for (const route of routes) {
-      fastify.register(route);
+      fastify.register(route, { prefix: "/api" });
     }
     const port: any = env.PORT ?? 3000;
     await fastify.listen({ port, host: "0.0.0.0" });
