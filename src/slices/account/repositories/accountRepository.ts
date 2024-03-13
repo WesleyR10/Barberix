@@ -1,5 +1,7 @@
 import { Repository } from "@/application/infra/contracts/repository";
+import { Query } from "@/application/types";
 import { AccountData, AccountPaginated } from "@/slices/account/entities";
+
 import {
   AddAccountRepository,
   DeleteAccountRepository,
@@ -7,10 +9,9 @@ import {
   LoadAccountRepository,
   UpdateAccountRepository,
 } from "./contracts";
-import { Query } from "@/application/types";
 
 export class AccountRepository
-  implements
+implements
     AddAccountRepository,
     DeleteAccountRepository,
     LoadAccountByPageRepository,

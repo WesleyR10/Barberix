@@ -1,11 +1,13 @@
+import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
+import { Repository } from "@/application/infra/contracts/repository";
+import { Query } from "@/application/types";
 import {
   fakeAccountEntity,
   fakeAccountPaginated,
 } from "@/slices/account/entities/AccountEntity.spec";
-import { Repository } from "@/application/infra/contracts/repository";
-import { Query } from "@/application/types";
-import MockDate from "mockdate";
-import { mock, MockProxy } from "jest-mock-extended";
+
 import { AccountRepository } from "./accountRepository";
 
 describe("Account Mongo Repository", () => {

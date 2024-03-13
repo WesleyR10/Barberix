@@ -1,6 +1,6 @@
 import { MongoRepository } from "@/application/infra";
 import { RecurrenceRepository } from "@/slices/recurrence/repositories";
-import { updateRecurrence, UpdateRecurrence } from "@/slices/recurrence/useCases";
+import { UpdateRecurrence,updateRecurrence } from "@/slices/recurrence/useCases";
 
 export const makeUpdateRecurrenceFactory = (): UpdateRecurrence => {
   const repository = new RecurrenceRepository(new MongoRepository("recurrence"));

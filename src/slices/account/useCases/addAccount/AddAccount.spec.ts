@@ -1,12 +1,13 @@
-import { fakeAccountEntity } from "@/slices/account/entities/AccountEntity.spec";
+import { mock, MockProxy } from "jest-mock-extended";
+import MockDate from "mockdate";
+
 import { AccountEntity } from "@/slices/account/entities";
+import { fakeAccountEntity } from "@/slices/account/entities/AccountEntity.spec";
 import {
   AddAccountRepository,
   DeleteAccountRepository,
 } from "@/slices/account/repositories/contracts";
-import MockDate from "mockdate";
 
-import { mock, MockProxy } from "jest-mock-extended";
 import { addAccount } from "./AddAccount";
 
 describe("addAccount", () => {

@@ -15,14 +15,14 @@
         "sourceType": "module"
     },
     "plugins": [
+        "simple-import-sort",
         "@typescript-eslint",
         "prettier",
-        "@stylistic/js",
-        "simple-import-sort"
+        "@stylistic/js"
     ],
     "rules": {
-        "prettier/prettier": 0,
         "simple-import-sort/imports": "error",
+        "prettier/prettier": 0,
         "@typescript-eslint/no-explicit-any": "off",
         "@stylistic/js/indent": [
             "error",
@@ -30,7 +30,7 @@
         ],
         "linebreak-style": [
             "error",
-            "space"
+            "unix"
         ],
         "quotes": [
             "error",
