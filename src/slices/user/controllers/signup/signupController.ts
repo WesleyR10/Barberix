@@ -35,7 +35,7 @@ export class SignupController extends Controller {
   ) {
     super();
   }
-  async execute(httpRequest: HttpRequest<any>): Promise<HttpResponse<any>> {
+  async execute(httpRequest: HttpRequest<any>): Promise<HttpResponse<AuthResponse | any>> {
     const errors = this.validation.validate(httpRequest?.body);
     if (errors?.length > 0) {
       return badRequest(errors);
@@ -81,6 +81,6 @@ export class SignupController extends Controller {
       active: true,
       expiresAt: addDays(new Date(), 1) as unknown as string,
     });
-    return ok({ user: userCreated, accessToken, refreshToken } as AuthResponse); ;
+    return ok({ user: userCreated, accessToken, refreshToken });
   }
 }
