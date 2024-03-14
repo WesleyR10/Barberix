@@ -19,14 +19,16 @@ export const makeFastifyInstance = async (externalMongoClient = null) => {
       max: 15,
       timeWindow: "10 minutes",
     });
-    await fastify.register(require("@fastify/under-pressure"), {
-      maxEventLoopDelay: 1000,
-      maxHeapUsedBytes: 100000000,
-      maxRssBytes: 100000000,
-      maxEventLoopUtilization: 0.98,
-      message: "Estamos sobrecarregados!",
-      retryAfter: 50,
-    });
+    if (env.ENVIRONMENT === "production") {
+      await fastify.register(require("@fastify/under-pressure"), {
+        maxEventLoopDelay: 1000,
+        maxHeapUsedBytes: 100000000,
+        maxRssBytes: 100000000,
+        maxEventLoopUtilization: 0.98,
+        message: "Estamos sobrecarregados!",
+        retryAfter: 50,
+      });
+    }
 
     await fastify.register(fastifyRequestContextPlugin, {
       hook: "onRequest",
@@ -57,4 +59,6 @@ const start = async () => {
   await fastifyInstance.listen({ port, host: "0.0.0.0" });
   fastifyInstance.log.info(`server listening on ${port}`);
 };
-start();
+if (env.ENVIRONMENT === "production") {
+  start();
+}
