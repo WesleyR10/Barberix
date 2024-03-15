@@ -5,8 +5,8 @@ import { UserRepository } from "@/slices/user/repositories";
 export const makeDbAuthentication = (): Authentication => {
   const salt = 12;
   const bcryptAdapter = new BcryptAdapter(salt);
-  const jwtAdapter = new JwtAdapter(env.JWT_SECRET, "120d");
-  const jwtRefreshTokenAdapter = new JwtAdapter(env.JWT_REFRESH_SECRET, "10d");
+  const jwtAdapter = new JwtAdapter(env.jwtSecret, "120d");
+  const jwtRefreshTokenAdapter = new JwtAdapter(env.jwtRefreshSecret, "10d");
   const userMongoRepository = new MongoRepository("user");
   const userRepository = new UserRepository(userMongoRepository);
   return new DbAuthentication(

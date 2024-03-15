@@ -9,7 +9,7 @@ const { fastifyRequestContextPlugin } = require("@fastify/request-context");
 export const makeFastifyInstance = async (externalMongoClient = null) => {
   const fastify: FastifyInstance = Fastify({ logger: true });
   try {
-    const client = externalMongoClient ?? (await MongoHelper.connect(env.MONGO_URL));
+    const client = externalMongoClient ?? (await MongoHelper.connect(env.mongoUri));
 
     await fastify.register(require("@fastify/helmet"), {
       contentSecurityPolicy: false,
@@ -19,7 +19,7 @@ export const makeFastifyInstance = async (externalMongoClient = null) => {
       max: 15,
       timeWindow: "10 minutes",
     });
-    if (env.ENVIRONMENT === "production") {
+    if (env.environment === "production") {
       await fastify.register(require("@fastify/under-pressure"), {
         maxEventLoopDelay: 1000,
         maxHeapUsedBytes: 100000000,
@@ -55,10 +55,10 @@ export const makeFastifyInstance = async (externalMongoClient = null) => {
 const start = async () => {
   const fastifyInstance = await makeFastifyInstance();
   if (!fastifyInstance) return;
-  const port: any = env?.PORT ?? 3000;
+  const port: any = env?.port ?? 3333;
   await fastifyInstance.listen({ port, host: "0.0.0.0" });
   fastifyInstance.log.info(`server listening on ${port}`);
 };
-if (env.ENVIRONMENT === "production") {
+if (env.environment === "production") {
   start();
 }
