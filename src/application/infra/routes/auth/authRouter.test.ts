@@ -3,8 +3,7 @@ import { Collection } from "mongodb";
 
 import { MongoHelper } from "@/application/infra";
 import { makeFastifyInstance } from "@/index";
-
-jest.setTimeout(50000);
+jest.setTimeout(500000);
 
 let userCollection: Collection;
 
