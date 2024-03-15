@@ -3,7 +3,7 @@ import { z } from "zod";
 export const envSchema = z.object({
   mongoUri: z.string().url({ message: "MONGO_URL inválida" }).default("mongodb://127.0.0.1:56328"),
   jwtSecret: z.string().default("secret"),
-  jwtRefreshSecret: z.string().default("secret"),
+  jwtRefreshSecret: z.string().default("secretRefreshToken"),
   port: z.coerce.number().optional().default(3333),
   environment: z.enum(["development", "test", "production"], {
     errorMap: () => ({ message: "O ambiente deve ser development, test ou production" })

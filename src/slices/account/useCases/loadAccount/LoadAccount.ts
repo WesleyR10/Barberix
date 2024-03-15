@@ -5,6 +5,6 @@ import { LoadAccountRepository } from "@/slices/account/repositories";
 export type LoadAccount = (query: Query) => Promise<AccountData | null>;
 export type LoadAccountSignature = (loadAccount: LoadAccountRepository) => LoadAccount;
 export const loadAccount: LoadAccountSignature =
-    (loadAccountRepository: LoadAccountRepository) => async (query: Query) => {
-      return loadAccountRepository.loadAccount(query);
-    };
+  (loadAccountRepository: LoadAccountRepository) => async (query: Query) => {
+    return loadAccountRepository.loadAccount(query);
+  };

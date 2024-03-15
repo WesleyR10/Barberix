@@ -16,7 +16,7 @@ export const makeFastifyInstance = async (externalMongoClient = null) => {
       global: true,
     });
     await fastify.register(require("@fastify/rate-limit"), {
-      max: 15,
+      max: 100,
       timeWindow: "10 minutes",
     });
     if (env.environment === "production") {

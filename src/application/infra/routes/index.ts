@@ -1,12 +1,14 @@
+import { account } from "./account";
 import { auth } from "./auth";
-// IMPORT MODULE FILES
 import { health } from "./health";
 import { user } from "./user";
+// IMPORT MODULE FILES
 
 const routes = [
   health,
   user,
-  auth
+  auth,
+  account
   // ADD FUNCTION IMPORTS
 ];
 

@@ -1,10 +1,8 @@
 /* eslint-disable no-unsafe-optional-chaining */
-// import { EmailInUseError } from "@/application/errors";
 import {
   addDays,
   Authentication,
   badRequest,
-  // forbidden,
   HttpRequest,
   HttpResponse,
   ok,
@@ -30,7 +28,7 @@ export class LoadAccountController extends Controller {
     }
     const accountExists = await this.loadAccount({
       fields: {
-        userId: httpRequest?.userId,
+        createdById: httpRequest?.userId,
         refreshToken: httpRequest?.headers?.refreshtoken,
         isFutureexpiresAt: new Date(),
       },
