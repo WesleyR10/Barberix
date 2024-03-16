@@ -1,14 +1,16 @@
+import { mock,MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
+
+import { MissingParamError } from "@/application/errors";
 import { badRequest, ok, Validation } from "@/application/helpers";
-import { MockProxy, mock } from "jest-mock-extended";
-import { LoadRequestByPageController } from "./loadRequestByPageController";
+import { Controller } from "@/application/infra/contracts";
 import {
   fakeRequestEntity,
   fakeRequestPaginated,
 } from "@/slices/request/entities/RequestEntity.spec";
-import { Controller } from "@/application/infra/contracts";
-import { MissingParamError } from "@/application/errors";
 import { fakeUserEntity } from "@/slices/user/entities/UserEntity.spec";
+
+import { LoadRequestByPageController } from "./loadRequestByPageController";
 
 describe("LoadRequestByPageController", () => {
   let testInstance: LoadRequestByPageController;
