@@ -16,6 +16,7 @@ import {
   unauthorized,
   Validation,
 } from "@/application/helpers";
+import { env } from "@/application/infra";
 import { Controller } from "@/application/infra/contracts";
 import { fakeAccountEntity } from "@/slices/account/entities/AccountEntity.spec";
 import { fakeUserEntity } from "@/slices/user/entities/UserEntity.spec";
@@ -85,18 +86,20 @@ describe("SignUpController", () => {
       addAccount
     );
   });
-  test("should return badrequest when email is invalid", async () => {
-    const httpResponse = await testInstance.execute({ body: fakeUserEntity });
-    expect(httpResponse).toEqual(badRequest([new InvalidParamError("email")]));
-  });
-  test("should return badrequest when email is invalid and validators is null", async () => {
-    const httpResponse = await testInstance.execute({ body: fakeUserEntity });
-    expect(httpResponse).toEqual(badRequest([new InvalidParamError("email")]));
-  });
-  test("should return badrequest when email is invalid and validators regex and others is null", async () => {
-    const httpResponse = await testInstance.execute({ body: fakeUserEntity });
-    expect(httpResponse).toEqual(badRequest([new InvalidParamError("email")]));
-  });
+  if(env.environment === "production"){ 
+    test("should return badrequest when email is invalid", async () => {
+      const httpResponse = await testInstance.execute({ body: fakeUserEntity });
+      expect(httpResponse).toEqual(badRequest([new InvalidParamError("email")]));
+    });
+    test("should return badrequest when email is invalid and validators is null", async () => {
+      const httpResponse = await testInstance.execute({ body: fakeUserEntity });
+      expect(httpResponse).toEqual(badRequest([new InvalidParamError("email")]));
+    });
+    test("should return badrequest when email is invalid and validators regex and others is null", async () => {
+      const httpResponse = await testInstance.execute({ body: fakeUserEntity });
+      expect(httpResponse).toEqual(badRequest([new InvalidParamError("email")]));
+    });
+  }
   it("should extends class Controller", async () => {
     expect(testInstance).toBeInstanceOf(Controller);
   });

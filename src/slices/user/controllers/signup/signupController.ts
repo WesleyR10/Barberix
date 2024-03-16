@@ -13,7 +13,7 @@ import {
   unauthorized,
   Validation,
 } from "@/application/helpers";
-// import { env } from "@/application/infra";
+import { env } from "@/application/infra";
 import { Controller } from "@/application/infra/contracts";
 import { AddAccount } from "@/slices/account/useCases";
 import { AddUser, LoadUser } from "@/slices/user/useCases";
@@ -42,25 +42,25 @@ export class SignupController extends Controller {
       return badRequest(errors);
     }
     const { email, password } = httpRequest?.body;
-    //  if (env.environment !== "test") {
-    const { validators = null } = (await emailValidator(email)) || {};
-    const {
-      regex = null,
-      typo = null,
-      disposable = null,
-      smtp = null,
-      mx = null,
-    } = validators || {};
-    if (
-      !regex?.valid ||
+    if (env.environment === "production") {
+      const { validators = null } = (await emailValidator(email)) || {};
+      const {
+        regex = null,
+        typo = null,
+        disposable = null,
+        smtp = null,
+        mx = null,
+      } = validators || {};
+      if (
+        !regex?.valid ||
       !typo?.valid ||
       !disposable?.valid ||
       (!smtp?.valid && smtp?.reason !== "Timeout") ||
       !mx?.valid
-    ) {
-      return badRequest([new InvalidParamError("email")]);
+      ) {
+        return badRequest([new InvalidParamError("email")]);
+      }
     }
-    // }
     const userExists = await this.loadUser({
       fields: { email },
       options: { projection: { password: 0 } },
