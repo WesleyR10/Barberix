@@ -55,7 +55,7 @@ export const makeFastifyInstance = async (externalMongoClient = null) => {
 const start = async () => {
   const fastifyInstance = await makeFastifyInstance();
   if (!fastifyInstance) return;
-  const port: any = env?.port ?? 3333;
+  const port: any = env?.port ?? 3000;
   await fastifyInstance.listen({ port, host: "0.0.0.0" });
   fastifyInstance.log.info(`server listening on ${port}`);
 };
