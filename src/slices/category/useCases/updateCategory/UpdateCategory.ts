@@ -1,3 +1,4 @@
+import { cleanDataObject } from "@/application/helpers";
 import { Query } from "@/application/types";
 import { CategoryData } from "@/slices/category/entities";
 import { UpdateCategoryRepository } from "@/slices/category/repositories";
@@ -12,7 +13,14 @@ export type UpdateCategorySignature = (
 ) => UpdateCategory;
 
 export const updateCategory: UpdateCategorySignature =
-    (updateCategoryRepository: UpdateCategoryRepository) =>
-      async (query: Query, data: CategoryData) => {
-        return updateCategoryRepository.updateCategory(query, data);
-      };
+  (updateCategoryRepository: UpdateCategoryRepository) =>
+    async (query: Query, data: CategoryData) => {
+      return updateCategoryRepository.updateCategory(
+        query,
+        cleanDataObject({
+          forbiddenFields: ["_id", "createdById", "active"],
+          allowedFields: ["name", "description", "image", "updatedAt"],
+          bodyObject: data,
+        })
+      );
+    };

@@ -1,6 +1,7 @@
 import { mock, MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
 
+import { cleanDataObject } from "@/application/helpers";
 import { Query } from "@/application/types";
 import { fakeCategoryEntity } from "@/slices/category/entities/CategoryEntity.spec";
 import { UpdateCategoryRepository } from "@/slices/category/repositories";
@@ -27,23 +28,25 @@ describe("UpdateCategory", () => {
     await testInstance(fakeQuery, fakeCategoryEntity);
     expect(updateCategoryRepository.updateCategory).toHaveBeenCalledWith(
       fakeQuery,
-      fakeCategoryEntity
+      cleanDataObject({
+        forbiddenFields: ["_id", "createdById", "active"],
+        allowedFields: ["name", "description", "image", "updatedAt"],
+        bodyObject: fakeCategoryEntity,
+      })
     );
     expect(updateCategoryRepository.updateCategory).toHaveBeenCalledTimes(1);
   });
-  it("should return a category updated when updateCategoryRepository insert it", async () => {
+  it("should return a category updateed when updateCategoryRepository insert it", async () => {
     const category = await testInstance(fakeQuery, fakeCategoryEntity);
     expect(category).toEqual(fakeCategoryEntity);
   });
-  it("should return null a new category updated when updateCategoryRepository return it", async () => {
+  it("should return null a new category updateed when updateCategoryRepository return it", async () => {
     updateCategoryRepository.updateCategory.mockResolvedValue(null);
     const category = await testInstance(fakeQuery, fakeCategoryEntity);
     expect(category).toBeNull();
   });
   it("should rethrow if updateCategory of UpdateCategoryRepository throws", async () => {
-    updateCategoryRepository.updateCategory.mockRejectedValueOnce(
-      new Error("any_error")
-    );
+    updateCategoryRepository.updateCategory.mockRejectedValueOnce(new Error("any_error"));
     await expect(testInstance(fakeQuery, fakeCategoryEntity)).rejects.toThrowError(
       "any_error"
     );

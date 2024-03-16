@@ -11,7 +11,7 @@ export type HttpRequest<T = any> = {
   body?: T;
   headers?: Record<string, string>;
   params?: Record<string, string>;
-  query?: Record<string, string>;
+  query?: Record<string, any>;
   userLogged?: { id: string; name: string };
   userId?: string;
 };
