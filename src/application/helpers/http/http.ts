@@ -12,7 +12,7 @@ export type HttpRequest<T = any> = {
   headers?: Record<string, string>;
   params?: Record<string, string>;
   query?: Record<string, any>;
-  userLogged?: { id: string; name: string };
+  userLogged?: T;
   userId?: string;
 };
 
