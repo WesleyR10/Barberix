@@ -86,7 +86,7 @@ describe("SignUpController", () => {
       addAccount
     );
   });
-  if(env.environment === "production"){ 
+  if(env.environment === "development"){ 
     test("should return badrequest when email is invalid", async () => {
       const httpResponse = await testInstance.execute({ body: fakeUserEntity });
       expect(httpResponse).toEqual(badRequest([new InvalidParamError("email")]));

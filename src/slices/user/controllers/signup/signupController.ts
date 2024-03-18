@@ -42,7 +42,7 @@ export class SignupController extends Controller {
       return badRequest(errors);
     }
     const { email, password } = httpRequest?.body;
-    if (env.environment === "production") {
+    if (env.environment === "development") {
       const { validators = null } = (await emailValidator(email)) || {};
       const {
         regex = null,
