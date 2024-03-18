@@ -5,7 +5,14 @@ import { AddOwnerController } from "@/slices/owner/controllers";
 import { makeAddOwnerFactory, makeLoadOwnerFactory } from "@/slices/owner/useCases";
 
 export const makeAddOwnerController = (): Controller => {
-  const requiredFields = ["name"];
+  const requiredFields = [
+    "description",
+    "haveDelivery",
+    "minimumTimeForReSchedule",
+    "days1",
+    "hourStart1",
+    "hourEnd1",
+  ];
   return makeLogController(
     "addOwner",
     new AddOwnerController(
