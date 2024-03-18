@@ -25,17 +25,18 @@ describe("UpdateOwner", () => {
   });
   it("should call updateOwner of UpdateOwnerRepository with correct values", async () => {
     await testInstance(fakeQuery, fakeOwnerEntity);
-    expect(updateOwnerRepository.updateOwner).toHaveBeenCalledWith(
-      fakeQuery,
-      fakeOwnerEntity
-    );
+    expect(updateOwnerRepository.updateOwner).toHaveBeenCalledWith(fakeQuery, {
+      hourStart1: fakeOwnerEntity?.hourStart1,
+      hourEnd1: fakeOwnerEntity?.hourEnd1,
+      days1: fakeOwnerEntity?.days1,
+    } as any);
     expect(updateOwnerRepository.updateOwner).toHaveBeenCalledTimes(1);
   });
-  it("should return a owner updated when updateOwnerRepository insert it", async () => {
+  it("should return a owner updateed when updateOwnerRepository insert it", async () => {
     const owner = await testInstance(fakeQuery, fakeOwnerEntity);
     expect(owner).toEqual(fakeOwnerEntity);
   });
-  it("should return null a new owner updated when updateOwnerRepository return it", async () => {
+  it("should return null a new owner updateed when updateOwnerRepository return it", async () => {
     updateOwnerRepository.updateOwner.mockResolvedValue(null);
     const owner = await testInstance(fakeQuery, fakeOwnerEntity);
     expect(owner).toBeNull();
