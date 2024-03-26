@@ -1,7 +1,7 @@
 import { adaptMiddleware } from "@/application/adapters";
 import { Middleware } from "@/application/infra/contracts";
 import { AuthMiddleware } from "@/application/infra/middlewares";
-import { makeLoadUserFactory } from "@/slices/user/useCases/loadUser";
+import { makeLoadUserFactory } from "@/slices/user/useCases";
 
 export const makeAuthMiddleware = (roles: string[]): Middleware => {
   return new AuthMiddleware(makeLoadUserFactory(), roles);

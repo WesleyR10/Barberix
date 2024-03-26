@@ -42,6 +42,7 @@ describe("Route api/account", () => {
       const responseBody = JSON.parse(response.body);
       console.log(`Este é o responseBody: ${responseBody}`);
       const refreshtoken = responseBody.refreshToken;
+      console.log(`Este é o refreshtoken: ${refreshtoken}`);
       expect(response.statusCode).toBe(200);
       expect(responseBody.user).toBeTruthy();
       expect(responseBody.accessToken).toBeTruthy();

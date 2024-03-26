@@ -17,7 +17,7 @@ export const makeFastifyInstance = async (externalMongoClient = null) => {
     });
     await fastify.register(require("@fastify/rate-limit"), {
       max: 100,
-      timeWindow: "10 minutes",
+      timeWindow: "5 minute",
     });
     if (env.environment === "production") {
       await fastify.register(require("@fastify/under-pressure"), {
@@ -42,7 +42,7 @@ export const makeFastifyInstance = async (externalMongoClient = null) => {
       client,
     });
 
-    for (const route of routes) {
+    for (const route of routes) { // Percorrendo todas as rotas
       fastify.register(route, { prefix: "/api" });
     }
     return fastify;
