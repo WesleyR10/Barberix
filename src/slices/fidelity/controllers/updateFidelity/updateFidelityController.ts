@@ -1,9 +1,9 @@
 import {
+  badRequest,
   HttpRequest,
   HttpResponse,
-  Validation,
-  badRequest,
   ok,
+  Validation,
 } from "@/application/helpers";
 import { Controller } from "@/application/infra/contracts";
 import { UpdateFidelity } from "@/slices/fidelity/useCases";

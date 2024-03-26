@@ -1,11 +1,13 @@
+import { mock,MockProxy } from "jest-mock-extended";
 import MockDate from "mockdate";
-import { badRequest, ok, Validation } from "@/application/helpers";
-import { MockProxy, mock } from "jest-mock-extended";
-import { LoadFidelityController } from "./loadFidelityController";
-import { fakeFidelityEntity } from "@/slices/fidelity/entities/FidelityEntity.spec";
-import { Controller } from "@/application/infra/contracts";
+
 import { MissingParamError } from "@/application/errors";
+import { badRequest, ok, Validation } from "@/application/helpers";
+import { Controller } from "@/application/infra/contracts";
+import { fakeFidelityEntity } from "@/slices/fidelity/entities/FidelityEntity.spec";
 import { fakeUserEntity } from "@/slices/user/entities/UserEntity.spec";
+
+import { LoadFidelityController } from "./loadFidelityController";
 
 describe("LoadFidelityController", () => {
   let testInstance: LoadFidelityController;

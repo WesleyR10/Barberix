@@ -94,7 +94,7 @@ describe("Testing status validators", () => {
         })
       ).toBe(true);
     }
-  );
+  ); 
   it(
     "should return true when status === 0" +
             "and newStatus === 2||===3, initDate > new Date() (appointment wasn`t happened) in valid period",
