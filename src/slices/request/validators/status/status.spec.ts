@@ -257,6 +257,12 @@ describe("Testing status validators", () => {
   );
 });
 /*
+10 = "finalizado";
+0 = "solicitado";
+1 = "confirmado";
+2 = "cancelado_profissional";
+3 = "cancelado_cliente";
+
 const statusTypes = [
     "status 0 é solicitado",
     "status 1 é confirmado",

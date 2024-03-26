@@ -11,7 +11,10 @@ jest.mock("jsonwebtoken", () => ({
 }));
 
 const makeSut = (): JwtAdapter => {
-  return new JwtAdapter("secret", "1d");
+  const privateKey = Buffer.from("private_secret", "base64"); // Convertendo a chave privada para Buffer
+  const publicKey = Buffer.from("public_secret", "base64"); // Convertendo a chave pública para Buffer
+  return new JwtAdapter(privateKey, publicKey, "1d");
+  // return new JwtAdapter("secret", "1d");
 };
 
 describe("jwtAdapter", () => {
@@ -20,9 +23,10 @@ describe("jwtAdapter", () => {
       const sut = makeSut();
       const signSpy = jest.spyOn(jwt, "sign");
       await sut.generate("any_id");
-      expect(signSpy).toHaveBeenCalledWith({ _id: "any_id" }, "secret", {
-        expiresIn: "1d",
-      });
+      expect(signSpy).toHaveBeenCalledWith({ _id: "any_id" }, expect.any(Buffer), { algorithm: "RS256", expiresIn: "1d" });
+      // expect(signSpy).toHaveBeenCalledWith({ _id: "any_id" }, "secret", {
+      // expiresIn: "1d",
+      // });
       expect(signSpy).toHaveBeenCalledTimes(1);
     });
     test("should return a token on sign success", async () => {
@@ -44,7 +48,8 @@ describe("jwtAdapter", () => {
       const sut = makeSut();
       const verifySpy = jest.spyOn(jwt, "verify");
       await sut.decrypt("any_token");
-      expect(verifySpy).toHaveBeenCalledWith("any_token", "secret");
+      // expect(verifySpy).toHaveBeenCalledWith("any_token", "secret");
+      expect(verifySpy).toHaveBeenCalledWith("any_token", expect.any(Buffer));
       expect(verifySpy).toHaveBeenCalledTimes(1);
     });
     test("should return a token on verify success", async () => {
