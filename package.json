@@ -33,7 +33,7 @@
         "module-alias": "^2.2.3",
         "mongodb": "^6.4.0",
         "yarn": "^1.22.21",
-        "zod": "^3.22.4"
+        "zod": "^3.23.8"
     },
     "devDependencies": {
         "@shelf/jest-mongodb": "^4.2.0",
