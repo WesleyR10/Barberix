@@ -26,7 +26,7 @@
         "@fastify/under-pressure": "^8.3.0",
         "bcrypt": "^5.1.1",
         "date-fns": "^2.30.0",
-        "date-fns-tz": "^2.0.0",
+        "date-fns-tz": "^2.0.1",
         "deep-email-validator": "^0.1.21",
         "fastify": "^4.26.2",
         "jsonwebtoken": "^9.0.2",
